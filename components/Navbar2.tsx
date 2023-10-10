@@ -16,7 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { MagnifyingGlassIcon, PersonIcon } from "@radix-ui/react-icons";
 
-export default function Navbar() {
+export default function Navbar2() {
   return (
     <>
       <nav className="bg-blue-800 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
