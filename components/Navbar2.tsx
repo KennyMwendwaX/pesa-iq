@@ -15,6 +15,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { MagnifyingGlassIcon, PersonIcon } from "@radix-ui/react-icons";
+import Sidebar from "./Sidebar";
 
 export default function Navbar2() {
   return (
@@ -22,6 +23,7 @@ export default function Navbar2() {
       <nav className="bg-slate-800 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
           <div className="flex items-center space-x-8">
+            <Sidebar />
             <Link href="/">
               <span className="self-center text-xl font-semibold whitespace-nowrap text-slate-200">
                 PesaIQ

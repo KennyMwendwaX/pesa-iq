@@ -11,12 +11,17 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 export default function Sidebar() {
   return (
     <>
       <Sheet>
-        <SheetTrigger>Open</SheetTrigger>
+        <SheetTrigger>
+          <Button className="bg-transparent border border-slate-500">
+            <HamburgerMenuIcon className="w-5 h-5" />
+          </Button>
+        </SheetTrigger>
         <SheetContent side="left">
           <SheetHeader>
             <SheetTitle>Are you sure absolutely sure?</SheetTitle>
