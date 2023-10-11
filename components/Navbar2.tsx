@@ -19,7 +19,7 @@ import { MagnifyingGlassIcon, PersonIcon } from "@radix-ui/react-icons";
 export default function Navbar2() {
   return (
     <>
-      <nav className="bg-blue-800 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
+      <nav className="bg-slate-800 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
           <div className="flex items-center space-x-8">
             <Link href="/">
