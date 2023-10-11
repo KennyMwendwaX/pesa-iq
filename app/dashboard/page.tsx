@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function test() {
+export default function Dashboard() {
   return (
     <>
       <header className="fixed w-full">
