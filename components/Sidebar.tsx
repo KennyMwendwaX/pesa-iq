@@ -13,12 +13,14 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  HamburgerMenuIcon,
-  DashboardIcon,
-  PersonIcon,
-} from "@radix-ui/react-icons";
-import { BarChart4Icon, GraduationCapIcon } from "lucide-react";
+import { HamburgerMenuIcon, DashboardIcon } from "@radix-ui/react-icons";
+import { FaWallet } from "react-icons/fa";
+import { LuUser2 } from "react-icons/lu";
+import { BsTrophy } from "react-icons/bs";
+import { AiOutlineDollar } from "react-icons/ai";
+import { RiGraduationCapLine, RiDonutChartFill } from "react-icons/ri";
+import { FiPieChart } from "react-icons/fi";
+import { BiWallet } from "react-icons/bi";
 
 export default function Sidebar() {
   return (
@@ -43,27 +45,27 @@ export default function Sidebar() {
               <span>Dashboard</span>
             </div>
             <div className="flex items-center space-x-4">
-              <PersonIcon className="w-5 h-5" />
+              <LuUser2 className="w-5 h-5" />
               <span>Profile</span>
             </div>
             <div className="flex items-center space-x-4">
-              <BarChart4Icon className="w-5 h-5" />
+              <BiWallet className="w-5 h-5" />
               <span>Budget and Savings</span>
             </div>
             <div className="flex items-center space-x-4">
-              <BarChart4Icon className="w-5 h-5" />
+              <FiPieChart className="w-5 h-5" />
               <span>Analytics and Reports</span>
             </div>
             <div className="flex items-center space-x-4">
-              <BarChart4Icon className="w-5 h-5" />
+              <BsTrophy className="w-5 h-5" />
               <span>Financial Goals</span>
             </div>
             <div className="flex items-center space-x-4">
-              <GraduationCapIcon className="w-5 h-5" />
-              <span>Investment Center</span>
+              <AiOutlineDollar className="w-5 h-5" />
+              <span>Investment Hub</span>
             </div>
             <div className="flex items-center space-x-4">
-              <GraduationCapIcon className="w-5 h-5" />
+              <RiGraduationCapLine className="w-5 h-5" />
               <span>Educational Resources</span>
             </div>
           </div>
