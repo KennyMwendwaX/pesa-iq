@@ -13,14 +13,14 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { HamburgerMenuIcon, DashboardIcon } from "@radix-ui/react-icons";
-import { FaWallet } from "react-icons/fa";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { RxDashboard } from "react-icons/rx";
 import { LuUser2 } from "react-icons/lu";
+import { BiWallet } from "react-icons/bi";
+import { FiPieChart } from "react-icons/fi";
 import { BsTrophy } from "react-icons/bs";
 import { AiOutlineDollar } from "react-icons/ai";
-import { RiGraduationCapLine, RiDonutChartFill } from "react-icons/ri";
-import { FiPieChart } from "react-icons/fi";
-import { BiWallet } from "react-icons/bi";
+import { RiGraduationCapLine } from "react-icons/ri";
 
 export default function Sidebar() {
   return (
@@ -39,41 +39,42 @@ export default function Sidebar() {
               account and remove your data from our servers.
             </SheetDescription>
           </SheetHeader>
-          <div className="grid gap-4 py-4">
-            <div className="flex items-center space-x-4">
-              <DashboardIcon className="w-5 h-5" />
+          <div className="space-y-1.5">
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <RxDashboard className="ml-2 w-5 h-5" />
               <span>Dashboard</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <LuUser2 className="w-5 h-5" />
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <LuUser2 className="ml-2 w-5 h-5" />
               <span>Profile</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <BiWallet className="w-5 h-5" />
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <BiWallet className="ml-2 w-5 h-5" />
               <span>Budget and Savings</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <FiPieChart className="w-5 h-5" />
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <FiPieChart className="ml-2 w-5 h-5" />
               <span>Analytics and Reports</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <BsTrophy className="w-5 h-5" />
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <BsTrophy className="ml-2 w-5 h-5" />
               <span>Financial Goals</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <AiOutlineDollar className="w-5 h-5" />
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <AiOutlineDollar className="ml-2 w-5 h-5" />
               <span>Investment Hub</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <RiGraduationCapLine className="w-5 h-5" />
+            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <RiGraduationCapLine className="ml-2 w-5 h-5" />
               <span>Educational Resources</span>
             </div>
           </div>
-          <SheetFooter>
+          <div className="absolute bottom-0">Hi</div>
+          {/* <SheetFooter className="mt-auto">
             <SheetClose asChild>
-              <Button type="submit">Save changes</Button>
+              <div>Hi</div>
             </SheetClose>
-          </SheetFooter>
+          </SheetFooter> */}
         </SheetContent>
       </Sheet>
     </>
