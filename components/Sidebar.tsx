@@ -69,7 +69,11 @@ export default function Sidebar() {
               <span>Educational Resources</span>
             </div>
           </div>
-          <div className="absolute bottom-0">Hi</div>
+          <div className="absolute bottom-0 p-2">
+            <div className="border border-slate-700 rounded-full p-3">
+              <LuUser2 className="w-5 h-5" />
+            </div>
+          </div>
           {/* <SheetFooter className="mt-auto">
             <SheetClose asChild>
               <div>Hi</div>
