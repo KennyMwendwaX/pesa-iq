@@ -69,9 +69,15 @@ export default function Sidebar() {
               <span>Educational Resources</span>
             </div>
           </div>
-          <div className="absolute bottom-0 p-2">
+          <div className="absolute bottom-0 p-2 flex items-center space-x-2">
             <div className="border border-slate-700 rounded-full p-3">
               <LuUser2 className="w-5 h-5" />
+            </div>
+            <div className="space-y-1">
+              <div>Malcom X</div>
+              <span className="text-muted-foreground text-sm">
+                malcomx@gmail.com
+              </span>
             </div>
           </div>
           {/* <SheetFooter className="mt-auto">
