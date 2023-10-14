@@ -10,6 +10,7 @@ import {
   SheetFooter,
   SheetClose,
 } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -70,9 +71,12 @@ export default function Sidebar() {
             </div>
           </div>
           <div className="absolute bottom-0 p-2 flex items-center space-x-2">
-            <div className="border border-slate-700 rounded-full p-3">
-              <LuUser2 className="w-5 h-5" />
-            </div>
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>
+                <LuUser2 className="w-5 h-5" />
+              </AvatarFallback>
+            </Avatar>
             <div className="space-y-1">
               <div>Malcom X</div>
               <span className="text-muted-foreground text-sm">
