@@ -35,7 +35,6 @@ export default function Sidebar() {
         <SheetContent side="left" className="w-[350px]">
           <SheetHeader>
             <SheetTitle className="text-2xl">PesaIQ</SheetTitle>
-            {/* <SheetDescription>Menu</SheetDescription> */}
           </SheetHeader>
           <div className="space-y-1.5">
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
