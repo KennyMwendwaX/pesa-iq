@@ -80,11 +80,6 @@ export default function Sidebar() {
               </span>
             </div>
           </div>
-          {/* <SheetFooter className="mt-auto">
-            <SheetClose asChild>
-              <div>Hi</div>
-            </SheetClose>
-          </SheetFooter> */}
         </SheetContent>
       </Sheet>
     </>
