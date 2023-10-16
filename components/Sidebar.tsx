@@ -34,9 +34,9 @@ export default function Sidebar() {
         </SheetTrigger>
         <SheetContent side="left" className="w-[350px]">
           <SheetHeader>
-            <SheetTitle className="text-2xl">PesaIQ</SheetTitle>
+            <SheetTitle className="ml-2 text-3xl">PesaIQ</SheetTitle>
           </SheetHeader>
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 pt-2">
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <RxDashboard className="ml-2 w-5 h-5" />
               <span>Dashboard</span>
@@ -58,7 +58,7 @@ export default function Sidebar() {
               <span>Financial Goals</span>
             </div>
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
-              <AiOutlineDollar className="ml-2 w-5 h-5" />
+              <AiOutlineDollar className="ml-2 w-6 h-6" />
               <span>Investment Hub</span>
             </div>
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
