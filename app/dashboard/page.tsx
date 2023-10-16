@@ -5,6 +5,7 @@ export default function Dashboard() {
   return (
     <>
       <Navbar2 />
+      <div>Dashboard</div>
     </>
   );
 }
