@@ -49,7 +49,7 @@ export default function Sidebar() {
               <span>Profile</span>
             </div>
             <Link
-              href="/dashboard/budget"
+              href="/budget"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <BiWallet className="ml-2 w-5 h-5" />
               <span>Budget and Savings</span>
