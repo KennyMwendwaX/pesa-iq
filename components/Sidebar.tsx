@@ -49,10 +49,10 @@ export default function Sidebar() {
               <LuUser2 className="ml-2 w-5 h-5" />
               <span>Profile</span>
             </div>
-            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+            <Link className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <FaMoneyBillTrendUp className="ml-2 w-5 h-5" />
               <span>Income</span>
-            </div>
+            </Link>
             <Link
               href="/budget"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
