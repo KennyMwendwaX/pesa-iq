@@ -34,7 +34,7 @@ export default function Sidebar() {
             <HamburgerMenuIcon className="w-5 h-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[350px]">
+        <SheetContent side="left" className="w-[350px] rounded-r-xl">
           <SheetHeader>
             <SheetTitle className="ml-2 text-3xl">PesaIQ</SheetTitle>
           </SheetHeader>

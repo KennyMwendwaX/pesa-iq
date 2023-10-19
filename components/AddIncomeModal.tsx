@@ -22,35 +22,43 @@ export default function AddIncomeModal() {
             <span>Add Income</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
+            <DialogTitle>Add Income</DialogTitle>
+            {/* <DialogDescription>
               Make changes to your profile here. Click save when you are done.
-            </DialogDescription>
+            </DialogDescription> */}
           </DialogHeader>
-          <div className="grid gap-4 py-4">
+          {/* <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Name
+              <Label htmlFor="income-name" className="text-right">
+                Income Name
               </Label>
-              <Input
-                id="name"
-                defaultValue="Pedro Duarte"
-                className="col-span-3"
-              />
+              <Input id="income-name" className="col-span-3" />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="username" className="text-right">
                 Username
               </Label>
-              <Input
-                id="username"
-                defaultValue="@peduarte"
-                className="col-span-3"
-              />
+              <Input id="username" className="col-span-3" />
             </div>
-          </div>
+          </div> */}
+          <form className="space-y-3 px-3">
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <div className="relative">
+                <Label htmlFor="income-name" className="text-right">
+                  Income Name
+                </Label>
+                <Input id="income-name" className="" />
+              </div>
+              <div className="relative">
+                <Label htmlFor="income-amount" className="text-right">
+                  Income Amount
+                </Label>
+                <Input id="income-amount" className="" />
+              </div>
+            </div>
+          </form>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
           </DialogFooter>
