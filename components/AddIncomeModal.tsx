@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,9 +13,20 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { AiOutlinePlus } from "react-icons/ai";
+import { format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function AddIncomeModal() {
+  const [date, setDate] = useState<Date>();
+
   return (
     <>
       <Dialog>
@@ -44,7 +58,30 @@ export default function AddIncomeModal() {
                 <Input id="income-amount" className="" />
               </div>
             </div>
-            <div className="grid md:grid-cols-2 md:gap-6"></div>
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    id="select-date"
+                    variant={"outline"}
+                    className={cn(
+                      "justify-start text-left font-normal",
+                      !date && "text-muted-foreground"
+                    )}>
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {date ? format(date, "PPP") : <span>Pick a date</span>}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
           </form>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
