@@ -29,20 +29,6 @@ export default function AddIncomeModal() {
               Make changes to your profile here. Click save when you are done.
             </DialogDescription> */}
           </DialogHeader>
-          {/* <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="income-name" className="text-right">
-                Income Name
-              </Label>
-              <Input id="income-name" className="col-span-3" />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="username" className="text-right">
-                Username
-              </Label>
-              <Input id="username" className="col-span-3" />
-            </div>
-          </div> */}
           <form className="space-y-3 px-3">
             <div className="grid md:grid-cols-2 md:gap-6">
               <div className="relative">
@@ -58,6 +44,7 @@ export default function AddIncomeModal() {
                 <Input id="income-amount" className="" />
               </div>
             </div>
+            <div className="grid md:grid-cols-2 md:gap-6"></div>
           </form>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
