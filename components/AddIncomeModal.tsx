@@ -26,6 +26,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Textarea } from "@/components/ui/textarea";
 import { AiOutlinePlus } from "react-icons/ai";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
@@ -113,6 +114,15 @@ export default function AddIncomeModal() {
                 </Select>
               </div>
             </div>
+            <div>
+              <Label htmlFor="income-amount" className="text-right">
+                Comment
+              </Label>
+              <Textarea id="comment" />
+            </div>
+            <Button className="" type="submit">
+              Add Income
+            </Button>
           </form>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
