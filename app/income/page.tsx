@@ -17,15 +17,16 @@ export default function Income() {
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div>Income</div>
         <AddIncomeModal />
-        <div className="flex">
+        <div className="flex pt-3">
           <Table className="w-[800px]">
             <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="w-[100px]">Income</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Progress</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead className="text-right">comment</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
