@@ -120,13 +120,15 @@ export default function AddIncomeModal() {
               </Label>
               <Textarea id="comment" />
             </div>
-            <Button className="" type="submit">
-              Add Income
-            </Button>
+            {/* <div className="flex">
+              <Button className="ml-auto " type="submit">
+                Add Income
+              </Button>
+            </div> */}
+            <DialogFooter>
+              <Button type="submit">Save Income</Button>
+            </DialogFooter>
           </form>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
         </DialogContent>
       </Dialog>
     </>
