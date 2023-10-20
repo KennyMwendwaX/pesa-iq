@@ -64,45 +64,54 @@ export default function AddIncomeModal() {
                 </Label>
                 <Input id="income-amount" className="" />
               </div>
-            </div>
-            <div className="grid md:grid-cols-2 md:gap-6">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    id="select-date"
-                    variant={"outline"}
-                    className={cn(
-                      "justify-start text-left font-normal",
-                      !date && "text-muted-foreground"
-                    )}>
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, "PPP") : <span>Pick a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select income category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="salary">Salary</SelectItem>
-                  <SelectItem value="investment">Investment</SelectItem>
-                  <SelectItem value="freelance">Freelance</SelectItem>
-                  <SelectItem value="stocks">Stocks</SelectItem>
-                  <SelectItem value="crypto">Cryptocurrency</SelectItem>
-                  <SelectItem value="bonds">Bonds</SelectItem>
-                  <SelectItem value="pension">Pension</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="grid grid-cols-1">
+                {/* Use flex to align label and popover content */}
+                <Label htmlFor="income-amount" className="text-left">
+                  Income Date
+                </Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      id="select-date"
+                      variant={"outline"}
+                      className={cn(
+                        "justify-start text-left font-normal",
+                        !date && "text-muted-foreground"
+                      )}>
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <div className="grid grid-cols-1">
+                <Label htmlFor="income-amount" className="text-left">
+                  Income Category
+                </Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select income category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="salary">Salary</SelectItem>
+                    <SelectItem value="investment">Investment</SelectItem>
+                    <SelectItem value="freelance">Freelance</SelectItem>
+                    <SelectItem value="stocks">Stocks</SelectItem>
+                    <SelectItem value="crypto">Cryptocurrency</SelectItem>
+                    <SelectItem value="bonds">Bonds</SelectItem>
+                    <SelectItem value="pension">Pension</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </form>
           <DialogFooter>
