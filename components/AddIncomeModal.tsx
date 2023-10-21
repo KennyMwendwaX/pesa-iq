@@ -104,6 +104,7 @@ export default function AddIncomeModal() {
                   <SelectContent>
                     <SelectItem value="salary">Salary</SelectItem>
                     <SelectItem value="investment">Investment</SelectItem>
+                    <SelectItem value="side-business">Side Business</SelectItem>
                     <SelectItem value="freelance">Freelance</SelectItem>
                     <SelectItem value="stocks">Stocks</SelectItem>
                     <SelectItem value="crypto">Cryptocurrency</SelectItem>
