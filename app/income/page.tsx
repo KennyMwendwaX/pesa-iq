@@ -11,6 +11,12 @@ import {
 } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import {
+  BsCircleFill,
+  BsCurrencyDollar,
+  BsFillCalendarEventFill,
+} from "react-icons/bs";
+import { FiTrash } from "react-icons/fi";
 
 export default function Income() {
   return (
@@ -44,10 +50,29 @@ export default function Income() {
                 </TableRow>
               </TableBody>
             </Table>
-            <div className="h-32 border border-slate-500 rounded-xl flex items-center">
-              <div className="ml-5 p-6 shadow-sm shadow-slate-400 rounded-lg">
-                <FaMoneyBillTrendUp className="w-12 h-12" />
+            <div className="h-28 border border-slate-500 rounded-xl flex items-center">
+              <div className="flex space-x-5">
+                <div className="ml-5 p-4 shadow-sm shadow-slate-400 rounded-lg items-center">
+                  <FaMoneyBillTrendUp className="w-12 h-12" />
+                </div>
+                <div className="py-1 space-y-7">
+                  <div className="items-center flex space-x-3">
+                    <BsCircleFill className="text-green-600 w-5 h-5" />
+                    <div>Developer Salary</div>
+                  </div>
+                  <div className="items-center flex space-x-5">
+                    <div className="flex items-center space-x-1">
+                      <BsCurrencyDollar className="w-5 h-5" />
+                      <div>10,000</div>
+                    </div>
+                    <div className="space-x-1">
+                      <BsFillCalendarEventFill className="w-5 h-5" />
+                      <div>12/03/2023</div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              {/* <FiTrash className="justify-end" /> */}
             </div>
           </div>
         </div>
