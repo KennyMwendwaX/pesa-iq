@@ -9,14 +9,27 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import {
   BsCircleFill,
   BsCurrencyDollar,
   BsFillCalendarEventFill,
+  BsThreeDots,
 } from "react-icons/bs";
-import { FiTrash } from "react-icons/fi";
+import { BiSolidComment } from "react-icons/bi";
+import { LuTrash } from "react-icons/lu";
+import { FiEdit } from "react-icons/fi";
 
 export default function Income() {
   return (
@@ -50,29 +63,58 @@ export default function Income() {
                 </TableRow>
               </TableBody>
             </Table>
-            <div className="h-28 border border-slate-500 rounded-xl flex items-center">
-              <div className="flex space-x-5">
+            <div className="h-28 border border-slate-500 rounded-xl flex">
+              <div className="flex items-center space-x-5">
                 <div className="ml-5 p-4 shadow-sm shadow-slate-400 rounded-lg items-center">
                   <FaMoneyBillTrendUp className="w-12 h-12" />
                 </div>
                 <div className="py-1 space-y-7">
-                  <div className="items-center flex space-x-3">
-                    <BsCircleFill className="text-green-600 w-5 h-5" />
-                    <div>Developer Salary</div>
+                  <div className="items-center flex">
+                    <div className="items-center flex space-x-3">
+                      <BsCircleFill className="text-green-600 w-5 h-5" />
+                      <div>Developer Salary</div>
+                    </div>
                   </div>
                   <div className="items-center flex space-x-5">
                     <div className="flex items-center space-x-1">
                       <BsCurrencyDollar className="w-5 h-5" />
                       <div>10,000</div>
                     </div>
-                    <div className="space-x-1">
+                    <div className="flex items-center space-x-2">
                       <BsFillCalendarEventFill className="w-5 h-5" />
                       <div>12/03/2023</div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <BiSolidComment className="w-5 h-5" />
+                      <div>My march Developer salary</div>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* <FiTrash className="justify-end" /> */}
+              <div className="ml-auto p-3">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="flex h-8 w-8 p-0 data-[state=open]:bg-muted">
+                      <BsThreeDots className="w-5 h-5" />
+                      <span className="sr-only">Open menu</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-[160px]">
+                    <DropdownMenuItem>
+                      <FiEdit className="text-blue-500 mr-1 w-4 h-4" />
+                      Edit
+                    </DropdownMenuItem>
+
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <LuTrash className="text-red-500 mr-1 w-4 h-4" />
+                      Delete
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
           </div>
         </div>
