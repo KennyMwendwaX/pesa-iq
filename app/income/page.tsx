@@ -1,15 +1,6 @@
 import Navbar2 from "@/components/Navbar2";
 import AddIncomeModal from "@/components/AddIncomeModal";
 import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -18,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import {
@@ -40,29 +30,6 @@ export default function Income() {
         <AddIncomeModal />
         <div className="flex pt-3">
           <div className="w-[800px]">
-            <Table>
-              <TableCaption>A list of your recent invoices.</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[100px]">Income</TableHead>
-                  <TableHead>Amount</TableHead>
-                  <TableHead>Progress</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead className="text-right">comment</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell className="font-medium">INV001</TableCell>
-                  <TableCell>Paid</TableCell>
-                  <TableCell>
-                    <Progress value={56} />
-                  </TableCell>
-                  <TableCell>Credit Card</TableCell>
-                  <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
             <div className="h-28 border border-slate-500 rounded-xl flex">
               <div className="flex items-center space-x-5">
                 <div className="ml-5 p-4 shadow-sm shadow-slate-400 rounded-lg items-center">
@@ -102,13 +69,12 @@ export default function Income() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-[160px]">
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer">
                       <FiEdit className="text-blue-500 mr-1 w-4 h-4" />
                       Edit
                     </DropdownMenuItem>
-
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer">
                       <LuTrash className="text-red-500 mr-1 w-4 h-4" />
                       Delete
                     </DropdownMenuItem>
