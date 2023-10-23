@@ -13,58 +13,72 @@ import { CiCoinInsert } from "react-icons/ci";
 
 export const expenseCategories = [
   {
+    label: "Housing",
     value: "housing",
     icon: IoHome,
   },
   {
+    label: "Transport",
     value: "transport",
     icon: BsCarFrontFill,
   },
   {
+    label: "Healthcare",
     value: "healthcare",
     icon: MdHealthAndSafety,
   },
   {
+    label: "Education",
     value: "education",
     icon: BiSolidBookBookmark,
   },
   {
+    label: "Loan",
     value: "loan",
     icon: AiOutlineDollarCircle,
   },
   {
+    label: "Food & Groceries",
     value: "food",
     icon: GiKnifeFork,
   },
   {
+    label: "Insurance",
     value: "insurance",
     icon: BsShieldCheck,
   },
   {
+    label: "Utilities",
     value: "utilities",
     icon: AiOutlineBulb,
   },
   {
+    label: "Clothing",
     value: "clothing",
     icon: BsFillTagFill,
   },
   {
+    label: "Entertainment",
     value: "entertainment",
     icon: BiSolidMoviePlay,
   },
   {
+    label: "Savings",
     value: "savings",
     icon: CiCoinInsert,
   },
   {
+    label: "Investment",
     value: "investment",
     icon: FaMoneyBillTrendUp,
   },
   {
+    label: "Vacation",
     value: "vacation",
     icon: FaUmbrellaBeach,
   },
   {
+    label: "Other",
     value: "other",
     icon: AiOutlineQuestionCircle,
   },
