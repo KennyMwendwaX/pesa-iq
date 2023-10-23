@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { RxDashboard } from "react-icons/rx";
 import { LuUser2 } from "react-icons/lu";
-import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import { BiWallet } from "react-icons/bi";
 import { FiPieChart } from "react-icons/fi";
 import { BsTrophy } from "react-icons/bs";
@@ -52,8 +52,14 @@ export default function Sidebar() {
             <Link
               href="/income"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
-              <FaMoneyBillTrendUp className="ml-2 w-5 h-5" />
+              <FaArrowTrendUp className="ml-2 w-5 h-5" />
               <span>Income</span>
+            </Link>
+            <Link
+              href="/expenses"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <FaArrowTrendDown className="ml-2 w-5 h-5" />
+              <span>Expenses</span>
             </Link>
             <Link
               href="/budget"
