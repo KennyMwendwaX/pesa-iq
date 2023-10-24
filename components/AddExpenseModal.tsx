@@ -22,6 +22,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command";
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -29,8 +36,9 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { AiOutlinePlus } from "react-icons/ai";
 import { format } from "date-fns";
-import { Calendar as CalendarIcon } from "lucide-react";
+import { Calendar as CalendarIcon, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { incomeCategories } from "@/lib/IncomeCategories";
 
 export default function AddExpenseModal() {
   const [date, setDate] = useState<Date>();
@@ -97,7 +105,53 @@ export default function AddExpenseModal() {
                 <Label htmlFor="expense-amount" className="text-left">
                   Expense Category
                 </Label>
-                <Select>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    {/* <FormControl> */}
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className={cn(
+                        "w-[200px] justify-between",
+                        !field.value && "text-muted-foreground"
+                      )}>
+                      {field.value
+                        ? incomeCategories.find(
+                            (category) => category.value === field.value
+                          )?.label
+                        : "Select category"}
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                    {/* </FormControl> */}
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[200px] p-0">
+                    <Command>
+                      <CommandInput placeholder="Search category..." />
+                      <CommandEmpty>No category found.</CommandEmpty>
+                      <CommandGroup>
+                        {incomeCategories.map((category) => (
+                          <CommandItem
+                            value={category.label}
+                            key={category.value}
+                            onSelect={() => {
+                              form.setValue("category", category.value);
+                            }}>
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                category.value === field.value
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                            {category.label}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                {/* <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Select expense category" />
                   </SelectTrigger>
@@ -117,7 +171,7 @@ export default function AddExpenseModal() {
                     <SelectItem value="vacation">Vacation</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
-                </Select>
+                </Select> */}
               </div>
             </div>
             <div>
