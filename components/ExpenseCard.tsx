@@ -6,7 +6,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { IoHomeOutline } from "react-icons/io5";
 import {
   BsCircleFill,
