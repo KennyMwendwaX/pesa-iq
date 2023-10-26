@@ -20,7 +20,7 @@ import { FiEdit } from "react-icons/fi";
 export default function IncomeCard() {
   return (
     <>
-      <div className="h-28 shadow-sm shadow-slate-400 rounded-2xl flex">
+      <div className="h-28 border border-gray-200 shadow rounded-2xl flex">
         <div className="flex items-center space-x-5">
           <div className="ml-5 p-4 shadow-sm shadow-slate-400 rounded-lg items-center">
             <FaMoneyBillTrendUp className="w-12 h-12" />
