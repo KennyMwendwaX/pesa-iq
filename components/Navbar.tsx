@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { MagnifyingGlassIcon, PersonIcon } from "@radix-ui/react-icons";
 import Sidebar from "./Sidebar";
 
-export default function Navbar2() {
+export default function Navbar() {
   return (
     <>
       <nav className="bg-slate-800 fixed w-full z-20 top-0 left-0 border-b border-gray-600">

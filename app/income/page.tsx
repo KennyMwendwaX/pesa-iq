@@ -1,11 +1,11 @@
-import Navbar2 from "@/components/Navbar2";
+import Navbar from "@/components/Navbar";
 import AddIncomeModal from "@/components/AddIncomeModal";
 import IncomeCard from "@/components/IncomeCard";
 
 export default function Income() {
   return (
     <>
-      <Navbar2 />
+      <Navbar />
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div>Income</div>
         <AddIncomeModal />
