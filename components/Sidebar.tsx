@@ -75,10 +75,12 @@ export default function Sidebar() {
               <BsTrophy className="ml-2 w-5 h-5" />
               <span>Financial Goals</span>
             </div>
-            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+            <Link
+              href="/investments"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <AiOutlineDollar className="ml-2 w-6 h-6" />
               <span>Investment Hub</span>
-            </div>
+            </Link>
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <RiGraduationCapLine className="ml-2 w-5 h-5" />
               <span>Educational Resources</span>
