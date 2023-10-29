@@ -1,6 +1,10 @@
 import Navbar from "@/components/Navbar";
 import { AiFillMoneyCollect } from "react-icons/ai";
-import { HiCurrencyDollar, HiPresentationChartLine } from "react-icons/hi";
+import {
+  HiCurrencyDollar,
+  HiOutlineChevronRight,
+  HiPresentationChartLine,
+} from "react-icons/hi";
 import {
   FaBitcoin,
   FaHandshake,
@@ -14,7 +18,7 @@ export default function Investment() {
       <Navbar />
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div className="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
-          <div className="max-w-screen-md mb-8 lg:mb-16">
+          <div className="max-w-screen-md mb-8 lg:mb-12">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
               Discover Your Investment Hub
             </h2>
@@ -24,7 +28,7 @@ export default function Investment() {
               valuable resources and insights.
             </p>
           </div>
-          <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+          <div className="space-y-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                 <HiPresentationChartLine className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
@@ -35,6 +39,10 @@ export default function Investment() {
                 Kenyan firms, tap into market dynamics, and potentially earn
                 from dividends and market appreciation.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
@@ -46,6 +54,10 @@ export default function Investment() {
                 in decentralized, borderless virtual currencies with potential
                 for high growth and financial innovation.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
@@ -59,6 +71,10 @@ export default function Investment() {
                 Benefit from potential capital growth and dividends in the
                 dynamic stock market.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
@@ -70,6 +86,10 @@ export default function Investment() {
                 Collaborate with members for financial growth, security, and
                 community support.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
@@ -83,6 +103,10 @@ export default function Investment() {
                 your funds with short-term securities, a stable choice for
                 preserving and growing capital.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
@@ -94,6 +118,10 @@ export default function Investment() {
                 governments or corporations and receive periodic interest
                 payments, ensuring financial stability.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
@@ -105,6 +133,10 @@ export default function Investment() {
                 Speculate on currency pair fluctuations and seize profit
                 opportunities in this 24-hour marketplace.
               </p>
+              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+                <span>Learn more</span>
+                <HiOutlineChevronRight />
+              </div>
             </div>
           </div>
         </div>
