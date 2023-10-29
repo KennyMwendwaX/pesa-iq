@@ -90,9 +90,9 @@ export default function Investment() {
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Bonds</h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Keep your company’s lights on with customizable, iterative, and
-                structured workflows built for all efficient teams and
-                individual.
+                Invest in bonds for a steady income stream. Lend capital to
+                governments or corporations and receive periodic interest
+                payments, ensuring financial stability.
               </p>
             </div>
             <div>
