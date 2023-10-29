@@ -101,9 +101,9 @@ export default function Investment() {
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Forex</h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Keep your company’s lights on with customizable, iterative, and
-                structured workflows built for all efficient teams and
-                individual.
+                Engage in international currency exchange through Forex.
+                Speculate on currency pair fluctuations and seize profit
+                opportunities in this 24-hour marketplace.
               </p>
             </div>
           </div>
