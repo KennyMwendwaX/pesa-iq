@@ -55,8 +55,9 @@ export default function Investment() {
                 Stock Market
               </h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Auto-assign tasks, send Slack messages, and much more. Now power
-                up with hundreds of new templates to help you get started.
+                Enter the world of stocks, owning shares in global companies.
+                Benefit from potential capital growth and dividends in the
+                dynamic stock market.
               </p>
             </div>
             <div>
