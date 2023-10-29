@@ -76,7 +76,7 @@ export default function Sidebar() {
               <span>Financial Goals</span>
             </div>
             <Link
-              href="/investments"
+              href="/investment-hub"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <AiOutlineDollar className="ml-2 w-6 h-6" />
               <span>Investment Hub</span>
