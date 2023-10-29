@@ -1,4 +1,6 @@
-export async function GET(request: Request) {
+import { NextResponse } from "next/server";
+
+export async function GET() {
   const url = "https://nairobi-stock-exchange-nse.p.rapidapi.com/stocks";
   const options = {
     method: "GET",
@@ -10,9 +12,17 @@ export async function GET(request: Request) {
 
   try {
     const response = await fetch(url, options);
-    const result = await response.text();
-    return Response.json({ result });
+    if (!response)
+      return NextResponse.json(
+        { message: "Failed to fetch NSE stocks" },
+        { status: 400 }
+      );
+    const NSE_data = await response.json();
+    return NextResponse.json({ NSE_data }, { status: 200 });
   } catch (error) {
-    console.error(error);
+    return NextResponse.json(
+      { message: "Server error, try again later" },
+      { status: 500 }
+    );
   }
 }
