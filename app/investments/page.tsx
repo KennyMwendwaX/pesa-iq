@@ -42,8 +42,9 @@ export default function Investment() {
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Crypto</h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Protect your organization, devices and stay compliant with our
-                structured workflows and custom permissions made for you.
+                Embark on a digital asset journey with cryptocurrencies. Invest
+                in decentralized, borderless virtual currencies with potential
+                for high growth and financial innovation.
               </p>
             </div>
             <div>
