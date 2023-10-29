@@ -66,8 +66,9 @@ export default function Investment() {
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Saccos</h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Audit-proof software built for critical financial operations
-                like month-end close and quarterly budgeting.
+                Join Saccos for community-based savings and credit services.
+                Collaborate with members for financial growth, security, and
+                community support.
               </p>
             </div>
             <div>
@@ -78,8 +79,9 @@ export default function Investment() {
                 Money Market Fund
               </h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Craft beautiful, delightful experiences for both marketing and
-                product with real cross-company collaboration.
+                Explore the money market for low-risk investments. Safeguard
+                your funds with short-term securities, a stable choice for
+                preserving and growing capital.
               </p>
             </div>
             <div>
