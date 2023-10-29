@@ -31,9 +31,9 @@ export default function Investment() {
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">NSE</h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Plan it, create it, launch it. Collaborate seamlessly with all
-                the organization and hit your marketing goals every month with
-                our marketing plan.
+                Unlock investment potential on the NSE. Invest in renowned
+                Kenyan firms, tap into market dynamics, and potentially earn
+                from dividends and market appreciation.
               </p>
             </div>
             <div>
