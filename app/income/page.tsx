@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import AddIncomeModal from "@/components/AddIncomeModal";
 import IncomeCard from "@/components/IncomeCard";
 

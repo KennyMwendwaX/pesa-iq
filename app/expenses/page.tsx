@@ -1,6 +1,5 @@
 import AddExpenseModal from "@/components/AddExpenseModal";
 import ExpenseCard from "@/components/ExpenseCard";
-import Navbar from "@/components/Navbar";
 
 export default function page() {
   return (

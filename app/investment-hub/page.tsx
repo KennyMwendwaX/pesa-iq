@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { AiFillMoneyCollect } from "react-icons/ai";
 import {
   HiCurrencyDollar,
