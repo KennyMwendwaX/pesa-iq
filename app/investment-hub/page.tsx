@@ -11,11 +11,11 @@ import {
   FaMoneyBillTrendUp,
   FaMoneyCheckDollar,
 } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function Investment() {
   return (
     <>
-      <Navbar />
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div className="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-12">
@@ -39,10 +39,12 @@ export default function Investment() {
                 Kenyan firms, tap into market dynamics, and potentially earn
                 from dividends and market appreciation.
               </p>
-              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+              <Link
+                href="/investment-hub/nse"
+                className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
                 <span>Learn more</span>
                 <HiOutlineChevronRight />
-              </div>
+              </Link>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">

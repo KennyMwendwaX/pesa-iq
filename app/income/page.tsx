@@ -5,7 +5,6 @@ import IncomeCard from "@/components/IncomeCard";
 export default function Income() {
   return (
     <>
-      <Navbar />
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div>Income</div>
         <AddIncomeModal />
