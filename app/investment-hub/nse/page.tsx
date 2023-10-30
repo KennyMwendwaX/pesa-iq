@@ -2,14 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
-type NSEStockData = {
-  ticker: string;
-  name: string;
-  volume: string;
-  price: string;
-  change: string;
-};
+import type { NSEStockData } from "@/types/NSEStockData";
 
 export default function NSE() {
   const { data } = useQuery({
