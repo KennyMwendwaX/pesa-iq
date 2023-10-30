@@ -17,8 +17,8 @@ export async function GET() {
         { message: "Failed to fetch NSE stocks" },
         { status: 400 }
       );
-    const NSE_data = await response.json();
-    return NextResponse.json({ NSE_data }, { status: 200 });
+    const NSE_Stocks = await response.json();
+    return NextResponse.json({ NSE_Stocks }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Server error, try again later" },
