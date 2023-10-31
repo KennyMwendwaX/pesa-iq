@@ -33,7 +33,7 @@ interface NSETableProps<TData, TValue> {
   data: TData[];
 }
 
-export default function TaskTable<TData, TValue>({
+export default function NSEStockTable<TData, TValue>({
   columns,
   data,
 }: NSETableProps<TData, TValue>) {

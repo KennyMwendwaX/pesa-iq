@@ -29,7 +29,7 @@ export const TableColumns: ColumnDef<NSEStockData>[] = [
   {
     accessorKey: "ticker",
     header: () => <TableColumnHeader name="Ticker" />,
-    cell: ({ row }) => <div className="w-[50px]">{row.getValue("ticker")}</div>,
+    cell: ({ row }) => <div className="w-[80px]">{row.getValue("ticker")}</div>,
   },
   {
     accessorKey: "name",
