@@ -20,7 +20,7 @@ export default function NSE() {
         <div className="flex items-center justify-between space-y-2 pb-3">
           <div>
             <div className="text-2xl font-bold tracking-tight">
-              Welcome back!
+              Real Time Nairobi Stock Exchange Stocks
             </div>
             <p className="text-muted-foreground">
               Here&apos;s a list of NSE Stocks!

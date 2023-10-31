@@ -40,7 +40,13 @@ export const TableColumns: ColumnDef<NSEStockData>[] = [
   {
     accessorKey: "volume",
     header: () => <TableColumnHeader name="Volume" />,
-    cell: ({ row }) => <div className="">{row.getValue("volume")}</div>,
+    cell: ({ row }) => {
+      const volume = parseInt(row.getValue("volume"));
+
+      return (
+        <>{volume > 0 ? <div>{row.getValue("volume")}</div> : <div>0</div>}</>
+      );
+    },
   },
   {
     accessorKey: "price",
@@ -70,7 +76,12 @@ export const TableColumns: ColumnDef<NSEStockData>[] = [
               <FiArrowRight className="w-5 h-5 mr-2 text-gray-600" />
               <div className="text-gray-600">0.00</div>
             </div>
-          ) : null}
+          ) : (
+            <div className="flex items-center">
+              <FiArrowRight className="w-5 h-5 mr-2 text-gray-600" />
+              <div className="text-gray-600">0.00</div>
+            </div>
+          )}
         </>
       );
     },

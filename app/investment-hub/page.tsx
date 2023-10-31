@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa6";
 import Link from "next/link";
 
-export default function Investment() {
+export default function InvestmentHub() {
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
@@ -55,10 +55,12 @@ export default function Investment() {
                 in decentralized, borderless virtual currencies with potential
                 for high growth and financial innovation.
               </p>
-              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+              <Link
+                href="/investment-hub/crypto"
+                className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
                 <span>Learn more</span>
                 <HiOutlineChevronRight />
-              </div>
+              </Link>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
