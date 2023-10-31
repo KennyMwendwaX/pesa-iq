@@ -49,6 +49,20 @@ export const TableColumns: ColumnDef<NSEStockData>[] = [
   {
     accessorKey: "change",
     header: () => <TableColumnHeader name="Change" />,
-    cell: ({ row }) => <div className="">{row.getValue("change")}</div>,
+    cell: ({ row }) => {
+      const changeValue = parseFloat(row.getValue("change"));
+
+      return (
+        <>
+          {changeValue < 0.0 ? (
+            <div className="text-red-600">{row.getValue("change")}</div>
+          ) : changeValue > 0.0 ? (
+            <div className="text-green-600">{row.getValue("change")}</div>
+          ) : (
+            <div className="text-gray-600">{row.getValue("change")}</div>
+          )}
+        </>
+      );
+    },
   },
 ];
