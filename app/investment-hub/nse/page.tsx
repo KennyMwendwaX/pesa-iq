@@ -17,6 +17,17 @@ export default function NSE() {
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
+        <div className="flex items-center justify-between space-y-2">
+          <div>
+            <div className="text-2xl font-bold tracking-tight">
+              Welcome back!
+            </div>
+            <p className="text-muted-foreground">
+              Here&apos;s a list of NSE Stocks!
+            </p>
+          </div>
+        </div>
+
         {data && data.length > 0 ? (
           <NSEStockTable data={data} columns={TableColumns} />
         ) : (

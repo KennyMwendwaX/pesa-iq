@@ -17,10 +17,10 @@ export default function TableToolbar<TData>({
       <div className="flex items-center justify-between">
         <div className="flex flex-1 items-center space-x-2">
           <Input
-            placeholder="Search tasks..."
-            value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+            placeholder="Search stocks..."
+            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
             onChange={(event) =>
-              table.getColumn("title")?.setFilterValue(event.target.value)
+              table.getColumn("name")?.setFilterValue(event.target.value)
             }
             className="h-8 w-[150px] lg:w-[250px]"
           />
