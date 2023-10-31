@@ -17,16 +17,16 @@ type Coin = {
   btcPrice: string;
 };
 
-type Stats = {
+export type Stats = {
   total: number;
   totalCoins: number;
   totalMarkets: number;
   totalExchanges: number;
-  totalMarketCap: number;
-  total24hvolume: number;
+  totalMarketCap: string;
+  total24hVolume: string;
 };
 
-type CoinData = {
+export type CoinData = {
   status: "success" | "error";
   data: {
     stats: Stats;
