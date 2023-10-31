@@ -8,7 +8,7 @@ export default function Crypto() {
     queryKey: ["coins"],
     queryFn: async () => {
       const { data } = await axios.get("/api/crypto/coins");
-      return data;
+      return data.coins;
     },
   });
   return (
