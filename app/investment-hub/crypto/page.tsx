@@ -3,7 +3,7 @@
 import CryptoOverview from "@/components/CryptoOverview";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import type { CoinData } from "@/types/CryptoCoins";
+import type { CoinData } from "@/types/Crypto";
 
 export default function Crypto() {
   const { data } = useQuery({

@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { Stats } from "@/types/CryptoCoins";
+import type { Stats } from "@/types/Crypto";
 import millify from "millify";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 
@@ -14,7 +14,7 @@ export default function CryptoOverview({ stats }: Props) {
   return (
     <>
       <div className="text-2xl font-bold tracking-tight pb-2">
-        Crypto currencies Overview
+        Cryptocurrencies Overview
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">
         <Card>
