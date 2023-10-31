@@ -3,6 +3,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
 import type { NSEStockData } from "@/types/NSEStockData";
+import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 
 export const TableColumns: ColumnDef<NSEStockData>[] = [
   {
@@ -55,12 +56,21 @@ export const TableColumns: ColumnDef<NSEStockData>[] = [
       return (
         <>
           {changeValue < 0.0 ? (
-            <div className="text-red-600">{row.getValue("change")}</div>
+            <div className="flex items-center">
+              <FiArrowDownRight className="w-5 h-5 mr-2 text-red-600" />
+              <div className="text-red-600">{row.getValue("change")}</div>
+            </div>
           ) : changeValue > 0.0 ? (
-            <div className="text-green-600">{row.getValue("change")}</div>
-          ) : (
-            <div className="text-gray-600">{row.getValue("change")}</div>
-          )}
+            <div className="flex items-center">
+              <FiArrowUpRight className="w-5 h-5 mr-2 text-green-600" />
+              <div className="text-green-600">{row.getValue("change")}</div>
+            </div>
+          ) : changeValue == 0.0 ? (
+            <div className="flex items-center">
+              <FiArrowRight className="w-5 h-5 mr-2 text-gray-600" />
+              <div className="text-gray-600">0.00</div>
+            </div>
+          ) : null}
         </>
       );
     },
