@@ -7,7 +7,7 @@ interface TableToolbarProps<TData> {
   table: Table<TData>;
 }
 
-export default function TableToolbar<TData>({
+export default function NSETableToolbar<TData>({
   table,
 }: TableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;

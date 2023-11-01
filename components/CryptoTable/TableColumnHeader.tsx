@@ -4,7 +4,7 @@ interface TableColumnHeaderProps {
   name: string;
 }
 
-export default function NSETableColumnHeader<TData, TValue>({
+export default function CryptoTableColumnHeader<TData, TValue>({
   name,
 }: TableColumnHeaderProps) {
   return (

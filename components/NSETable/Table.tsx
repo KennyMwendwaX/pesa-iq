@@ -24,8 +24,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useState } from "react";
-import TableFilter from "./TableFilter";
-import TablePagination from "./TablePaginaton";
+import NSETableFilter from "./TableFilter";
+import NSETablePagination from "./TablePaginaton";
 import Link from "next/link";
 
 interface NSETableProps<TData, TValue> {
@@ -68,7 +68,7 @@ export default function NSEStockTable<TData, TValue>({
     <>
       <div className="space-y-4">
         <div className="flex justify-between">
-          <TableFilter table={table} />
+          <NSETableFilter table={table} />
         </div>
         <div className="rounded-md border">
           <Table>
@@ -118,7 +118,7 @@ export default function NSEStockTable<TData, TValue>({
             </TableBody>
           </Table>
         </div>
-        <TablePagination table={table} />
+        <NSETablePagination table={table} />
       </div>
     </>
   );

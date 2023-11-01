@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import type { NSEStockData } from "@/types/NSEStockData";
 import NSEStockTable from "@/components/NSETable/Table";
-import { TableColumns } from "@/components/NSETable/TableColumns";
+import { NSETableColumns } from "@/components/NSETable/TableColumns";
 
 export default function NSE() {
   const { data } = useQuery({
@@ -14,6 +14,7 @@ export default function NSE() {
       return data.NSE_Stocks as NSEStockData[];
     },
   });
+  console.log(data);
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
@@ -29,7 +30,7 @@ export default function NSE() {
         </div>
 
         {data && data.length > 0 ? (
-          <NSEStockTable data={data} columns={TableColumns} />
+          <NSEStockTable data={data} columns={NSETableColumns} />
         ) : (
           <p>No data available.</p>
         )}

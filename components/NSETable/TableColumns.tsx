@@ -5,7 +5,7 @@ import TableColumnHeader from "./TableColumnHeader";
 import type { NSEStockData } from "@/types/NSEStockData";
 import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 
-export const TableColumns: ColumnDef<NSEStockData>[] = [
+export const NSETableColumns: ColumnDef<NSEStockData>[] = [
   {
     id: "select",
     header: ({ table }) => (

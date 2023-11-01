@@ -19,7 +19,7 @@ interface TablePaginationProps<TData> {
   table: Table<TData>;
 }
 
-export default function TablePagination<TData>({
+export default function NSETablePagination<TData>({
   table,
 }: TablePaginationProps<TData>) {
   return (
