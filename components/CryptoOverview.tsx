@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Stats } from "@/types/Crypto";
 import millify from "millify";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
-import { BsArrowLeftRight, BsCoin } from "react-icons/bs";
+import { BsCoin } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
 import { IoIosTimer } from "react-icons/io";
 import { BiSolidDoughnutChart } from "react-icons/bi";
