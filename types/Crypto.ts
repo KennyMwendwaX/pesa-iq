@@ -1,4 +1,4 @@
-type Coin = {
+export type Coin = {
   uuid: string;
   symbol: string;
   name: string;
