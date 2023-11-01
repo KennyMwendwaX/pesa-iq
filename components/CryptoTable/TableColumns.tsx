@@ -4,6 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
 import type { Coin } from "@/types/Crypto";
 import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
+import formatCurrency from "@/lib/formatCurrency";
 
 export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
@@ -58,7 +59,10 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
     accessorKey: "price",
     header: () => <TableColumnHeader name="Price" />,
-    cell: ({ row }) => <div className="">{row.getValue("price")}</div>,
+    cell: ({ row }) => {
+      const price = row.getValue("price") as number;
+      return <div className="">{formatCurrency(price)}</div>;
+    },
   },
   {
     accessorKey: "marketCap",
