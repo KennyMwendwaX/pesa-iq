@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-
+import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
 import type { Coin } from "@/types/Crypto";
@@ -35,18 +35,25 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
     accessorKey: "name",
     header: () => <TableColumnHeader name="Name" />,
-    cell: ({ row }) => (
-      <div className="flex items-center space-x-1">
-        {row.getValue("iconUrl")}
-        {row.getValue("name")}
-        {row.getValue("symbol")}
-      </div>
-    ),
+    cell: ({ row }) => <div className="">{row.getValue("name")}</div>,
   },
   {
-    accessorKey: "name",
-    header: () => <TableColumnHeader name="Name" />,
-    cell: ({ row }) => <div className="">{row.getValue("name")}</div>,
+    accessorKey: "iconUrl",
+    header: () => <TableColumnHeader name="Icon" />,
+    cell: ({ row }) => {
+      const iconSVG = row.getValue("iconUrl") as string;
+      console.log(iconSVG);
+      return (
+        <div className="">
+          <Image src={iconSVG} width={24} height={24} alt="icon-svg" />
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "symbol",
+    header: () => <TableColumnHeader name="Symbol" />,
+    cell: ({ row }) => <div className="">{row.getValue("symbol")}</div>,
   },
   {
     accessorKey: "price",
@@ -59,9 +66,9 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
     cell: ({ row }) => <div className="">{row.getValue("price")}</div>,
   },
   {
-    accessorKey: "volume",
-    header: () => <TableColumnHeader name="Volume" />,
-    cell: ({ row }) => <div className="">{row.getValue("volume")}</div>,
+    accessorKey: "24hVolume",
+    header: () => <TableColumnHeader name="24h Volume" />,
+    cell: ({ row }) => <div className="">{row.getValue("24hVolume")}</div>,
   },
   {
     accessorKey: "change",
@@ -79,7 +86,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
           ) : changeValue > 0.0 ? (
             <div className="flex items-center">
               <FiArrowUpRight className="w-5 h-5 mr-2 text-green-600" />
-              <div className="text-green-600">{row.getValue("change")}</div>
+              <div className="text-green-600">+{row.getValue("change")}</div>
             </div>
           ) : changeValue == 0.0 ? (
             <div className="flex items-center">
