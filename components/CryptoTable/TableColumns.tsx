@@ -67,12 +67,18 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
     accessorKey: "marketCap",
     header: () => <TableColumnHeader name="Market Cap" />,
-    cell: ({ row }) => <div className="">{row.getValue("price")}</div>,
+    cell: ({ row }) => {
+      const marketCap = row.getValue("marketCap") as number;
+      return <div className="">{formatCurrency(marketCap)}</div>;
+    },
   },
   {
     accessorKey: "24hVolume",
-    header: () => <TableColumnHeader name="24h Volume" />,
-    cell: ({ row }) => <div className="">{row.getValue("24hVolume")}</div>,
+    header: () => <TableColumnHeader name="Volume(24h)" />,
+    cell: ({ row }) => {
+      const volume = row.getValue("24hVolume") as number;
+      return <div className="">{formatCurrency(volume)}</div>;
+    },
   },
   {
     accessorKey: "change",
