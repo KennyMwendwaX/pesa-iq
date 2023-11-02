@@ -4,7 +4,7 @@ interface TableColumnHeaderProps {
   name: string;
 }
 
-export default function CryptoTableColumnHeader<TData, TValue>({
+export default function StocksTableColumnHeader<TData, TValue>({
   name,
 }: TableColumnHeaderProps) {
   return (

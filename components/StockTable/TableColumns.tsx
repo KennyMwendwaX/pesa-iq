@@ -6,7 +6,7 @@ import type { Coin } from "@/types/Crypto";
 import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 import formatCurrency from "@/lib/formatCurrency";
 
-export const CryptoTableColumns: ColumnDef<Coin>[] = [
+export const StocksTableColumns: ColumnDef<Coin>[] = [
   {
     id: "select",
     header: ({ table }) => (

@@ -7,7 +7,7 @@ interface TableToolbarProps<TData> {
   table: Table<TData>;
 }
 
-export default function CryptoTableToolbar<TData>({
+export default function StocksTableToolbar<TData>({
   table,
 }: TableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
