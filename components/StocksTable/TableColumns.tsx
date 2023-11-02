@@ -2,11 +2,11 @@ import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
-import type { Coin } from "@/types/Crypto";
+import type { Stock } from "@/types/Stocks";
 import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 import formatCurrency from "@/lib/formatCurrency";
 
-export const StocksTableColumns: ColumnDef<Coin>[] = [
+export const StocksTableColumns: ColumnDef<Stock>[] = [
   {
     id: "select",
     header: ({ table }) => (

@@ -28,15 +28,15 @@ import StocksTableFilter from "./TableFilter";
 import StocksTablePagination from "./TablePagination";
 import Link from "next/link";
 
-interface CryptoTableProps<TData, TValue> {
+interface StocksTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export default function CryptoTable<TData, TValue>({
+export default function StocksTable<TData, TValue>({
   columns,
   data,
-}: CryptoTableProps<TData, TValue>) {
+}: StocksTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
