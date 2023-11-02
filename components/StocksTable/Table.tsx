@@ -66,10 +66,7 @@ export default function StocksTable<TData, TValue>({
 
   return (
     <>
-      <div className="space-y-4 pt-6">
-        <div className="text-2xl font-bold tracking-tight">
-          Real Time Cryptocurrency Prices by Market Cap
-        </div>
+      <div className="space-y-4">
         <div className="flex justify-between">
           <StocksTableFilter table={table} />
         </div>

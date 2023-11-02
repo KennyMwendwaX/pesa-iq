@@ -11,13 +11,23 @@ export default function Stocks() {
     queryKey: ["stocks"],
     queryFn: async () => {
       const { data } = await axios.get("/api/stocks");
-      return data.stocks as Stock[];
+      return data.stocks.data as Stock[];
     },
   });
+
+  console.log(data);
 
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
+        <div className="flex items-center justify-between space-y-2 pb-3">
+          <div>
+            <div className="text-2xl font-bold tracking-tight">
+              Real Time NASDAQ listed stocks
+            </div>
+            <p className="text-muted-foreground">Search to filter stocks</p>
+          </div>
+        </div>
         {data && data.length > 0 ? (
           <StocksTable data={data} columns={StocksTableColumns} />
         ) : (

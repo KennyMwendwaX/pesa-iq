@@ -31,7 +31,7 @@ export const StocksTableColumns: ColumnDef<Stock>[] = [
   {
     accessorKey: "symbol",
     header: () => <TableColumnHeader name="Symbol" />,
-    cell: ({ row }) => <div className="w-[30px]">{row.getValue("rank")}</div>,
+    cell: ({ row }) => <div className="w-[30px]">{row.getValue("symbol")}</div>,
   },
   {
     accessorKey: "name",
