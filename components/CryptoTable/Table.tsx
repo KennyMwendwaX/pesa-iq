@@ -66,7 +66,10 @@ export default function CryptoTable<TData, TValue>({
 
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 pt-6">
+        <div className="text-2xl font-bold tracking-tight">
+          Real Time Cryptocurrency Prices by Market Cap
+        </div>
         <div className="flex justify-between">
           <CryptoTableFilter table={table} />
         </div>
