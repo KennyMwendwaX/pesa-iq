@@ -4,7 +4,11 @@ import axios from "axios";
 export async function GET() {
   const options = {
     method: "GET",
-    url: "https://twelve-data1.p.rapidapi.com/market_movers/stocks",
+    url: "https://twelve-data1.p.rapidapi.com/stocks",
+    params: {
+      exchange: "NASDAQ",
+      format: "json",
+    },
     headers: {
       "X-RapidAPI-Key": "7bfd5fe57bmsh7905ed23d600c05p12dc8ajsne2b2ea67ac13",
       "X-RapidAPI-Host": "twelve-data1.p.rapidapi.com",
