@@ -3,5 +3,5 @@ export type MoneyMarketFund = {
   name: string;
   fund_manager: string;
   initial_minimum_investment: number;
-  average_daily_yield: string;
+  annual_yield: string;
 };

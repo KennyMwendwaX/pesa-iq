@@ -48,8 +48,8 @@ export const MMFTableColumns: ColumnDef<MoneyMarketFund>[] = [
     cell: ({ row }) => <div>{row.getValue("initial_minimum_investment")}</div>,
   },
   {
-    accessorKey: "average_daily_yield",
-    header: () => <TableColumnHeader name="Average Daily Yield" />,
-    cell: ({ row }) => <div>{row.getValue("average_daily_yield")}</div>,
+    accessorKey: "annual_yield",
+    header: () => <TableColumnHeader name="Annual Yield" />,
+    cell: ({ row }) => <div>{row.getValue("annual_yield")}</div>,
   },
 ];
