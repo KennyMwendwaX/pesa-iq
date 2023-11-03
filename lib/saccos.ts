@@ -1,4 +1,6 @@
-export const saccos = [
+import type { Sacco } from "@/types/Sacco";
+
+export const saccos: Sacco[] = [
   {
     rank: 1,
     sacco: "Nyati Sacco",

@@ -2,10 +2,10 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
-import type { NSEStockData } from "@/types/NSEStockData";
+import type { Sacco } from "@/types/Sacco";
 import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 
-export const SaccoTableColumns: ColumnDef<NSEStockData>[] = [
+export const SaccoTableColumns: ColumnDef<Sacco>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -28,62 +28,55 @@ export const SaccoTableColumns: ColumnDef<NSEStockData>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "ticker",
-    header: () => <TableColumnHeader name="Ticker" />,
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("ticker")}</div>,
+    accessorKey: "rank",
+    header: () => <TableColumnHeader name="Rank" />,
+    cell: ({ row }) => <div className="w-[50px]">{row.getValue("rank")}</div>,
   },
   {
-    accessorKey: "name",
-    header: () => <TableColumnHeader name="Name" />,
-    cell: ({ row }) => <div className="">{row.getValue("name")}</div>,
+    accessorKey: "sacco",
+    header: () => <TableColumnHeader name="SACCO" />,
+    cell: ({ row }) => <div className="">{row.getValue("sacco")}</div>,
   },
   {
-    accessorKey: "volume",
-    header: () => <TableColumnHeader name="Volume" />,
-    cell: ({ row }) => {
-      const volume = parseInt(row.getValue("volume"));
-
-      return (
-        <>{volume > 0 ? <div>{row.getValue("volume")}</div> : <div>0</div>}</>
-      );
-    },
+    accessorKey: "registration_fee",
+    header: () => <TableColumnHeader name="Registration Fee" />,
+    cell: ({ row }) => (
+      <div className="">{row.getValue("registration_fee")}</div>
+    ),
   },
   {
-    accessorKey: "price",
-    header: () => <TableColumnHeader name="Price" />,
-    cell: ({ row }) => <div className="">{row.getValue("price")}</div>,
+    accessorKey: "minimum_monthly_contribution",
+    header: () => <TableColumnHeader name="Minimum Monthly Contribution" />,
+    cell: ({ row }) => (
+      <div className="">{row.getValue("minimum_monthly_contribution")}</div>
+    ),
   },
   {
-    accessorKey: "change",
-    header: () => <TableColumnHeader name="Change" />,
-    cell: ({ row }) => {
-      const changeValue = parseFloat(row.getValue("change"));
-
-      return (
-        <>
-          {changeValue < 0.0 ? (
-            <div className="flex items-center">
-              <FiArrowDownRight className="w-5 h-5 mr-2 text-red-600" />
-              <div className="text-red-600">{row.getValue("change")}</div>
-            </div>
-          ) : changeValue > 0.0 ? (
-            <div className="flex items-center">
-              <FiArrowUpRight className="w-5 h-5 mr-2 text-green-600" />
-              <div className="text-green-600">{row.getValue("change")}</div>
-            </div>
-          ) : changeValue == 0.0 ? (
-            <div className="flex items-center">
-              <FiArrowRight className="w-5 h-5 mr-2 text-gray-600" />
-              <div className="text-gray-600">0.00</div>
-            </div>
-          ) : (
-            <div className="flex items-center">
-              <FiArrowRight className="w-5 h-5 mr-2 text-gray-600" />
-              <div className="text-gray-600">0.00</div>
-            </div>
-          )}
-        </>
-      );
-    },
+    accessorKey: "share_on_capital",
+    header: () => <TableColumnHeader name="Share on Capital" />,
+    cell: ({ row }) => (
+      <div className="">{row.getValue("share_on_capital")}</div>
+    ),
+  },
+  {
+    accessorKey: "maximum_loan_multiple",
+    header: () => <TableColumnHeader name="Maximum Loan Multiple" />,
+    cell: ({ row }) => (
+      <div className="">{row.getValue("maximum_loan_multiple")}</div>
+    ),
+  },
+  {
+    accessorKey: "dividend_on_share_capital",
+    header: () => <TableColumnHeader name="Dividend on Share Capital" />,
+    cell: ({ row }) => (
+      <div className="">{row.getValue("dividend_on_share_capital")}</div>
+    ),
+  },
+  {
+    accessorKey: "interest_in_member_deposit",
+    header: () => <TableColumnHeader name="Interest in Member Deposit" />,
+    cell: ({ row }) => (
+      <div className="">{row.getValue("interest_in_member_deposit")}</div>
+    ),
   },
 ];
