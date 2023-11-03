@@ -100,7 +100,7 @@ export const moneyMarketFund: MoneyMarketFund[] = [
     annual_yield: "10.10%",
   },
   {
-    rank: 8,
+    rank: 15,
     name: "Sanlam Money Market Fund",
     fund_manager: "Sanlam Investments East Africa Limited",
     initial_minimum_investment: 2500,

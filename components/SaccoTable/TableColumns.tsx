@@ -48,7 +48,7 @@ export const SaccoTableColumns: ColumnDef<Sacco>[] = [
   },
   {
     accessorKey: "dividend_on_share_capital",
-    header: () => <TableColumnHeader name="Dividend on Share Capital" />,
+    header: () => <TableColumnHeader name="Dividends on Share Capital" />,
     cell: ({ row }) => (
       <div className="w-[180px]">
         {row.getValue("dividend_on_share_capital")}
