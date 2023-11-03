@@ -7,76 +7,57 @@ import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 
 export const SaccoTableColumns: ColumnDef<Sacco>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select-all"
-        className="translate-y-[2px]"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select-row"
-        className="translate-y-[2px]"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
     accessorKey: "rank",
     header: () => <TableColumnHeader name="Rank" />,
-    cell: ({ row }) => <div className="w-[50px]">{row.getValue("rank")}</div>,
+    cell: ({ row }) => <div className="w-[30px]">{row.getValue("rank")}</div>,
   },
   {
     accessorKey: "sacco",
     header: () => <TableColumnHeader name="SACCO" />,
-    cell: ({ row }) => <div className="">{row.getValue("sacco")}</div>,
+    cell: ({ row }) => <div className="w-[80px]">{row.getValue("sacco")}</div>,
   },
   {
     accessorKey: "registration_fee",
     header: () => <TableColumnHeader name="Registration Fee" />,
     cell: ({ row }) => (
-      <div className="">{row.getValue("registration_fee")}</div>
+      <div className="w-[115px]">{row.getValue("registration_fee")}</div>
     ),
   },
   {
     accessorKey: "minimum_monthly_contribution",
     header: () => <TableColumnHeader name="Minimum Monthly Contribution" />,
     cell: ({ row }) => (
-      <div className="">{row.getValue("minimum_monthly_contribution")}</div>
+      <div className="w-[205px]">
+        {row.getValue("minimum_monthly_contribution")}
+      </div>
     ),
   },
   {
     accessorKey: "share_on_capital",
     header: () => <TableColumnHeader name="Share on Capital" />,
     cell: ({ row }) => (
-      <div className="">{row.getValue("share_on_capital")}</div>
+      <div className="w-[115px]">{row.getValue("share_on_capital")}</div>
     ),
   },
   {
     accessorKey: "maximum_loan_multiple",
     header: () => <TableColumnHeader name="Maximum Loan Multiple" />,
     cell: ({ row }) => (
-      <div className="">{row.getValue("maximum_loan_multiple")}</div>
+      <div className="w-[165px]">{row.getValue("maximum_loan_multiple")}</div>
     ),
   },
   {
     accessorKey: "dividend_on_share_capital",
     header: () => <TableColumnHeader name="Dividend on Share Capital" />,
     cell: ({ row }) => (
-      <div className="">{row.getValue("dividend_on_share_capital")}</div>
+      <div className="w-[180px]">
+        {row.getValue("dividend_on_share_capital")}
+      </div>
     ),
   },
   {
     accessorKey: "interest_in_member_deposit",
-    header: () => <TableColumnHeader name="Interest in Member Deposit" />,
-    cell: ({ row }) => (
-      <div className="">{row.getValue("interest_in_member_deposit")}</div>
-    ),
+    header: () => <TableColumnHeader name="Interest" />,
+    cell: ({ row }) => <div>{row.getValue("interest_in_member_deposit")}</div>,
   },
 ];
