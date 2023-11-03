@@ -28,7 +28,7 @@ import SaccoTableFilter from "./TableFilter";
 import SaccoTablePagination from "./TablePagination";
 import Link from "next/link";
 
-interface NSETableProps<TData, TValue> {
+interface SACCOTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
@@ -36,7 +36,7 @@ interface NSETableProps<TData, TValue> {
 export default function SaccoTable<TData, TValue>({
   columns,
   data,
-}: NSETableProps<TData, TValue>) {
+}: SACCOTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
