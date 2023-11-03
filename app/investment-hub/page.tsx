@@ -110,10 +110,12 @@ export default function InvestmentHub() {
                 your funds with short-term securities, a stable choice for
                 preserving and growing capital.
               </p>
-              <div className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
+              <Link
+                href="/investment-hub/money-market-fund"
+                className="flex items-center space-x-1 text-blue-500 cursor-pointer hover:text-blue-800">
                 <span>Learn more</span>
                 <HiOutlineChevronRight />
-              </div>
+              </Link>
             </div>
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
