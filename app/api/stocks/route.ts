@@ -25,6 +25,7 @@ export async function GET() {
     const stocks = response.data;
     return NextResponse.json({ stocks }, { status: 200 });
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Server error, try again later" },
       { status: 500 }

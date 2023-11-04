@@ -83,7 +83,7 @@ export default function Sidebar() {
             </Link>
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <RiGraduationCapLine className="ml-2 w-5 h-5" />
-              <span>Educational Resources</span>
+              <span>Finance Articles</span>
             </div>
           </div>
           <div className="absolute bottom-0 p-2 flex items-center space-x-2">

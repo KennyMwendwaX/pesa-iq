@@ -115,6 +115,23 @@ export default function AddIncomeModal() {
                 </Select>
               </div>
             </div>
+            <div className="relative">
+              <Label htmlFor="income-amount" className="text-right">
+                Frequency of income
+              </Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select the frequency of income" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="daily">Daily</SelectItem>
+                  <SelectItem value="weekly">Weekly</SelectItem>
+                  <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
+                  <SelectItem value="monthly">Monthly</SelectItem>
+                  <SelectItem value="yearly">Yearly</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <div>
               <Label htmlFor="income-description" className="text-right">
                 Description
