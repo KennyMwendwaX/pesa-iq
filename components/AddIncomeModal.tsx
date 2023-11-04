@@ -67,13 +67,13 @@ export default function AddIncomeModal() {
               </div>
               <div className="grid grid-cols-1">
                 {/* Use flex to align label and popover content */}
-                <Label htmlFor="income-amount" className="text-left">
+                <Label htmlFor="income-date" className="text-left">
                   Income Date
                 </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
-                      id="select-date"
+                      id="income-date"
                       variant={"outline"}
                       className={cn(
                         "justify-start text-left font-normal",
@@ -94,11 +94,11 @@ export default function AddIncomeModal() {
                 </Popover>
               </div>
               <div className="grid grid-cols-1">
-                <Label htmlFor="income-amount" className="text-left">
+                <Label htmlFor="income-category" className="text-left">
                   Income Category
                 </Label>
                 <Select>
-                  <SelectTrigger>
+                  <SelectTrigger id="income-category">
                     <SelectValue placeholder="Select income category" />
                   </SelectTrigger>
                   <SelectContent>
@@ -116,11 +116,11 @@ export default function AddIncomeModal() {
               </div>
             </div>
             <div className="relative">
-              <Label htmlFor="income-amount" className="text-right">
+              <Label htmlFor="income-frequency" className="text-right">
                 Frequency of income
               </Label>
               <Select>
-                <SelectTrigger>
+                <SelectTrigger id="income-frequency">
                   <SelectValue placeholder="Select the frequency of income" />
                 </SelectTrigger>
                 <SelectContent>

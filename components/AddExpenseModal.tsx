@@ -67,13 +67,13 @@ export default function AddExpenseModal() {
               </div>
               <div className="grid grid-cols-1">
                 {/* Use flex to align label and popover content */}
-                <Label htmlFor="expense-amount" className="text-left">
+                <Label htmlFor="expense-date" className="text-left">
                   Expense Date
                 </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
-                      id="select-date"
+                      id="expense-date"
                       variant={"outline"}
                       className={cn(
                         "justify-start text-left font-normal",
@@ -94,11 +94,11 @@ export default function AddExpenseModal() {
                 </Popover>
               </div>
               <div className="grid grid-cols-1">
-                <Label htmlFor="expense-amount" className="text-left">
+                <Label htmlFor="expense-category" className="text-left">
                   Expense Category
                 </Label>
                 <Select>
-                  <SelectTrigger>
+                  <SelectTrigger id="expense-category">
                     <SelectValue placeholder="Select expense category" />
                   </SelectTrigger>
                   <SelectContent>
@@ -119,6 +119,23 @@ export default function AddExpenseModal() {
                   </SelectContent>
                 </Select>
               </div>
+            </div>
+            <div className="relative">
+              <Label htmlFor="expense-frequency" className="text-right">
+                Frequency of expense
+              </Label>
+              <Select>
+                <SelectTrigger id="expense-frequency">
+                  <SelectValue placeholder="Select the frequency of expense" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="daily">Daily</SelectItem>
+                  <SelectItem value="weekly">Weekly</SelectItem>
+                  <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
+                  <SelectItem value="monthly">Monthly</SelectItem>
+                  <SelectItem value="yearly">Yearly</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div>
               <Label htmlFor="expense-amount" className="text-right">
