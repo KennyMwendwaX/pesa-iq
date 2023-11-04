@@ -57,13 +57,19 @@ export default function AddIncomeModal() {
                 <Label htmlFor="income-name" className="text-right">
                   Income Name
                 </Label>
-                <Input id="income-name" className="" />
+                <Input
+                  id="income-name"
+                  className="focus:border-2 focus:border-blue-600"
+                />
               </div>
               <div className="relative">
                 <Label htmlFor="income-amount" className="text-right">
                   Income Amount
                 </Label>
-                <Input id="income-amount" className="" />
+                <Input
+                  id="income-amount"
+                  className="focus:border-2 focus:border-blue-600"
+                />
               </div>
               <div className="grid grid-cols-1 space-y-1">
                 {/* Use flex to align label and popover content */}
@@ -136,7 +142,10 @@ export default function AddIncomeModal() {
               <Label htmlFor="income-description" className="text-right">
                 Description
               </Label>
-              <Textarea id="income-description" />
+              <Textarea
+                id="income-description"
+                className="focus:border-2 focus:border-blue-600"
+              />
             </div>
             {/* <div className="flex">
               <Button className="ml-auto " type="submit">

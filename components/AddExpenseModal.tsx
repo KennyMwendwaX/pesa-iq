@@ -57,13 +57,19 @@ export default function AddExpenseModal() {
                 <Label htmlFor="expense-name" className="text-right">
                   Expense Name
                 </Label>
-                <Input id="expense-name" className="" />
+                <Input
+                  id="expense-name"
+                  className="focus:border-2 focus:border-blue-600"
+                />
               </div>
               <div className="relative">
                 <Label htmlFor="expense-amount" className="text-right">
                   Expense Amount
                 </Label>
-                <Input id="expense-amount" className="" />
+                <Input
+                  id="expense-amount"
+                  className="focus:border-2 focus:border-blue-600"
+                />
               </div>
               <div className="grid grid-cols-1 space-y-1">
                 {/* Use flex to align label and popover content */}
@@ -142,7 +148,10 @@ export default function AddExpenseModal() {
               <Label htmlFor="expense-amount" className="text-right">
                 Description
               </Label>
-              <Textarea id="expense-description" />
+              <Textarea
+                id="expense-description"
+                className="focus:border-2 focus:border-blue-600"
+              />
             </div>
             {/* <div className="flex">
               <Button className="ml-auto " type="submit">
