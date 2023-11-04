@@ -126,23 +126,43 @@ export default function AddExpenseModal() {
                   </SelectContent>
                 </Select>
               </div>
-            </div>
-            <div className="relative">
-              <Label htmlFor="expense-frequency" className="text-right">
-                Frequency of expense
-              </Label>
-              <Select>
-                <SelectTrigger id="expense-frequency">
-                  <SelectValue placeholder="Select the frequency of expense" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="daily">Daily</SelectItem>
-                  <SelectItem value="weekly">Weekly</SelectItem>
-                  <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
-                  <SelectItem value="monthly">Monthly</SelectItem>
-                  <SelectItem value="yearly">Yearly</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="relative">
+                <Label htmlFor="expense-frequency" className="text-right">
+                  Frequency of expense
+                </Label>
+                <Select>
+                  <SelectTrigger id="expense-frequency">
+                    <SelectValue placeholder="Select the frequency of expense" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="daily">Daily</SelectItem>
+                    <SelectItem value="weekly">Weekly</SelectItem>
+                    <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
+                    <SelectItem value="monthly">Monthly</SelectItem>
+                    <SelectItem value="yearly">Yearly</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="relative">
+                <Label htmlFor="income-transaction-type" className="text-right">
+                  Type of transaction
+                </Label>
+                <Select>
+                  <SelectTrigger id="income-transaction-type">
+                    <SelectValue placeholder="Select the frequency of income" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="cash">Cash</SelectItem>
+                    <SelectItem value="bank-transfer">Bank Transfer</SelectItem>
+                    <SelectItem value="mobile-banking">
+                      Mobile Banking
+                    </SelectItem>
+                    <SelectItem value="online-payments">
+                      Online Payment
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
             <div>
               <Label htmlFor="expense-amount" className="text-right">

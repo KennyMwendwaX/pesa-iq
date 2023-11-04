@@ -151,7 +151,9 @@ export default function AddIncomeModal() {
                     <SelectItem value="mobile-banking">
                       Mobile Banking
                     </SelectItem>
-                    <SelectItem value="cheque">Cheque</SelectItem>
+                    <SelectItem value="online-payments">
+                      Online Payment
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
