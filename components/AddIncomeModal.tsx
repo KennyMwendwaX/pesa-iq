@@ -65,7 +65,7 @@ export default function AddIncomeModal() {
                 </Label>
                 <Input id="income-amount" className="" />
               </div>
-              <div className="grid grid-cols-1">
+              <div className="grid grid-cols-1 space-y-1">
                 {/* Use flex to align label and popover content */}
                 <Label htmlFor="income-date" className="text-left">
                   Income Date
@@ -93,7 +93,7 @@ export default function AddIncomeModal() {
                   </PopoverContent>
                 </Popover>
               </div>
-              <div className="grid grid-cols-1">
+              <div className="grid grid-cols-1 space-y-1">
                 <Label htmlFor="income-category" className="text-left">
                   Income Category
                 </Label>

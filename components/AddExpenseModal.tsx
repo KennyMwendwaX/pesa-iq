@@ -65,7 +65,7 @@ export default function AddExpenseModal() {
                 </Label>
                 <Input id="expense-amount" className="" />
               </div>
-              <div className="grid grid-cols-1">
+              <div className="grid grid-cols-1 space-y-1">
                 {/* Use flex to align label and popover content */}
                 <Label htmlFor="expense-date" className="text-left">
                   Expense Date
@@ -93,7 +93,7 @@ export default function AddExpenseModal() {
                   </PopoverContent>
                 </Popover>
               </div>
-              <div className="grid grid-cols-1">
+              <div className="grid grid-cols-1 space-y-1">
                 <Label htmlFor="expense-category" className="text-left">
                   Expense Category
                 </Label>
@@ -101,7 +101,7 @@ export default function AddExpenseModal() {
                   <SelectTrigger id="expense-category">
                     <SelectValue placeholder="Select expense category" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="absolute -top-36">
                     <SelectItem value="housing">Housing</SelectItem>
                     <SelectItem value="transport">Transport</SelectItem>
                     <SelectItem value="healthcare">Healthcare</SelectItem>
@@ -111,9 +111,10 @@ export default function AddExpenseModal() {
                     <SelectItem value="insurance">Insurance</SelectItem>
                     <SelectItem value="utilities">Utilities</SelectItem>
                     <SelectItem value="clothing">Clothing</SelectItem>
-                    <SelectItem value="entertainment">Entertainment</SelectItem>
+                    <SelectItem value="subscription">Subscription</SelectItem>
                     <SelectItem value="savings">Savings</SelectItem>
                     <SelectItem value="investment">Investment</SelectItem>
+                    <SelectItem value="entertainment">Entertainment</SelectItem>
                     <SelectItem value="vacation">Vacation</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
