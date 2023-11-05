@@ -31,9 +31,28 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useForm } from "react-hook-form";
+
+interface IncomeFormValues {
+  name: string;
+  amount: string;
+  date: string;
+  category: string;
+  frequency: string;
+  transaction_type: string;
+  description: string;
+}
 
 export default function AddIncomeModal() {
   const [date, setDate] = useState<Date>();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IncomeFormValues>();
+
+  async function onSubmit() {}
 
   return (
     <>
@@ -51,24 +70,28 @@ export default function AddIncomeModal() {
               Make changes to your profile here. Click save when you are done.
             </DialogDescription> */}
           </DialogHeader>
-          <form className="space-y-3 px-3">
+          <form className="space-y-3 px-3" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid md:grid-cols-2 md:gap-6">
               <div className="relative">
-                <Label htmlFor="income-name" className="text-right">
+                <Label htmlFor="name" className="text-right">
                   Income Name
                 </Label>
                 <Input
-                  id="income-name"
+                  type="text"
+                  id="name"
                   className="focus:border-2 focus:border-blue-600"
+                  {...register("name")}
                 />
               </div>
               <div className="relative">
-                <Label htmlFor="income-amount" className="text-right">
+                <Label htmlFor="amount" className="text-right">
                   Income Amount
                 </Label>
                 <Input
-                  id="income-amount"
+                  type="text"
+                  id="amount"
                   className="focus:border-2 focus:border-blue-600"
+                  {...register("amount")}
                 />
               </div>
               <div className="grid grid-cols-1 space-y-1">
@@ -100,11 +123,11 @@ export default function AddIncomeModal() {
                 </Popover>
               </div>
               <div className="grid grid-cols-1 space-y-1">
-                <Label htmlFor="income-category" className="text-left">
+                <Label htmlFor="category" className="text-left">
                   Income Category
                 </Label>
-                <Select>
-                  <SelectTrigger id="income-category">
+                <Select {...register("category")}>
+                  <SelectTrigger id="category">
                     <SelectValue placeholder="Select income category" />
                   </SelectTrigger>
                   <SelectContent>
@@ -121,11 +144,11 @@ export default function AddIncomeModal() {
                 </Select>
               </div>
               <div className="relative">
-                <Label htmlFor="income-frequency" className="text-right">
+                <Label htmlFor="frequency" className="text-right">
                   Frequency of income
                 </Label>
-                <Select>
-                  <SelectTrigger id="income-frequency">
+                <Select {...register("frequency")}>
+                  <SelectTrigger id="frequency">
                     <SelectValue placeholder="Select the frequency of income" />
                   </SelectTrigger>
                   <SelectContent>
@@ -138,11 +161,11 @@ export default function AddIncomeModal() {
                 </Select>
               </div>
               <div className="relative">
-                <Label htmlFor="income-transaction-type" className="text-right">
+                <Label htmlFor="transaction-type" className="text-right">
                   Type of transaction
                 </Label>
-                <Select>
-                  <SelectTrigger id="income-transaction-type">
+                <Select {...register("transaction_type")}>
+                  <SelectTrigger id="transaction-type">
                     <SelectValue placeholder="Select the frequency of income" />
                   </SelectTrigger>
                   <SelectContent>
@@ -159,19 +182,15 @@ export default function AddIncomeModal() {
               </div>
             </div>
             <div>
-              <Label htmlFor="income-description" className="text-right">
+              <Label htmlFor="description" className="text-right">
                 Description
               </Label>
               <Textarea
-                id="income-description"
+                id="description"
                 className="focus:border-2 focus:border-blue-600"
+                {...register("description")}
               />
             </div>
-            {/* <div className="flex">
-              <Button className="ml-auto " type="submit">
-                Add Income
-              </Button>
-            </div> */}
             <DialogFooter>
               <Button type="submit">Save Income</Button>
             </DialogFooter>
