@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const incomeFormSchema = z.object({
+export const incomeFormSchema = z.object({
   name: z
     .string({
       required_error: "Name is required",
@@ -35,4 +35,4 @@ const incomeFormSchema = z.object({
     .max(30, { message: "Description must be less than 30 characters long" }),
 });
 
-type IncomeForm = z.infer<typeof incomeFormSchema>;
+export type IncomeForm = z.infer<typeof incomeFormSchema>;
