@@ -31,9 +31,28 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useForm } from "react-hook-form";
+
+interface ExpenseFormValues {
+  name: string;
+  amount: string;
+  date: string;
+  category: string;
+  frequency: string;
+  transaction_type: string;
+  description: string;
+}
 
 export default function AddExpenseModal() {
   const [date, setDate] = useState<Date>();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ExpenseFormValues>();
+
+  async function onSubmit() {}
 
   return (
     <>
@@ -51,35 +70,39 @@ export default function AddExpenseModal() {
               Make changes to your profile here. Click save when you are done.
             </DialogDescription> */}
           </DialogHeader>
-          <form className="space-y-3 px-3">
+          <form className="space-y-3 px-3" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid md:grid-cols-2 md:gap-6">
               <div className="relative">
-                <Label htmlFor="expense-name" className="text-right">
+                <Label htmlFor="name" className="text-right">
                   Expense Name
                 </Label>
                 <Input
-                  id="expense-name"
+                  type="text"
+                  id="name"
                   className="focus:border-2 focus:border-blue-600"
+                  {...register("name")}
                 />
               </div>
               <div className="relative">
-                <Label htmlFor="expense-amount" className="text-right">
+                <Label htmlFor="amount" className="text-right">
                   Expense Amount
                 </Label>
                 <Input
-                  id="expense-amount"
+                  type="text"
+                  id="amount"
                   className="focus:border-2 focus:border-blue-600"
+                  {...register("amount")}
                 />
               </div>
               <div className="grid grid-cols-1 space-y-1">
                 {/* Use flex to align label and popover content */}
-                <Label htmlFor="expense-date" className="text-left">
+                <Label htmlFor="date" className="text-left">
                   Expense Date
                 </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
-                      id="expense-date"
+                      id="date"
                       variant={"outline"}
                       className={cn(
                         "justify-start text-left font-normal",
@@ -100,11 +123,11 @@ export default function AddExpenseModal() {
                 </Popover>
               </div>
               <div className="grid grid-cols-1 space-y-1">
-                <Label htmlFor="expense-category" className="text-left">
+                <Label htmlFor="category" className="text-left">
                   Expense Category
                 </Label>
-                <Select>
-                  <SelectTrigger id="expense-category">
+                <Select {...register("category")}>
+                  <SelectTrigger id="category">
                     <SelectValue placeholder="Select expense category" />
                   </SelectTrigger>
                   <SelectContent className="absolute -top-36">
@@ -127,11 +150,11 @@ export default function AddExpenseModal() {
                 </Select>
               </div>
               <div className="relative">
-                <Label htmlFor="expense-frequency" className="text-right">
+                <Label htmlFor="frequency" className="text-right">
                   Frequency of expense
                 </Label>
-                <Select>
-                  <SelectTrigger id="expense-frequency">
+                <Select {...register("frequency")}>
+                  <SelectTrigger id="frequency">
                     <SelectValue placeholder="Select the frequency of expense" />
                   </SelectTrigger>
                   <SelectContent>
@@ -144,11 +167,11 @@ export default function AddExpenseModal() {
                 </Select>
               </div>
               <div className="relative">
-                <Label htmlFor="income-transaction-type" className="text-right">
+                <Label htmlFor="transaction-type" className="text-right">
                   Type of transaction
                 </Label>
-                <Select>
-                  <SelectTrigger id="income-transaction-type">
+                <Select {...register("transaction_type")}>
+                  <SelectTrigger id="transaction-type">
                     <SelectValue placeholder="Select the frequency of income" />
                   </SelectTrigger>
                   <SelectContent>
@@ -165,19 +188,15 @@ export default function AddExpenseModal() {
               </div>
             </div>
             <div>
-              <Label htmlFor="expense-amount" className="text-right">
+              <Label htmlFor="amount" className="text-right">
                 Description
               </Label>
               <Textarea
-                id="expense-description"
+                id="description"
                 className="focus:border-2 focus:border-blue-600"
+                {...register("description")}
               />
             </div>
-            {/* <div className="flex">
-              <Button className="ml-auto " type="submit">
-                Add Expense
-              </Button>
-            </div> */}
             <DialogFooter>
               <Button type="submit">Save Expense</Button>
             </DialogFooter>

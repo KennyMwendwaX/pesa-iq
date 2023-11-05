@@ -96,13 +96,13 @@ export default function AddIncomeModal() {
               </div>
               <div className="grid grid-cols-1 space-y-1">
                 {/* Use flex to align label and popover content */}
-                <Label htmlFor="income-date" className="text-left">
+                <Label htmlFor="date" className="text-left">
                   Income Date
                 </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
-                      id="income-date"
+                      id="date"
                       variant={"outline"}
                       className={cn(
                         "justify-start text-left font-normal",
