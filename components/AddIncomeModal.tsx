@@ -81,6 +81,7 @@ export default function AddIncomeModal() {
                   id="name"
                   className="focus:border-2 focus:border-blue-600"
                   {...register("name")}
+                  required
                 />
               </div>
               <div className="relative">
@@ -92,6 +93,7 @@ export default function AddIncomeModal() {
                   id="amount"
                   className="focus:border-2 focus:border-blue-600"
                   {...register("amount")}
+                  required
                 />
               </div>
               <div className="grid grid-cols-1 space-y-1">
@@ -126,7 +128,7 @@ export default function AddIncomeModal() {
                 <Label htmlFor="category" className="text-left">
                   Income Category
                 </Label>
-                <Select {...register("category")}>
+                <Select {...register("category")} required>
                   <SelectTrigger id="category">
                     <SelectValue placeholder="Select income category" />
                   </SelectTrigger>
@@ -147,7 +149,7 @@ export default function AddIncomeModal() {
                 <Label htmlFor="frequency" className="text-right">
                   Frequency of income
                 </Label>
-                <Select {...register("frequency")}>
+                <Select {...register("frequency")} required>
                   <SelectTrigger id="frequency">
                     <SelectValue placeholder="Select the frequency of income" />
                   </SelectTrigger>
@@ -164,7 +166,7 @@ export default function AddIncomeModal() {
                 <Label htmlFor="transaction-type" className="text-right">
                   Type of transaction
                 </Label>
-                <Select {...register("transaction_type")}>
+                <Select {...register("transaction_type")} required>
                   <SelectTrigger id="transaction-type">
                     <SelectValue placeholder="Select the frequency of income" />
                   </SelectTrigger>
@@ -189,6 +191,7 @@ export default function AddIncomeModal() {
                 id="description"
                 className="focus:border-2 focus:border-blue-600"
                 {...register("description")}
+                required
               />
             </div>
             <DialogFooter>

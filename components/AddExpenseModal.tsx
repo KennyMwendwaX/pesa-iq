@@ -81,6 +81,7 @@ export default function AddExpenseModal() {
                   id="name"
                   className="focus:border-2 focus:border-blue-600"
                   {...register("name")}
+                  required
                 />
               </div>
               <div className="relative">
@@ -92,6 +93,7 @@ export default function AddExpenseModal() {
                   id="amount"
                   className="focus:border-2 focus:border-blue-600"
                   {...register("amount")}
+                  required
                 />
               </div>
               <div className="grid grid-cols-1 space-y-1">
@@ -126,7 +128,7 @@ export default function AddExpenseModal() {
                 <Label htmlFor="category" className="text-left">
                   Expense Category
                 </Label>
-                <Select {...register("category")}>
+                <Select {...register("category")} required>
                   <SelectTrigger id="category">
                     <SelectValue placeholder="Select expense category" />
                   </SelectTrigger>
@@ -153,7 +155,7 @@ export default function AddExpenseModal() {
                 <Label htmlFor="frequency" className="text-right">
                   Frequency of expense
                 </Label>
-                <Select {...register("frequency")}>
+                <Select {...register("frequency")} required>
                   <SelectTrigger id="frequency">
                     <SelectValue placeholder="Select the frequency of expense" />
                   </SelectTrigger>
@@ -170,7 +172,7 @@ export default function AddExpenseModal() {
                 <Label htmlFor="transaction-type" className="text-right">
                   Type of transaction
                 </Label>
-                <Select {...register("transaction_type")}>
+                <Select {...register("transaction_type")} required>
                   <SelectTrigger id="transaction-type">
                     <SelectValue placeholder="Select the frequency of income" />
                   </SelectTrigger>
@@ -195,6 +197,7 @@ export default function AddExpenseModal() {
                 id="description"
                 className="focus:border-2 focus:border-blue-600"
                 {...register("description")}
+                required
               />
             </div>
             <DialogFooter>
