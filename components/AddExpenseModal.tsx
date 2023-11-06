@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Form,
   FormControl,
@@ -47,15 +48,22 @@ export type ExpenseForm = z.infer<typeof expenseFormSchema>;
 
 export default function AddExpenseModal() {
   const form = useForm<ExpenseForm>();
+  const [isDialogOpen, setDialogOpen] = useState(false);
   const { addExpense } = useAddExpense();
+
+  // toggle the dialog open state
+  const toggleDialog = () => {
+    setDialogOpen(!isDialogOpen);
+  };
 
   async function onSubmit(values: ExpenseForm) {
     addExpense(values);
+    toggleDialog();
   }
 
   return (
     <>
-      <Dialog>
+      <Dialog open={isDialogOpen} onOpenChange={toggleDialog}>
         <DialogTrigger asChild>
           <Button className="flex items-center space-x-2 rounded-3xl">
             <AiOutlinePlus className="w-4 h-4 text-white" />
