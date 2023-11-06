@@ -42,7 +42,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { expenseFormSchema } from "@/lib/schema/ExpenseFormSchema";
 
-type ExpenseForm = z.infer<typeof expenseFormSchema>;
+export type ExpenseForm = z.infer<typeof expenseFormSchema>;
 
 export default function AddExpenseModal() {
   const form = useForm<ExpenseForm>();
