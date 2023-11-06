@@ -11,7 +11,7 @@ export default function Crypto() {
   const { data } = useQuery({
     queryKey: ["coins"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/crypto/coins");
+      const { data } = await axios.get("/api/investment-hub/crypto");
       return data.coins as CoinData;
     },
   });

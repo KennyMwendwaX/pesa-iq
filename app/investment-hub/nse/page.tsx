@@ -10,7 +10,7 @@ export default function NSE() {
   const { data } = useQuery({
     queryKey: ["nseStockData"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/nse");
+      const { data } = await axios.get("/api/investment-hub/nse");
       return data.NSE_Stocks as NSEStockData[];
     },
   });

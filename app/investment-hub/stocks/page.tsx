@@ -10,7 +10,7 @@ export default function Stocks() {
   const { data } = useQuery({
     queryKey: ["stocks"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/stocks");
+      const { data } = await axios.get("/api/investment-hub/stocks");
       return data.stocks.data as Stock[];
     },
   });
