@@ -41,14 +41,16 @@ import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { expenseFormSchema } from "@/lib/schema/ExpenseFormSchema";
+import { useAddExpense } from "@/hooks/useAddExpense";
 
 export type ExpenseForm = z.infer<typeof expenseFormSchema>;
 
 export default function AddExpenseModal() {
   const form = useForm<ExpenseForm>();
+  const { addExpense } = useAddExpense();
 
   async function onSubmit(values: ExpenseForm) {
-    console.log(values);
+    addExpense(values);
   }
 
   return (
