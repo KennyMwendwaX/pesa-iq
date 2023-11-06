@@ -9,7 +9,7 @@ type IncomeTypes = {
   id: string;
   name: string;
   amount: string;
-  date: Date;
+  date: number;
   category: string;
   frequency: string;
   transaction_type: string;
@@ -33,7 +33,7 @@ export default function Income() {
         <div>Income</div>
         <AddIncomeModal />
         <div className="flex pt-3">
-          <div className="w-[800px] space-y-4">
+          <div className="w-[800px] space-y-2">
             {incomes && incomes.length > 0 ? (
               incomes.map((income) => (
                 <IncomeCard key={income.id} income={income} />

@@ -17,13 +17,13 @@ import { BiDollarCircle, BiSolidComment } from "react-icons/bi";
 import { LuTrash } from "react-icons/lu";
 import { FiArrowDownLeft, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
-import type { Income } from "@/lib/schema/IncomeFormSchema";
+import { format } from "date-fns";
 
 type IncomeTypes = {
   id: string;
   name: string;
   amount: string;
-  date: Date;
+  date: number;
   category: string;
   frequency: string;
   transaction_type: string;
@@ -35,6 +35,10 @@ type Props = {
 };
 
 export default function IncomeCard({ income }: Props) {
+  const rawDate = income.date;
+  const date = new Date(rawDate);
+  const formattedDate = format(date, "dd/MM/yyyy");
+
   return (
     <>
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl flex">
@@ -46,21 +50,21 @@ export default function IncomeCard({ income }: Props) {
             <div className="items-center flex">
               <div className="items-center flex space-x-3">
                 <BsCircleFill className="text-green-600 w-5 h-5" />
-                <div></div>
+                <div>{income.name}</div>
               </div>
             </div>
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>10,000</div>
+                <div>{income.amount}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <BsFillCalendarEventFill className="w-5 h-5" />
-                <div>12/03/2023</div>
+                <div>{formattedDate}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <FaCommentAlt className="w-5 h-5" />
-                <div>My march Developer salary</div>
+                <div>{income.description}</div>
               </div>
             </div>
           </div>
