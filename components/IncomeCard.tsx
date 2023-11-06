@@ -17,8 +17,24 @@ import { BiDollarCircle, BiSolidComment } from "react-icons/bi";
 import { LuTrash } from "react-icons/lu";
 import { FiArrowDownLeft, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
+import type { Income } from "@/lib/schema/IncomeFormSchema";
 
-export default function IncomeCard() {
+type IncomeTypes = {
+  id: string;
+  name: string;
+  amount: string;
+  date: Date;
+  category: string;
+  frequency: string;
+  transaction_type: string;
+  description: string;
+};
+
+type Props = {
+  income: IncomeTypes;
+};
+
+export default function IncomeCard({ income }: Props) {
   return (
     <>
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl flex">
@@ -30,7 +46,7 @@ export default function IncomeCard() {
             <div className="items-center flex">
               <div className="items-center flex space-x-3">
                 <BsCircleFill className="text-green-600 w-5 h-5" />
-                <div>Developer Salary</div>
+                <div></div>
               </div>
             </div>
             <div className="items-center flex space-x-5">

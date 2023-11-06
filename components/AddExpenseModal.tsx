@@ -40,14 +40,11 @@ import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { expenseFormSchema } from "@/lib/schema/ExpenseFormSchema";
+import type { Expense } from "@/lib/schema/ExpenseFormSchema";
 import { useAddExpense } from "@/hooks/useAddExpense";
 
-export type ExpenseForm = z.infer<typeof expenseFormSchema>;
-
 export default function AddExpenseModal() {
-  const form = useForm<ExpenseForm>();
+  const form = useForm<Expense>();
   const [isDialogOpen, setDialogOpen] = useState(false);
   const { addExpense } = useAddExpense();
 
@@ -56,7 +53,7 @@ export default function AddExpenseModal() {
     setDialogOpen(!isDialogOpen);
   };
 
-  async function onSubmit(values: ExpenseForm) {
+  async function onSubmit(values: Expense) {
     addExpense(values);
     toggleDialog();
   }

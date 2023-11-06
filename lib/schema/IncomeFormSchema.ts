@@ -37,3 +37,5 @@ export const incomeFormSchema = z.object({
     .min(2, { message: "Description must be greater than 2 characters long" })
     .max(30, { message: "Description must be less than 30 characters long" }),
 });
+
+export type Income = z.infer<typeof incomeFormSchema>;

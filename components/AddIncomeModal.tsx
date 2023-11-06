@@ -41,14 +41,11 @@ import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { incomeFormSchema } from "@/lib/schema/IncomeFormSchema";
+import type { Income } from "@/lib/schema/IncomeFormSchema";
 import { useAddIncome } from "@/hooks/useAddIncome";
 
-export type IncomeForm = z.infer<typeof incomeFormSchema>;
-
 export default function AddIncomeModal() {
-  const form = useForm<IncomeForm>();
+  const form = useForm<Income>();
   const [isDialogOpen, setDialogOpen] = useState(false);
   const { addIncome } = useAddIncome();
 
@@ -57,7 +54,7 @@ export default function AddIncomeModal() {
     setDialogOpen(!isDialogOpen);
   };
 
-  async function onSubmit(values: IncomeForm) {
+  async function onSubmit(values: Income) {
     addIncome(values);
     toggleDialog();
   }
