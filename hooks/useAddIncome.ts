@@ -1,12 +1,13 @@
+import { IncomeForm } from "@/components/AddIncomeModal";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useAddIncome() {
   const queryClient = useQueryClient();
   const { mutate: addIncome, error } = useMutation({
-    mutationFn: async (data) => {
+    mutationFn: async (values: IncomeForm) => {
       const options = {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(values),
       };
       const response = await fetch("/api/income", options);
       if (!response.ok) {

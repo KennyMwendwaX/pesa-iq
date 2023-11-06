@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     const income = await prisma.income.create({
       data: {
         name: name,
-        amount: amount,
+        amount: parseInt(amount as string),
         category: category,
         date: date,
         frequency: frequency,
@@ -41,6 +41,7 @@ export async function POST(request: Request) {
       );
     }
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Server error, try again later" },
       { status: 500 }

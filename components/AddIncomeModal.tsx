@@ -44,14 +44,14 @@ import { z } from "zod";
 import { incomeFormSchema } from "@/lib/schema/IncomeFormSchema";
 import { useAddIncome } from "@/hooks/useAddIncome";
 
-type IncomeForm = z.infer<typeof incomeFormSchema>;
+export type IncomeForm = z.infer<typeof incomeFormSchema>;
 
 export default function AddIncomeModal() {
   const form = useForm<IncomeForm>();
   const { addIncome } = useAddIncome();
 
   async function onSubmit(values: IncomeForm) {
-    console.log(values);
+    addIncome(values);
   }
 
   return (
