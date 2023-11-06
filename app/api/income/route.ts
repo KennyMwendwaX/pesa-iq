@@ -1,31 +1,49 @@
+import prisma from "@/prisma/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {}
 export async function POST(request: Request) {
-    const req = await request.json();
-    const { name, email, password } = req;
+  const req = await request.json();
+  const {
+    name,
+    amount,
+    date,
+    category,
+    frequency,
+    transaction_type,
+    description,
+  } = req;
 
-    try {
-    
-        // Create income
-        const user = await 
-    
-        // Return success message
-        if (user) {
-          return NextResponse.json(
-            { message: "User registered successfully" },
-            { status: 201 }
-          );
-        } else {
-          return NextResponse.json(
-            { message: "Failed to register user" },
-            { status: 500 }
-          );
-        }
-      } catch (error) {
-        return NextResponse.json(
-          { message: "Server error, try again later" },
-          { status: 500 }
-        );
-      }
+  try {
+    // Create income
+    const income = await prisma.income.create({
+      data: {
+        name: name,
+        amount: amount,
+        category: category,
+        date: date,
+        frequency: frequency,
+        transaction_type: transaction_type,
+        description: description,
+      },
+    });
+
+    // Return success message
+    if (income) {
+      return NextResponse.json(
+        { message: "Income registered successfully" },
+        { status: 201 }
+      );
+    } else {
+      return NextResponse.json(
+        { message: "Failed to register income" },
+        { status: 500 }
+      );
+    }
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Server error, try again later" },
+      { status: 500 }
+    );
+  }
 }
