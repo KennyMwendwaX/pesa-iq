@@ -1,7 +1,25 @@
 import prisma from "@/prisma/db";
 import { NextResponse } from "next/server";
 
-export async function GET() {}
+export async function GET() {
+  try {
+    const incomeList = await prisma.income.findMany();
+    // Return success message
+    if (incomeList) {
+      return NextResponse.json({ incomeList }, { status: 200 });
+    } else {
+      return NextResponse.json(
+        { message: "Failed to return income list" },
+        { status: 404 }
+      );
+    }
+  } catch (error) {}
+  return NextResponse.json(
+    { message: "Server error, try again later" },
+    { status: 500 }
+  );
+}
+
 export async function POST(request: Request) {
   const req = await request.json();
   const {
@@ -41,7 +59,6 @@ export async function POST(request: Request) {
       );
     }
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
       { message: "Server error, try again later" },
       { status: 500 }
