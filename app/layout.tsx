@@ -1,13 +1,8 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { GeistSans } from "geist/font";
 import TanstackProvider from "@/providers/TanstackProvider";
-
-const roboto = Roboto({
-  weight: ["400"],
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "PesaIQ",
@@ -21,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={GeistSans.className}>
         <TanstackProvider>
           <Navbar />
           {children}
