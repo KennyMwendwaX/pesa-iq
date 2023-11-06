@@ -14,6 +14,9 @@ export const incomeFormSchema = z.object({
       invalid_type_error: "Amount must be a string",
     })
     .min(5, { message: "Amount must be greater than 0" }),
+  date: z.date({
+    required_error: "Date is required.",
+  }),
   category: z.string({
     required_error: "Category is required",
     invalid_type_error: "Category must be a string",
@@ -22,9 +25,9 @@ export const incomeFormSchema = z.object({
     required_error: "Frequency is required",
     invalid_type_error: "Frequency must be a string",
   }),
-  transacation_type: z.string({
-    required_error: "Frequency is required",
-    invalid_type_error: "Frequency must be a string",
+  transaction_type: z.string({
+    required_error: "Transaction type is required",
+    invalid_type_error: "Transaction type must be a string",
   }),
   description: z
     .string({
@@ -34,5 +37,3 @@ export const incomeFormSchema = z.object({
     .min(2, { message: "Description must be greater than 2 characters long" })
     .max(30, { message: "Description must be less than 30 characters long" }),
 });
-
-export type IncomeForm = z.infer<typeof incomeFormSchema>;
