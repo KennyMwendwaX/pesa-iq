@@ -216,6 +216,7 @@ export default function AddIncomeModal() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
+                            <SelectItem value="one-time">One Time</SelectItem>
                             <SelectItem value="daily">Daily</SelectItem>
                             <SelectItem value="weekly">Weekly</SelectItem>
                             <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
