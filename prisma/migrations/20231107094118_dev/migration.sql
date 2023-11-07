@@ -29,3 +29,18 @@ CREATE TABLE "Expense" (
 
     CONSTRAINT "Expense_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "Goal" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "amount" INTEGER NOT NULL,
+    "target_date" TIMESTAMP(3) NOT NULL,
+    "type" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'in progress',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Goal_pkey" PRIMARY KEY ("id")
+);
