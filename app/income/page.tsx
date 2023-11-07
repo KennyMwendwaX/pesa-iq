@@ -42,6 +42,13 @@ export default function Income() {
     return acc + incomeAmount;
   }, 0);
 
+  const topIncomes = data
+    ?.sort(
+      (a: IncomeTypes, b: IncomeTypes) =>
+        parseInt(b.amount) - parseInt(a.amount)
+    )
+    .slice(0, 5);
+
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
@@ -50,7 +57,7 @@ export default function Income() {
         <div className="flex justify-between pt-3">
           <div className="w-[800px]">
             <div className="pb-3">
-              <Card className="w-full flex bg-green-100 border-none">
+              <Card className="w-full flex bg-green-100 border-none rounded-xl">
                 <div>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-base text-green-600 font-medium">
@@ -61,7 +68,7 @@ export default function Income() {
                     <div className="text-2xl text-green-600 font-bold">
                       {totalIncome}
                     </div>
-                    <p className="text-sm text-green-600">KES</p>
+                    <div className="text-sm text-green-600">KES</div>
                   </CardContent>
                 </div>
                 <div className="ml-auto p-3">
@@ -82,7 +89,41 @@ export default function Income() {
               )}
             </div>
           </div>
-          <div className="border border-gray-400 h-16 w-[400px]">Top</div>
+          <div className="border border-gray-400 rounded-xl h-[350px] w-[400px]">
+            <div className="text-xl font-bold tracking-tight pt-2 pl-2">
+              Top Incomes
+            </div>
+            <div className="px-3 pt-3 space-y-6">
+              {topIncomes && topIncomes.length > 0 ? (
+                topIncomes.map((income) => {
+                  const incomeAmount = parseInt(income.amount);
+                  const incomePercentage = totalIncome
+                    ? (incomeAmount / totalIncome) * 100
+                    : 0;
+                  return (
+                    <div key={income.id}>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-base font-medium text-green-700">
+                          {income.name}
+                        </span>
+                        <span className="text-sm font-medium text-green-700 flex">
+                          <div className="text-sm text-green-600 mr-1">KES</div>
+                          {income.amount}
+                        </span>
+                      </div>
+                      <div className="w-full bg-green-100 rounded-full h-2.5">
+                        <div
+                          className="bg-green-600 h-2.5 rounded-full"
+                          style={{ width: `${incomePercentage}%` }}></div>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p>No data available.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>

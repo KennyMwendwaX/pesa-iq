@@ -40,6 +40,13 @@ export default function Expense() {
     return acc + expenseAmount;
   }, 0);
 
+  const topExpenses = data
+    ?.sort(
+      (a: ExpenseTypes, b: ExpenseTypes) =>
+        parseInt(b.amount) - parseInt(a.amount)
+    )
+    .slice(0, 5);
+
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
@@ -47,7 +54,7 @@ export default function Expense() {
         <div className="flex justify-between pt-3">
           <div className="w-[800px]">
             <div className="pb-3">
-              <Card className="w-full flex bg-red-100 border-none">
+              <Card className="w-full flex bg-red-100 border-none rounded-xl">
                 <div>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-base text-red-600 font-medium">
@@ -58,7 +65,7 @@ export default function Expense() {
                     <div className="text-2xl text-red-600 font-bold">
                       {totalExpense}
                     </div>
-                    <p className="text-sm text-red-600">KES</p>
+                    <div className="text-sm text-red-600">KES</div>
                   </CardContent>
                 </div>
                 <div className="ml-auto p-3">
@@ -79,7 +86,41 @@ export default function Expense() {
               )}
             </div>
           </div>
-          <div className="border border-gray-400 h-16 w-[400px]">Top</div>
+          <div className="border border-gray-400 rounded-xl h-[350px] w-[400px]">
+            <div className="text-xl font-bold tracking-tight pt-2 pl-2">
+              Top Expenses
+            </div>
+            <div className="px-3 pt-3 space-y-6">
+              {topExpenses && topExpenses.length > 0 ? (
+                topExpenses.map((expense) => {
+                  const expenseAmount = parseInt(expense.amount);
+                  const expensePercentage = totalExpense
+                    ? (expenseAmount / totalExpense) * 100
+                    : 0;
+                  return (
+                    <div key={expense.id}>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-base font-medium text-red-700">
+                          {expense.name}
+                        </span>
+                        <span className="text-sm font-medium text-red-700 flex">
+                          <div className="text-sm text-red-600 mr-1">KES</div>
+                          {expense.amount}
+                        </span>
+                      </div>
+                      <div className="w-full bg-red-100 rounded-full h-2.5">
+                        <div
+                          className="bg-red-600 h-2.5 rounded-full"
+                          style={{ width: `${expensePercentage}%` }}></div>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p>No data available.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>
