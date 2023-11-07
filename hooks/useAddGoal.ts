@@ -1,27 +1,27 @@
-import { Expense } from "@/lib/schema/ExpenseFormSchema";
+import { Goal } from "@/lib/schema/GoalFormSchema";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-export function useAddExpense() {
+export function useAddGoal() {
   const queryClient = useQueryClient();
-  const { mutate: addExpense, error } = useMutation({
-    mutationFn: async (values: Expense) => {
+  const { mutate: addGoal, error } = useMutation({
+    mutationFn: async (values: Goal) => {
       const options = {
         method: "POST",
         body: JSON.stringify(values),
       };
-      const response = await fetch("/api/expense", options);
+      const response = await fetch("/api/goals", options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["expenseList"],
+        queryKey: ["goalList"],
       });
     },
     onError: (error) => {
       console.log(error);
     },
   });
-  return { addExpense, error };
+  return { addGoal, error };
 }
