@@ -61,12 +61,12 @@ export default function AddFinancialGoalModal() {
         <DialogTrigger asChild>
           <Button className="flex items-center space-x-2 rounded-3xl">
             <AiOutlinePlus className="w-4 h-4 text-white" />
-            <span>Add Income</span>
+            <span>Add Financial Goal</span>
           </Button>
         </DialogTrigger>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Add Income</DialogTitle>
+            <DialogTitle>Add Goal</DialogTitle>
             {/* <DialogDescription>
               Make changes to your profile here. Click save when you are done.
             </DialogDescription> */}
@@ -81,13 +81,13 @@ export default function AddFinancialGoalModal() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Income Name</FormLabel>
+                      <FormLabel>Goal Name</FormLabel>
                       <FormControl>
                         <Input
                           type="text"
                           id="name"
                           className="focus:border-2 focus:border-blue-600"
-                          placeholder="Income name"
+                          placeholder="Goal name"
                           {...field}
                           required
                         />
@@ -101,13 +101,13 @@ export default function AddFinancialGoalModal() {
                   name="amount"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Income Amount</FormLabel>
+                      <FormLabel>Goal Amount</FormLabel>
                       <FormControl>
                         <Input
                           type="text"
                           id="amount"
                           className="focus:border-2 focus:border-blue-600"
-                          placeholder="Income amount"
+                          placeholder="Goal amount"
                           {...field}
                           required
                         />
@@ -123,7 +123,7 @@ export default function AddFinancialGoalModal() {
                     name="date"
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
-                        <FormLabel>Income Date</FormLabel>
+                        <FormLabel>Target Date</FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
@@ -162,96 +162,22 @@ export default function AddFinancialGoalModal() {
                     name="category"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Income Category</FormLabel>
+                        <FormLabel>Goal Type</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                           required>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select income category" />
+                              <SelectValue placeholder="Select goal type" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="salary">Salary</SelectItem>
-                            <SelectItem value="investment">
-                              Investment
+                            <SelectItem value="short-term">
+                              Short Term
                             </SelectItem>
-                            <SelectItem value="side-business">
-                              Side Business
-                            </SelectItem>
-                            <SelectItem value="freelance">Freelance</SelectItem>
-                            <SelectItem value="stocks">Stocks</SelectItem>
-                            <SelectItem value="crypto">
-                              Cryptocurrency
-                            </SelectItem>
-                            <SelectItem value="bonds">Bonds</SelectItem>
-                            <SelectItem value="pension">Pension</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <div className="relative">
-                  <FormField
-                    control={form.control}
-                    name="frequency"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Frequency on income</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          required>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select the frequency of income" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="one-time">One Time</SelectItem>
-                            <SelectItem value="daily">Daily</SelectItem>
-                            <SelectItem value="weekly">Weekly</SelectItem>
-                            <SelectItem value="bi-weekly">Bi-Weekly</SelectItem>
-                            <SelectItem value="monthly">Monthly</SelectItem>
-                            <SelectItem value="yearly">Yearly</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <div className="relative">
-                  <FormField
-                    control={form.control}
-                    name="transaction_type"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Frequency on income</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          required>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select the transaction type" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="cash">Cash</SelectItem>
-                            <SelectItem value="bank-transfer">
-                              Bank Transfer
-                            </SelectItem>
-                            <SelectItem value="mobile-banking">
-                              Mobile Banking
-                            </SelectItem>
-                            <SelectItem value="online-payments">
-                              Online Payment
-                            </SelectItem>
+                            <SelectItem value="mid-term">Mid Term</SelectItem>
+                            <SelectItem value="long-term">Long Term</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -271,7 +197,7 @@ export default function AddFinancialGoalModal() {
                         <Textarea
                           id="description"
                           className="focus:border-2 focus:border-blue-600"
-                          placeholder="Income description"
+                          placeholder="Goal description"
                           {...field}
                           required
                         />
@@ -282,7 +208,7 @@ export default function AddFinancialGoalModal() {
                 />
               </div>
               <DialogFooter>
-                <Button type="submit">Save Income</Button>
+                <Button type="submit">Save Goal</Button>
               </DialogFooter>
             </form>
           </Form>
