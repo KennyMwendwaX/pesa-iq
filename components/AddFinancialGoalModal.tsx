@@ -41,9 +41,10 @@ import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
+import { Goal } from "@/lib/schema/GoalFormSchema";
 
 export default function AddFinancialGoalModal() {
-  const form = useForm();
+  const form = useForm<Goal>();
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   // toggle the dialog open state
@@ -51,8 +52,9 @@ export default function AddFinancialGoalModal() {
     setDialogOpen(!isDialogOpen);
   };
 
-  async function onSubmit() {
-    toggleDialog();
+  async function onSubmit(values: Goal) {
+    console.log(values);
+    // toggleDialog();
   }
 
   return (
@@ -120,7 +122,7 @@ export default function AddFinancialGoalModal() {
                   {/* Use flex to align label and popover content */}
                   <FormField
                     control={form.control}
-                    name="date"
+                    name="target_date"
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
                         <FormLabel>Target Date</FormLabel>
@@ -159,7 +161,7 @@ export default function AddFinancialGoalModal() {
                 <div className="relative">
                   <FormField
                     control={form.control}
-                    name="category"
+                    name="type"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Goal Type</FormLabel>
