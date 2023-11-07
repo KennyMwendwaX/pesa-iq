@@ -50,21 +50,23 @@ export default function Income() {
         <div className="flex justify-between pt-3">
           <div className="w-[800px]">
             <div className="pb-3">
-              <Card className="w-full flex">
+              <Card className="w-full flex bg-green-100 border-none">
                 <div>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-base font-medium">
+                    <CardTitle className="text-base text-green-600 font-medium">
                       Total Income
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">{totalIncome}</div>
-                    <p className="text-sm text-muted-foreground">KES</p>
+                    <div className="text-2xl text-green-600 font-bold">
+                      {totalIncome}
+                    </div>
+                    <p className="text-sm text-green-600">KES</p>
                   </CardContent>
                 </div>
                 <div className="ml-auto p-3">
-                  <div className="rounded-full bg-green-100 w-12 h-12 flex justify-center items-center">
-                    <FiArrowDownLeft className="w-8 h-8 text-green-600" />
+                  <div className="rounded-full bg-green-600 w-12 h-12 flex justify-center items-center">
+                    <FiArrowDownLeft className="w-8 h-8 text-green-100" />
                   </div>
                 </div>
               </Card>
