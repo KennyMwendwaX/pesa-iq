@@ -71,10 +71,12 @@ export default function Sidebar() {
               <FiPieChart className="ml-2 w-5 h-5" />
               <span>Analytics and Reports</span>
             </div>
-            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+            <Link
+              href="/financial-goals"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <BsTrophy className="ml-2 w-5 h-5" />
               <span>Financial Goals</span>
-            </div>
+            </Link>
             <Link
               href="/investment-hub"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
