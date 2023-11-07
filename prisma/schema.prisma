@@ -35,3 +35,15 @@ model Expense {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 }
+
+model Goal {
+  id          String   @id @default(cuid())
+  name        String
+  amount      Int
+  target_date DateTime
+  type        String
+  description String
+  status      String   @default("in progress") // Default to "in progress"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
