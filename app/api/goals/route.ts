@@ -9,7 +9,7 @@ export async function GET() {
       return NextResponse.json({ goalList }, { status: 200 });
     } else {
       return NextResponse.json(
-        { message: "Failed to return expense list" },
+        { message: "Failed to return goal list" },
         { status: 404 }
       );
     }
@@ -22,39 +22,29 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const req = await request.json();
-  const {
-    name,
-    amount,
-    date,
-    category,
-    frequency,
-    transaction_type,
-    description,
-  } = req;
+  const { name, amount, target_date, type, description } = req;
 
   try {
-    // Create expense
-    const expense = await prisma.expense.create({
+    // Create goal
+    const goal = await prisma.goal.create({
       data: {
         name: name,
         amount: parseInt(amount as string),
-        category: category,
-        date: date,
-        frequency: frequency,
-        transaction_type: transaction_type,
+        target_date: target_date,
+        type: type,
         description: description,
       },
     });
 
     // Return success message
-    if (expense) {
+    if (goal) {
       return NextResponse.json(
         { message: "Income registered successfully" },
         { status: 201 }
       );
     } else {
       return NextResponse.json(
-        { message: "Failed to register expense" },
+        { message: "Failed to register goal" },
         { status: 500 }
       );
     }
