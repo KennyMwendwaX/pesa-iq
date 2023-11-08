@@ -6,19 +6,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import {
   BsCircleFill,
   BsFillCalendarEventFill,
+  BsPatchCheck,
   BsThreeDots,
 } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import { LuTrash } from "react-icons/lu";
-import { FiEdit } from "react-icons/fi";
 import { IoTimerOutline } from "react-icons/io5";
 import { GoGoal } from "react-icons/go";
 
-export default function GoalCard() {
+export default function InProgressGoalCard() {
   return (
     <>
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[600px] flex">
@@ -59,18 +58,16 @@ export default function GoalCard() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-[160px]">
-              <DropdownMenuItem className="cursor-pointer">
-                <FaArrowUpRightFromSquare className="mr-1 w-4 h-4" />
-                View
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <FiEdit className="mr-1 w-4 h-4" />
-                Edit
+            <DropdownMenuContent align="end" className="w-[170px]">
+              <DropdownMenuItem>
+                <button className="flex items-center">
+                  <BsPatchCheck className="mr-1 w-5 h-5 text-green-500" />
+                  Mark As Fulfilled
+                </button>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">
-                <LuTrash className="text-red-500 mr-1 w-4 h-4" />
+                <LuTrash className="text-red-500 mr-1 w-5 h-5" />
                 Delete
               </DropdownMenuItem>
             </DropdownMenuContent>
