@@ -3,10 +3,8 @@
 import AddIncomeModal from "@/components/AddIncomeModal";
 import IncomeCard from "@/components/IncomeCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { BsCoin } from "react-icons/bs";
 import { FiArrowDownLeft } from "react-icons/fi";
 
 type IncomeTypes = {

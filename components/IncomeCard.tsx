@@ -6,14 +6,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FaArrowUpRightFromSquare, FaMoneyBillTrendUp } from "react-icons/fa6";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import {
   BsCircleFill,
-  BsCurrencyDollar,
   BsFillCalendarEventFill,
   BsThreeDots,
 } from "react-icons/bs";
-import { BiDollarCircle, BiSolidComment } from "react-icons/bi";
+import { BiDollarCircle } from "react-icons/bi";
 import { LuTrash } from "react-icons/lu";
 import { FiArrowDownLeft, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
