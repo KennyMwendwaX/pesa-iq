@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 type Goal = {
+  id: string;
   name: string;
   amount: string;
   target_date: Date;
@@ -32,7 +33,15 @@ export default function FinancialGoals() {
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div className="text-2xl font-bold tracking-tight">Financial Goals</div>
         <AddFinancialGoalModal />
-        <InProgressGoalCard />
+        <div className="pt-4">
+          {inProgressGoals && inProgressGoals.length > 0 ? (
+            inProgressGoals.map((goal) => (
+              <InProgressGoalCard key={goal.id} goal={goal} />
+            ))
+          ) : (
+            <p>No data available</p>
+          )}
+        </div>
       </div>
     </>
   );

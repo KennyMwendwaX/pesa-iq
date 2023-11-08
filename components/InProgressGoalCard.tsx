@@ -13,11 +13,30 @@ import {
   BsThreeDots,
 } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
-import { LuTrash } from "react-icons/lu";
+import { LuGoal, LuTrash } from "react-icons/lu";
 import { IoTimerOutline } from "react-icons/io5";
 import { GoGoal } from "react-icons/go";
+import { format } from "date-fns";
 
-export default function InProgressGoalCard() {
+type Goal = {
+  id: string;
+  name: string;
+  amount: string;
+  target_date: Date;
+  type: string;
+  description: string;
+  status: "in progress" | "fulfilled";
+  createdAt: Date;
+};
+
+interface Props {
+  goal: Goal;
+}
+
+export default function InProgressGoalCard({ goal }: Props) {
+  const rawDate = goal.target_date;
+  const date = new Date(rawDate);
+  const formattedDate = format(date, "dd/MM/yyyy");
   return (
     <>
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[600px] flex">
@@ -29,21 +48,21 @@ export default function InProgressGoalCard() {
             <div className="items-center flex">
               <div className="items-center flex space-x-3">
                 <BsCircleFill className="text-blue-600 w-5 h-5" />
-                <div>House</div>
+                <div>{goal.name}</div>
               </div>
             </div>
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>2433</div>
+                <div>{goal.amount}</div>
               </div>
               <div className="flex items-center space-x-2">
-                <BsFillCalendarEventFill className="w-5 h-5" />
-                <div>12/08/2009</div>
+                <LuGoal className="w-5 h-5" />
+                <div>{formattedDate}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <IoTimerOutline className="w-6 h-6" />
-                <div>Long Term</div>
+                <div>{goal.type}</div>
               </div>
             </div>
           </div>
