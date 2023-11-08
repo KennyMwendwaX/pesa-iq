@@ -42,10 +42,12 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { Goal } from "@/lib/schema/GoalFormSchema";
+import { useAddGoal } from "@/hooks/useAddGoal";
 
 export default function AddFinancialGoalModal() {
   const form = useForm<Goal>();
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const { addGoal } = useAddGoal();
 
   // toggle the dialog open state
   const toggleDialog = () => {
@@ -53,8 +55,8 @@ export default function AddFinancialGoalModal() {
   };
 
   async function onSubmit(values: Goal) {
-    console.log(values);
-    // toggleDialog();
+    await addGoal(values);
+    toggleDialog();
   }
 
   return (

@@ -39,7 +39,7 @@ export async function POST(request: Request) {
     // Return success message
     if (goal) {
       return NextResponse.json(
-        { message: "Income registered successfully" },
+        { message: "Goal registered successfully" },
         { status: 201 }
       );
     } else {
@@ -49,6 +49,7 @@ export async function POST(request: Request) {
       );
     }
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Server error, try again later" },
       { status: 500 }
