@@ -18,6 +18,8 @@ import { FiArrowDownLeft, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
 import { format } from "date-fns";
 import { formatKESCurrency } from "@/lib/formatCurrency";
+import { useDeleteIncome } from "@/hooks/useDeleteIncome";
+import { useRouter } from "next/navigation";
 
 type IncomeTypes = {
   id: string;
@@ -35,11 +37,18 @@ type Props = {
 };
 
 export default function IncomeCard({ income }: Props) {
+  const router = useRouter();
+  const { deleteIncome } = useDeleteIncome();
+
   const rawDate = income.date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
   const amount = parseInt(income.amount);
 
+  const expenseIncome = async (incomeId: string) => {
+    deleteIncome(incomeId);
+    router.refresh();
+  };
   return (
     <>
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl flex">
@@ -91,8 +100,12 @@ export default function IncomeCard({ income }: Props) {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">
-                <LuTrash className="text-red-500 mr-1 w-4 h-4" />
-                Delete
+                <button
+                  onClick={() => expenseIncome(income.id)}
+                  className="flex items-center">
+                  <LuTrash className="text-red-500 mr-1 w-5 h-5" />
+                  Delete
+                </button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
