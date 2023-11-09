@@ -39,7 +39,7 @@ export default function InProgressGoalCard({ goal }: Props) {
   const formattedDate = format(date, "dd/MM/yyyy");
   return (
     <>
-      <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[600px] flex">
+      <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[800px] flex">
         <div className="flex items-center space-x-5">
           <div className="ml-5 rounded-full bg-blue-100 w-12 h-12 flex justify-center items-center">
             <GoGoal className="w-8 h-8 text-blue-600" />

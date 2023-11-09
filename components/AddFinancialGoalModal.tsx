@@ -21,7 +21,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Select,
@@ -55,7 +54,7 @@ export default function AddFinancialGoalModal() {
   };
 
   async function onSubmit(values: Goal) {
-    await addGoal(values);
+    addGoal(values);
     toggleDialog();
   }
 
@@ -177,11 +176,11 @@ export default function AddFinancialGoalModal() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="short-term">
+                            <SelectItem value="Short Term">
                               Short Term
                             </SelectItem>
-                            <SelectItem value="mid-term">Mid Term</SelectItem>
-                            <SelectItem value="long-term">Long Term</SelectItem>
+                            <SelectItem value="Mid Term">Mid Term</SelectItem>
+                            <SelectItem value="Long Term">Long Term</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
