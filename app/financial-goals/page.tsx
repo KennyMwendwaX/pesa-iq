@@ -27,7 +27,6 @@ export default function FinancialGoals() {
   });
 
   const inProgressGoals = data?.filter((goal) => goal.status === "in progress");
-  console.log(inProgressGoals);
 
   return (
     <>
