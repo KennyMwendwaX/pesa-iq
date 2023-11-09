@@ -6,16 +6,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import {
-  BsCheckLg,
-  BsCircleFill,
-  BsPatchCheck,
-  BsThreeDots,
-} from "react-icons/bs";
+import { BsCheckLg, BsCircleFill, BsThreeDots } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import { LuGoal, LuTrash } from "react-icons/lu";
 import { IoTimerOutline } from "react-icons/io5";
-import { GoGoal } from "react-icons/go";
 import { format } from "date-fns";
 import { useFulfillGoal } from "@/hooks/useFulfillGoal";
 import { useRouter } from "next/navigation";
@@ -48,12 +42,12 @@ export default function InProgressGoalCard({ goal }: Props) {
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[800px] flex">
         <div className="flex items-center space-x-5">
           <div className="ml-5 rounded-full bg-green-100 w-12 h-12 flex justify-center items-center">
-            <GoGoal className="w-8 h-8 text-green-600" />
+            <BsCheckLg className="w-8 h-8 text-green-600" />
           </div>
           <div className="py-1 space-y-4">
             <div className="items-center flex">
               <div className="items-center flex space-x-3">
-                <BsCheckLg className="text-green-600 w-5 h-5" />
+                <BsCircleFill className="text-green-600 w-5 h-5" />
                 <div>{goal.name}</div>
               </div>
             </div>
