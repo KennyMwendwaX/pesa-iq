@@ -6,23 +6,24 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   const id = params.id;
+
   try {
-    // Delete goal
-    const deletedGoal = await prisma.goal.delete({
+    // Delete expense
+    const deletedExpense = await prisma.expense.delete({
       where: {
         id: id,
       },
     });
 
     // Return success message
-    if (deletedGoal) {
+    if (deletedExpense) {
       return NextResponse.json(
-        { message: "Goal deleted successfully" },
+        { message: "Expense deleted successfully" },
         { status: 200 }
       );
     } else {
       return NextResponse.json(
-        { message: "Failed to delete goal" },
+        { message: "Failed to delete expense" },
         { status: 500 }
       );
     }
