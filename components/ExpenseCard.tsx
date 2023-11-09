@@ -20,6 +20,8 @@ import { FaCommentAlt } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { format } from "date-fns";
 import { formatKESCurrency } from "@/lib/formatCurrency";
+import { useDeleteExpense } from "@/hooks/useDeleteExpense";
+import { useRouter } from "next/navigation";
 
 type ExpenseTypes = {
   id: string;
@@ -37,10 +39,18 @@ type Props = {
 };
 
 export default function ExpenseCard({ expense }: Props) {
+  const router = useRouter();
+  const { deleteExpense } = useDeleteExpense();
+
   const rawDate = expense.date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
   const amount = parseInt(expense.amount);
+
+  const expenseDelete = async (expenseId: string) => {
+    deleteExpense(expenseId);
+    router.refresh();
+  };
 
   return (
     <>
@@ -93,8 +103,12 @@ export default function ExpenseCard({ expense }: Props) {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">
-                <LuTrash className="text-red-500 mr-1 w-4 h-4" />
-                Delete
+                <button
+                  onClick={() => expenseDelete(expense.id)}
+                  className="flex items-center">
+                  <LuTrash className="text-red-500 mr-1 w-5 h-5" />
+                  Delete
+                </button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
