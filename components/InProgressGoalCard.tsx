@@ -15,6 +15,7 @@ import { format } from "date-fns";
 import { useFulfillGoal } from "@/hooks/useFulfillGoal";
 import { useRouter } from "next/navigation";
 import { formatKESCurrency } from "@/lib/formatCurrency";
+import { useDeleteGoal } from "@/hooks/useDeleteGoal";
 
 type Goal = {
   id: string;
@@ -34,6 +35,7 @@ interface Props {
 export default function InProgressGoalCard({ goal }: Props) {
   const router = useRouter();
   const { fulfillGoal } = useFulfillGoal();
+  const { deleteGoal } = useDeleteGoal();
 
   const rawDate = goal.target_date;
   const date = new Date(rawDate);
@@ -42,6 +44,11 @@ export default function InProgressGoalCard({ goal }: Props) {
 
   const fulfill = async (goalId: string) => {
     fulfillGoal(goalId);
+    router.refresh();
+  };
+
+  const goalDelete = async (goalId: string) => {
+    deleteGoal(goalId);
     router.refresh();
   };
 
@@ -96,8 +103,12 @@ export default function InProgressGoalCard({ goal }: Props) {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">
-                <LuTrash className="text-red-500 mr-1 w-5 h-5" />
-                Delete
+                <button
+                  onClick={() => goalDelete(goal.id)}
+                  className="flex items-center">
+                  <LuTrash className="text-red-500 mr-1 w-5 h-5" />
+                  Delete
+                </button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -1,11 +1,12 @@
 import prisma from "@/prisma/db";
 import { NextResponse } from "next/server";
 
-export async function PUT(
+export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   const id = params.id;
+  console.log(id);
   try {
     // Delete goal
     const deletedGoal = await prisma.goal.delete({

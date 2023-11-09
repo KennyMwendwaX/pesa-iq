@@ -12,6 +12,8 @@ import { LuGoal, LuTrash } from "react-icons/lu";
 import { IoTimerOutline } from "react-icons/io5";
 import { format } from "date-fns";
 import { formatKESCurrency } from "@/lib/formatCurrency";
+import { useDeleteGoal } from "@/hooks/useDeleteGoal";
+import { useRouter } from "next/navigation";
 
 type Goal = {
   id: string;
@@ -29,10 +31,18 @@ interface Props {
 }
 
 export default function InProgressGoalCard({ goal }: Props) {
+  const router = useRouter();
+  const { deleteGoal } = useDeleteGoal();
+
   const rawDate = goal.target_date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
   const amount = parseInt(goal.amount);
+
+  const goalDelete = async (goalId: string) => {
+    deleteGoal(goalId);
+    router.refresh();
+  };
 
   return (
     <>
@@ -76,8 +86,12 @@ export default function InProgressGoalCard({ goal }: Props) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[170px]">
               <DropdownMenuItem className="cursor-pointer">
-                <LuTrash className="text-red-500 mr-1 w-5 h-5" />
-                Delete
+                <button
+                  onClick={() => goalDelete(goal.id)}
+                  className="flex items-center">
+                  <LuTrash className="text-red-500 mr-1 w-5 h-5" />
+                  Delete
+                </button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
