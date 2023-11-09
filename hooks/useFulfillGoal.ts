@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-export function useAddGoal() {
+export function useFulfillGoal() {
   const queryClient = useQueryClient();
   const { mutate: fulfillGoal, error } = useMutation({
     mutationFn: async (id: string) => {
       const options = {
-        method: "POST",
+        method: "PUT",
       };
       const response = await fetch(`/api/goals/${id}/fulfill`, options);
       if (!response.ok) {

@@ -6,17 +6,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import {
-  BsCircleFill,
-  BsFillCalendarEventFill,
-  BsPatchCheck,
-  BsThreeDots,
-} from "react-icons/bs";
+import { BsCircleFill, BsPatchCheck, BsThreeDots } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import { LuGoal, LuTrash } from "react-icons/lu";
 import { IoTimerOutline } from "react-icons/io5";
 import { GoGoal } from "react-icons/go";
 import { format } from "date-fns";
+import { useFulfillGoal } from "@/hooks/useFulfillGoal";
 
 type Goal = {
   id: string;
@@ -34,9 +30,15 @@ interface Props {
 }
 
 export default function InProgressGoalCard({ goal }: Props) {
+  const { fulfillGoal } = useFulfillGoal();
   const rawDate = goal.target_date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
+
+  const fulfill = async (goalId: string) => {
+    fulfillGoal(goalId);
+  };
+
   return (
     <>
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[800px] flex">
@@ -79,7 +81,9 @@ export default function InProgressGoalCard({ goal }: Props) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[170px]">
               <DropdownMenuItem>
-                <button className="flex items-center">
+                <button
+                  onClick={() => fulfill(goal.id)}
+                  className="flex items-center">
                   <BsPatchCheck className="mr-1 w-5 h-5 text-green-500" />
                   Mark As Fulfilled
                 </button>
