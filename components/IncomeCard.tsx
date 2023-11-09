@@ -17,6 +17,7 @@ import { LuTrash } from "react-icons/lu";
 import { FiArrowDownLeft, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
 import { format } from "date-fns";
+import { formatKESCurrency } from "@/lib/formatCurrency";
 
 type IncomeTypes = {
   id: string;
@@ -37,6 +38,7 @@ export default function IncomeCard({ income }: Props) {
   const rawDate = income.date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
+  const amount = parseInt(income.amount);
 
   return (
     <>
@@ -55,7 +57,7 @@ export default function IncomeCard({ income }: Props) {
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>{income.amount}</div>
+                <div>{formatKESCurrency(amount)}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <BsFillCalendarEventFill className="w-5 h-5" />

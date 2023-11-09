@@ -13,5 +13,5 @@ const KES_CURRENCY_FORMATTER = new Intl.NumberFormat(undefined, {
 });
 
 export function formatKESCurrency(number: number) {
-  return USD_CURRENCY_FORMATTER.format(number);
+  return KES_CURRENCY_FORMATTER.format(number);
 }

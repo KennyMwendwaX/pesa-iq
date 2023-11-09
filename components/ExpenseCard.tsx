@@ -19,6 +19,7 @@ import { FiArrowUpRight, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { format } from "date-fns";
+import { formatKESCurrency } from "@/lib/formatCurrency";
 
 type ExpenseTypes = {
   id: string;
@@ -39,6 +40,8 @@ export default function ExpenseCard({ expense }: Props) {
   const rawDate = expense.date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
+  const amount = parseInt(expense.amount);
+
   return (
     <>
       <div className="h-24 border border-gray-200 shadow rounded-2xl flex">
@@ -56,7 +59,7 @@ export default function ExpenseCard({ expense }: Props) {
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>{expense.amount}</div>
+                <div>{formatKESCurrency(amount)}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <BsFillCalendarEventFill className="w-5 h-5" />

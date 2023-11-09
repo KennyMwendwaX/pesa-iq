@@ -14,6 +14,7 @@ import { GoGoal } from "react-icons/go";
 import { format } from "date-fns";
 import { useFulfillGoal } from "@/hooks/useFulfillGoal";
 import { useRouter } from "next/navigation";
+import { formatKESCurrency } from "@/lib/formatCurrency";
 
 type Goal = {
   id: string;
@@ -37,6 +38,7 @@ export default function InProgressGoalCard({ goal }: Props) {
   const rawDate = goal.target_date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
+  const amount = parseInt(goal.amount);
 
   const fulfill = async (goalId: string) => {
     fulfillGoal(goalId);
@@ -60,7 +62,7 @@ export default function InProgressGoalCard({ goal }: Props) {
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>{goal.amount}</div>
+                <div>{formatKESCurrency(amount)}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <LuGoal className="w-5 h-5" />

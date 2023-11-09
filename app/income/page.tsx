@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FiArrowDownLeft } from "react-icons/fi";
+import { formatKESCurrency } from "@/lib/formatCurrency";
 
 type IncomeTypes = {
   id: string;
@@ -104,9 +105,8 @@ export default function Income() {
                         <span className="text-base font-medium text-green-700">
                           {income.name}
                         </span>
-                        <span className="text-sm font-medium text-green-700 flex">
-                          <div className="text-sm text-green-600 mr-1">KES</div>
-                          {income.amount}
+                        <span className="text-sm font-medium text-green-700">
+                          {formatKESCurrency(incomeAmount)}
                         </span>
                       </div>
                       <div className="w-full bg-green-100 rounded-full h-2.5">

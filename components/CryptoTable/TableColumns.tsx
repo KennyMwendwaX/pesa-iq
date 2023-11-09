@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
 import type { Coin } from "@/types/Crypto";
 import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
-import formatCurrency from "@/lib/formatCurrency";
+import { formatUSDCurrency } from "@/lib/formatCurrency";
 
 export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
@@ -61,7 +61,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
     header: () => <TableColumnHeader name="Price" />,
     cell: ({ row }) => {
       const price = row.getValue("price") as number;
-      return <div className="">{formatCurrency(price)}</div>;
+      return <div className="">{formatUSDCurrency(price)}</div>;
     },
   },
   {
@@ -69,7 +69,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
     header: () => <TableColumnHeader name="Market Cap" />,
     cell: ({ row }) => {
       const marketCap = row.getValue("marketCap") as number;
-      return <div className="">{formatCurrency(marketCap)}</div>;
+      return <div className="">{formatUSDCurrency(marketCap)}</div>;
     },
   },
   {
@@ -77,7 +77,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
     header: () => <TableColumnHeader name="Volume(24h)" />,
     cell: ({ row }) => {
       const volume = row.getValue("24hVolume") as number;
-      return <div className="">{formatCurrency(volume)}</div>;
+      return <div className="">{formatUSDCurrency(volume)}</div>;
     },
   },
   {

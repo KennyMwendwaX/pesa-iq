@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FiArrowUpRight } from "react-icons/fi";
+import { formatKESCurrency } from "@/lib/formatCurrency";
 
 type ExpenseTypes = {
   id: string;
@@ -103,9 +104,8 @@ export default function Expense() {
                         <span className="text-base font-medium text-red-700">
                           {expense.name}
                         </span>
-                        <span className="text-sm font-medium text-red-700 flex">
-                          <div className="text-sm text-red-600 mr-1">KES</div>
-                          {expense.amount}
+                        <span className="text-sm font-medium text-red-700">
+                          {formatKESCurrency(expenseAmount)}
                         </span>
                       </div>
                       <div className="w-full bg-red-100 rounded-full h-2.5">
