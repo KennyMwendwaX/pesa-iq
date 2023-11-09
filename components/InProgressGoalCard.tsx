@@ -13,6 +13,7 @@ import { IoTimerOutline } from "react-icons/io5";
 import { GoGoal } from "react-icons/go";
 import { format } from "date-fns";
 import { useFulfillGoal } from "@/hooks/useFulfillGoal";
+import { useRouter } from "next/navigation";
 
 type Goal = {
   id: string;
@@ -30,13 +31,16 @@ interface Props {
 }
 
 export default function InProgressGoalCard({ goal }: Props) {
+  const router = useRouter();
   const { fulfillGoal } = useFulfillGoal();
+
   const rawDate = goal.target_date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
 
   const fulfill = async (goalId: string) => {
     fulfillGoal(goalId);
+    router.refresh();
   };
 
   return (

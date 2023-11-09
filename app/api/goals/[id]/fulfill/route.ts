@@ -1,8 +1,11 @@
 import prisma from "@/prisma/db";
 import { NextResponse } from "next/server";
 
-export async function PUT({ params }: { params: { slug: string } }) {
-  const id = params.slug;
+export async function PUT(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  const id = params.id;
   try {
     // Create goal
     const fulfilledGoal = await prisma.goal.update({
