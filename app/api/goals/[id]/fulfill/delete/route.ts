@@ -7,25 +7,22 @@ export async function PUT(
 ) {
   const id = params.id;
   try {
-    // Update goal status
-    const fulfilledGoal = await prisma.goal.update({
+    // Delete goal
+    const deletedGoal = await prisma.goal.delete({
       where: {
         id: id,
-      },
-      data: {
-        status: "fulfilled",
       },
     });
 
     // Return success message
-    if (fulfilledGoal) {
+    if (deletedGoal) {
       return NextResponse.json(
-        { message: "Goal fulfilled successfully" },
+        { message: "Goal deleted successfully" },
         { status: 200 }
       );
     } else {
       return NextResponse.json(
-        { message: "Failed to fulfill goal" },
+        { message: "Failed to delete goal" },
         { status: 500 }
       );
     }

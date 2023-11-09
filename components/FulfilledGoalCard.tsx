@@ -6,7 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { BsCheckLg, BsCircleFill, BsThreeDots } from "react-icons/bs";
+import { BsCheckLg, BsCircleFill, BsThreeDots, BsTrophy } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import { LuGoal, LuTrash } from "react-icons/lu";
 import { IoTimerOutline } from "react-icons/io5";
@@ -39,7 +39,7 @@ export default function InProgressGoalCard({ goal }: Props) {
       <div className="h-24 border border-gray-200 shadow-sm rounded-2xl w-[800px] flex">
         <div className="flex items-center space-x-5">
           <div className="ml-5 rounded-full bg-green-100 w-12 h-12 flex justify-center items-center">
-            <BsCheckLg className="w-8 h-8 text-green-600" />
+            <BsTrophy className="w-8 h-8 text-green-600" />
           </div>
           <div className="py-1 space-y-4">
             <div className="items-center flex">
