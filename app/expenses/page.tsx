@@ -3,8 +3,6 @@
 import AddExpenseModal from "@/components/AddExpenseModal";
 import ExpenseCard from "@/components/ExpenseCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { FiArrowUpRight } from "react-icons/fi";
 import { formatKESCurrency } from "@/lib/formatCurrency";
 import { useGetExpenses } from "@/hooks/useGetExpenses";
