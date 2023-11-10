@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { formatKESCurrency } from "@/lib/formatCurrency";
+import { useGetIncomes } from "@/hooks/useGetIncomes";
 
 type IncomeTypes = {
   id: string;
@@ -20,13 +21,7 @@ type IncomeTypes = {
 };
 
 export default function Income() {
-  const { data } = useQuery({
-    queryKey: ["incomeList"],
-    queryFn: async () => {
-      const { data } = await axios.get("/api/income");
-      return data.incomeList as IncomeTypes[];
-    },
-  });
+  const { data } = useGetIncomes();
 
   const incomes = data?.sort(
     (a: IncomeTypes, b: IncomeTypes) =>

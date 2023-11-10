@@ -1,0 +1,25 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+type IncomeTypes = {
+  id: string;
+  name: string;
+  amount: string;
+  date: number;
+  category: string;
+  frequency: string;
+  transaction_type: string;
+  description: string;
+};
+
+export function useGetIncomes() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["incomeList"],
+    queryFn: async () => {
+      const { data } = await axios.get("/api/income");
+      return data.incomeList as IncomeTypes[];
+    },
+  });
+
+  return { data, isLoading, error };
+}
