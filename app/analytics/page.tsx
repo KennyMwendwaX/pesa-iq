@@ -1,7 +1,26 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FiArrowDownLeft } from "react-icons/fi";
+"use client";
 
-export default function page() {
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useGetIncomes } from "@/hooks/useGetIncomes";
+import { FiArrowDownLeft } from "react-icons/fi";
+import type { IncomeTypes } from "@/hooks/useGetIncomes";
+
+export default function Analytics() {
+  const { data } = useGetIncomes();
+
+  const incomes = data?.sort(
+    (a: IncomeTypes, b: IncomeTypes) =>
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+  const totalIncome = incomes?.reduce((acc, income) => {
+    // Use parseFloat to convert the amount from a string to a number
+    const incomeAmount = parseFloat(income.amount);
+
+    // Add the income amount to the accumulator
+    return acc + incomeAmount;
+  }, 0);
+
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
@@ -16,7 +35,7 @@ export default function page() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl text-green-600 font-bold">
-                {/* {totalIncome} */}
+                {totalIncome}
               </div>
               <div className="text-sm text-green-600">KES</div>
             </CardContent>

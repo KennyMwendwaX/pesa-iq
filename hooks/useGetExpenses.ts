@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export type IncomeTypes = {
+export type ExpenseTypes = {
   id: string;
   name: string;
   amount: string;
@@ -12,12 +12,12 @@ export type IncomeTypes = {
   description: string;
 };
 
-export function useGetIncomes() {
+export function useGetExpenses() {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["incomeList"],
+    queryKey: ["expenseList"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/income");
-      return data.incomeList as IncomeTypes[];
+      const { data } = await axios.get("/api/expense");
+      return data.expenseList as ExpenseTypes[];
     },
   });
 

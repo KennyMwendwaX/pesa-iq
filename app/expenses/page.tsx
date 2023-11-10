@@ -7,26 +7,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FiArrowUpRight } from "react-icons/fi";
 import { formatKESCurrency } from "@/lib/formatCurrency";
-
-type ExpenseTypes = {
-  id: string;
-  name: string;
-  amount: string;
-  date: number;
-  category: string;
-  frequency: string;
-  transaction_type: string;
-  description: string;
-};
+import { useGetExpenses } from "@/hooks/useGetExpenses";
+import type { ExpenseTypes } from "@/hooks/useGetExpenses";
 
 export default function Expense() {
-  const { data } = useQuery({
-    queryKey: ["expenseList"],
-    queryFn: async () => {
-      const { data } = await axios.get("/api/expense");
-      return data.expenseList as ExpenseTypes[];
-    },
-  });
+  const { data } = useGetExpenses();
 
   const expenses = data?.sort(
     (a: ExpenseTypes, b: ExpenseTypes) =>

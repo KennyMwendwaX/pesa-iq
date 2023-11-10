@@ -3,22 +3,10 @@
 import AddIncomeModal from "@/components/AddIncomeModal";
 import IncomeCard from "@/components/IncomeCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { formatKESCurrency } from "@/lib/formatCurrency";
 import { useGetIncomes } from "@/hooks/useGetIncomes";
-
-type IncomeTypes = {
-  id: string;
-  name: string;
-  amount: string;
-  date: number;
-  category: string;
-  frequency: string;
-  transaction_type: string;
-  description: string;
-};
+import type { IncomeTypes } from "@/hooks/useGetIncomes";
 
 export default function Income() {
   const { data } = useGetIncomes();
