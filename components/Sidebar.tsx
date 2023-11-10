@@ -43,10 +43,10 @@ export default function Sidebar() {
               <RxDashboard className="ml-2 w-5 h-5" />
               <span>Dashboard</span>
             </Link>
-            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+            {/* <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <LuUser2 className="ml-2 w-5 h-5" />
               <span>Profile</span>
-            </div>
+            </div> */}
             <Link
               href="/income"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
@@ -59,16 +59,18 @@ export default function Sidebar() {
               <FaArrowTrendDown className="ml-2 w-5 h-5" />
               <span>Expenses</span>
             </Link>
-            <Link
+            {/* <Link
               href="/budget"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <BiWallet className="ml-2 w-5 h-5" />
               <span>Budget and Savings</span>
-            </Link>
-            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+            </Link> */}
+            <Link
+              href="/analytics"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <FiPieChart className="ml-2 w-5 h-5" />
-              <span>Analytics and Reports</span>
-            </div>
+              <span>Analytics</span>
+            </Link>
             <Link
               href="/financial-goals"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
