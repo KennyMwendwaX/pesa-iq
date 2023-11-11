@@ -15,6 +15,9 @@ export default function Analytics() {
           <TotalIncomeCard />
           <TotalExpenseCard />
         </div>
+        <div className="pt-3">
+          <div className="text-xl font-bold tracking-tight">Income</div>
+        </div>
       </div>
     </>
   );
