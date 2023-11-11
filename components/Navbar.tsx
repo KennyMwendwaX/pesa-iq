@@ -25,7 +25,7 @@ export default function Navbar() {
             <div className="space-x-3 items-center">
               <Sidebar />
               <Link href="/">
-                <span className="self-center text-xl font-semibold whitespace-nowrap text-slate-200">
+                <span className="self-center text-2xl font-semibold whitespace-nowrap text-slate-200">
                   PesaIQ
                 </span>
                 {/* <Image src={Logo} alt="Logo" /> */}

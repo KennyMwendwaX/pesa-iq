@@ -2,16 +2,16 @@
 
 import { useGetGoals } from "@/hooks/useGetGoals";
 import { ResponsiveContainer, Tooltip, Legend, PieChart, Pie } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 export default function GoalsChart() {
   const { data } = useGetGoals();
 
   const goalsData = data || [];
-  const completedGoalsCount = data?.filter(
+  const completedGoalsCount = goalsData.filter(
     (goal) => goal.status === "fulfilled"
   ).length;
-  const inProgressGoalsCount = data?.filter(
+  const inProgressGoalsCount = goalsData.filter(
     (goal) => goal.status === "in progress"
   ).length;
 
@@ -22,26 +22,28 @@ export default function GoalsChart() {
 
   return (
     <>
-      <Card className="w-full">
+      <Card className="w-[450px]">
         <div className="text-xl font-bold tracking-tight py-2 pl-2">
           Goal Completion Chart
         </div>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              dataKey="value"
-              data={pieChartData}
-              fill="#8884d8"
-              label
-              cx="50%"
-              cy="40%"
-              innerRadius={70}
-              outerRadius={100}
-            />
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+        <div style={{ width: "100%", height: 300 }}>
+          <ResponsiveContainer>
+            <PieChart>
+              <Pie
+                dataKey="value"
+                data={pieChartData}
+                fill="#8884d8"
+                label
+                cx="50%"
+                cy="40%"
+                innerRadius={70}
+                outerRadius={100}
+              />
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       </Card>
     </>
   );

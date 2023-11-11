@@ -5,7 +5,7 @@ export type IncomeTypes = {
   id: string;
   name: string;
   amount: string;
-  date: number;
+  date: Date;
   category: string;
   frequency: string;
   transaction_type: string;
