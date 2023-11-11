@@ -6,7 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { BsCheckLg, BsCircleFill, BsThreeDots, BsTrophy } from "react-icons/bs";
+import { BsCircleFill, BsThreeDots, BsTrophy } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import { LuGoal, LuTrash } from "react-icons/lu";
 import { IoTimerOutline } from "react-icons/io5";
