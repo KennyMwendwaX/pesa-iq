@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetIncomes } from "@/hooks/useGetIncomes";
+import { IncomeTypes, useGetIncomes } from "@/hooks/useGetIncomes";
 import {
   LineChart,
   Line,
@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
   PieChart,
   Pie,
+  Cell,
 } from "recharts";
 import { Card } from "@/components/ui/card";
 import format from "date-fns/format";
@@ -28,6 +29,19 @@ export default function IncomeChart() {
     ...item,
     date: format(new Date(item.date), "dd/MM/yyyy"),
   }));
+
+  const explicitColors = [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728",
+    "#9467bd",
+    "#8c564b",
+    "#e377c2",
+    "#7f7f7f",
+    "#bcbd22",
+    "#17becf",
+  ];
 
   return (
     <>
@@ -65,13 +79,18 @@ export default function IncomeChart() {
                 <Pie
                   dataKey="amount"
                   data={formattedData}
-                  fill="#8884d8"
                   label
                   cx="50%"
                   cy="40%"
                   innerRadius={70}
-                  outerRadius={100}
-                />
+                  outerRadius={100}>
+                  {formattedData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={explicitColors[index % explicitColors.length]}
+                    />
+                  ))}
+                </Pie>
                 <Tooltip />
                 <Legend />
               </PieChart>
