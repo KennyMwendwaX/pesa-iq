@@ -27,11 +27,13 @@ export default function Sidebar() {
   return (
     <>
       <Sheet>
-        <SheetTrigger>
-          <Button className="bg-transparent border border-slate-500 py-1.5 px-2.5">
+        <Button
+          className="bg-transparent border border-slate-500 py-1.5 px-2.5"
+          asChild>
+          <SheetTrigger>
             <HamburgerMenuIcon className="w-5 h-5" />
-          </Button>
-        </SheetTrigger>
+          </SheetTrigger>
+        </Button>
         <SheetContent side="left" className="w-[350px] rounded-r-2xl">
           <SheetHeader>
             <SheetTitle className="ml-2 text-3xl">PesaIQ</SheetTitle>
