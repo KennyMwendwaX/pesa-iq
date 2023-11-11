@@ -31,14 +31,14 @@ export default function Navbar() {
                 {/* <Image src={Logo} alt="Logo" /> */}
               </Link>
             </div>
-            <div className="space-x-3">
+            {/* <div className="space-x-3">
               <Link href="/" className="text-gray-200">
                 Home
               </Link>
               <Link href="/" className="text-gray-200">
                 Link
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="flex md:order-2 items-center space-x-3">
             <div className="relative hidden md:block">
