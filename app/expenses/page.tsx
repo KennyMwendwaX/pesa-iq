@@ -1,12 +1,11 @@
 "use client";
 
-import AddExpenseModal from "@/components/AddExpenseModal";
-import ExpenseCard from "@/components/ExpenseCard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FiArrowUpRight } from "react-icons/fi";
+import AddExpenseModal from "@/components/expense/AddExpenseModal";
+import ExpenseCard from "@/components/expense/ExpenseCard";
 import { formatKESCurrency } from "@/lib/formatCurrency";
 import { useGetExpenses } from "@/hooks/useGetExpenses";
 import type { ExpenseTypes } from "@/hooks/useGetExpenses";
+import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
 
 export default function Expense() {
   const { data } = useGetExpenses();
@@ -38,26 +37,7 @@ export default function Expense() {
         <div className="flex justify-between pt-3">
           <div className="w-[800px]">
             <div className="pb-3">
-              <Card className="w-full flex bg-red-100 border-none rounded-xl">
-                <div>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-base text-red-600 font-medium">
-                      Total Expense
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl text-red-600 font-bold">
-                      {totalExpense}
-                    </div>
-                    <div className="text-sm text-red-600">KES</div>
-                  </CardContent>
-                </div>
-                <div className="ml-auto p-3">
-                  <div className="rounded-full bg-red-600 w-12 h-12 flex justify-center items-center">
-                    <FiArrowUpRight className="w-8 h-8 text-red-100" />
-                  </div>
-                </div>
-              </Card>
+              <TotalExpenseCard />
             </div>
             <div className="w-full space-y-2">
               <AddExpenseModal />

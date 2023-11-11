@@ -1,8 +1,8 @@
 "use client";
 
-import AddFinancialGoalModal from "@/components/AddFinancialGoalModal";
-import InProgressGoalCard from "@/components/InProgressGoalCard";
-import FulfilledGoalCard from "@/components/FulfilledGoalCard";
+import AddFinancialGoalModal from "@/components/goal/AddFinancialGoalModal";
+import InProgressGoalCard from "@/components/goal/InProgressGoalCard";
+import FulfilledGoalCard from "@/components/goal/FulfilledGoalCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

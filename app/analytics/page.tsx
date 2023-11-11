@@ -1,8 +1,8 @@
 "use client";
 
 import CurrentBalance from "@/components/CurrentBalanceCard";
-import TotalExpenseCard from "@/components/TotalExpenseCard";
-import TotalIncomeCard from "@/components/TotalIncomeCard";
+import TotalIncomeCard from "@/components/income/TotalIncomeCard";
+import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
 
 export default function Analytics() {
   return (
