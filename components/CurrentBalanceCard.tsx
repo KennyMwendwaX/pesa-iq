@@ -3,7 +3,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BsCheckLg } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
-import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
 import { useGetIncomes } from "@/hooks/useGetIncomes";
 import type { IncomeTypes } from "@/hooks/useGetIncomes";
 import { useGetExpenses } from "@/hooks/useGetExpenses";
