@@ -3,7 +3,8 @@
 import CurrentBalance from "@/components/CurrentBalanceCard";
 import TotalIncomeCard from "@/components/income/TotalIncomeCard";
 import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
-import IncomeChart from "@/components/charts/IncomeChart";
+import IncomeCharts from "@/components/charts/IncomeCharts";
+import ExpenseCharts from "@/components/charts/ExpenseCharts";
 
 export default function Analytics() {
   return (
@@ -18,7 +19,11 @@ export default function Analytics() {
         </div>
         <div className="pt-3">
           <div className="text-xl font-bold tracking-tight">Income</div>
-          <IncomeChart />
+          <IncomeCharts />
+        </div>
+        <div className="pt-3">
+          <div className="text-xl font-bold tracking-tight">Expense</div>
+          <ExpenseCharts />
         </div>
       </div>
     </>

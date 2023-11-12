@@ -1,6 +1,6 @@
 "use client";
 
-import { IncomeTypes, useGetIncomes } from "@/hooks/useGetIncomes";
+import { useGetIncomes } from "@/hooks/useGetIncomes";
 import {
   LineChart,
   Line,
@@ -17,7 +17,7 @@ import {
 import { Card } from "@/components/ui/card";
 import format from "date-fns/format";
 
-export default function IncomeChart() {
+export default function IncomeCharts() {
   const { data } = useGetIncomes();
 
   const formattedData =
@@ -45,8 +45,8 @@ export default function IncomeChart() {
 
   return (
     <>
-      <div className="flex space-x-5">
-        <Card className="w-[600px] pt-4 px-2">
+      <div className="flex space-x-5 pt-2">
+        <Card className="w-[800px] pt-4 px-2">
           <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <LineChart
