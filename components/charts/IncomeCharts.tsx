@@ -65,7 +65,7 @@ export default function IncomeCharts() {
                 <Line
                   type="monotone"
                   dataKey="amount"
-                  stroke="#82ca9d"
+                  stroke="#2ca02c"
                   activeDot={{ r: 8 }}
                 />
               </LineChart>

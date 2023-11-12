@@ -35,7 +35,7 @@ export const NSETableColumns: ColumnDef<NSEStockData>[] = [
   {
     accessorKey: "name",
     header: () => <TableColumnHeader name="Name" />,
-    cell: ({ row }) => <div className="">{row.getValue("name")}</div>,
+    cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
   {
     accessorKey: "volume",
@@ -51,7 +51,7 @@ export const NSETableColumns: ColumnDef<NSEStockData>[] = [
   {
     accessorKey: "price",
     header: () => <TableColumnHeader name="Price" />,
-    cell: ({ row }) => <div className="">{row.getValue("price")}</div>,
+    cell: ({ row }) => <div>{row.getValue("price")}</div>,
   },
   {
     accessorKey: "change",

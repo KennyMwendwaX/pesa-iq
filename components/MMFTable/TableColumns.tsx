@@ -1,9 +1,7 @@
 import { ColumnDef } from "@tanstack/react-table";
-
 import { Checkbox } from "@/components/ui/checkbox";
 import TableColumnHeader from "./TableColumnHeader";
 import type { MoneyMarketFund } from "@/types/MoneyMarketFund";
-import { FiArrowDownRight, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 
 export const MMFTableColumns: ColumnDef<MoneyMarketFund>[] = [
   {

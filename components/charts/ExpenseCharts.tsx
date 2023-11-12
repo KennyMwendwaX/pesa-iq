@@ -65,7 +65,7 @@ export default function ExpenseCharts() {
                 <Line
                   type="monotone"
                   dataKey="amount"
-                  stroke="#82ca9d"
+                  stroke="#d62728"
                   activeDot={{ r: 8 }}
                 />
               </LineChart>

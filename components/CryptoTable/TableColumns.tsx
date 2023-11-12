@@ -36,7 +36,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
     accessorKey: "name",
     header: () => <TableColumnHeader name="Name" />,
-    cell: ({ row }) => <div className="">{row.getValue("name")}</div>,
+    cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
   {
     accessorKey: "iconUrl",
@@ -45,7 +45,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
       const iconSVG = row.getValue("iconUrl") as string;
       console.log(iconSVG);
       return (
-        <div className="">
+        <div>
           <Image src={iconSVG} width={24} height={24} alt="icon-svg" />
         </div>
       );
@@ -54,14 +54,14 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
   {
     accessorKey: "symbol",
     header: () => <TableColumnHeader name="Symbol" />,
-    cell: ({ row }) => <div className="">{row.getValue("symbol")}</div>,
+    cell: ({ row }) => <div>{row.getValue("symbol")}</div>,
   },
   {
     accessorKey: "price",
     header: () => <TableColumnHeader name="Price" />,
     cell: ({ row }) => {
       const price = row.getValue("price") as number;
-      return <div className="">{formatUSDCurrency(price)}</div>;
+      return <div>{formatUSDCurrency(price)}</div>;
     },
   },
   {
@@ -69,7 +69,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
     header: () => <TableColumnHeader name="Market Cap" />,
     cell: ({ row }) => {
       const marketCap = row.getValue("marketCap") as number;
-      return <div className="">{formatUSDCurrency(marketCap)}</div>;
+      return <div>{formatUSDCurrency(marketCap)}</div>;
     },
   },
   {
@@ -77,7 +77,7 @@ export const CryptoTableColumns: ColumnDef<Coin>[] = [
     header: () => <TableColumnHeader name="Volume(24h)" />,
     cell: ({ row }) => {
       const volume = row.getValue("24hVolume") as number;
-      return <div className="">{formatUSDCurrency(volume)}</div>;
+      return <div>{formatUSDCurrency(volume)}</div>;
     },
   },
   {

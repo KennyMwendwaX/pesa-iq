@@ -33,31 +33,31 @@ export const StocksTableColumns: ColumnDef<Stock>[] = [
   {
     accessorKey: "name",
     header: () => <TableColumnHeader name="Name" />,
-    cell: ({ row }) => <div className="">{row.getValue("name")}</div>,
+    cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
   {
     accessorKey: "currency",
     header: () => <TableColumnHeader name="Currency" />,
-    cell: ({ row }) => <div className="">{row.getValue("currency")}</div>,
+    cell: ({ row }) => <div>{row.getValue("currency")}</div>,
   },
   {
     accessorKey: "exchange",
     header: () => <TableColumnHeader name="Exchange" />,
-    cell: ({ row }) => <div className="">{row.getValue("exchange")}</div>,
+    cell: ({ row }) => <div>{row.getValue("exchange")}</div>,
   },
   {
     accessorKey: "mic_code",
     header: () => <TableColumnHeader name="Mic Code" />,
-    cell: ({ row }) => <div className="">{row.getValue("mic_code")}</div>,
+    cell: ({ row }) => <div>{row.getValue("mic_code")}</div>,
   },
   {
     accessorKey: "country",
     header: () => <TableColumnHeader name="Country" />,
-    cell: ({ row }) => <div className="">{row.getValue("country")}</div>,
+    cell: ({ row }) => <div>{row.getValue("country")}</div>,
   },
   {
     accessorKey: "type",
     header: () => <TableColumnHeader name="Type" />,
-    cell: ({ row }) => <div className="">{row.getValue("type")}</div>,
+    cell: ({ row }) => <div>{row.getValue("type")}</div>,
   },
 ];
