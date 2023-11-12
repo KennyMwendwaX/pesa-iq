@@ -10,12 +10,13 @@ import TotalIncomeCard from "@/components/income/TotalIncomeCard";
 export default function Income() {
   const { data } = useGetIncomes();
 
-  const incomes = data?.sort(
-    (a: IncomeTypes, b: IncomeTypes) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  const incomes =
+    data?.sort(
+      (a: IncomeTypes, b: IncomeTypes) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    ) || [];
 
-  const totalIncome = incomes?.reduce((acc, income) => {
+  const totalIncome = incomes.reduce((acc, income) => {
     // Use parseFloat to convert the amount from a string to a number
     const incomeAmount = parseFloat(income.amount);
 

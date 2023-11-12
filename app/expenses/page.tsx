@@ -10,12 +10,13 @@ import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
 export default function Expense() {
   const { data } = useGetExpenses();
 
-  const expenses = data?.sort(
-    (a: ExpenseTypes, b: ExpenseTypes) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  const expenses =
+    data?.sort(
+      (a: ExpenseTypes, b: ExpenseTypes) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    ) || [];
 
-  const totalExpense = expenses?.reduce((acc, expense) => {
+  const totalExpense = expenses.reduce((acc, expense) => {
     // Use parseFloat to convert the amount from a string to a number
     const expenseAmount = parseFloat(expense.amount);
 
