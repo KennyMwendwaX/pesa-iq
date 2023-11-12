@@ -17,11 +17,12 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { RxDashboard } from "react-icons/rx";
 import { LuUser2 } from "react-icons/lu";
 import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
-import { BiWallet } from "react-icons/bi";
+import { BiHealth, BiShieldPlus, BiWallet } from "react-icons/bi";
 import { FiPieChart } from "react-icons/fi";
 import { BsTrophy } from "react-icons/bs";
 import { AiOutlineDollar } from "react-icons/ai";
 import { RiGraduationCapLine } from "react-icons/ri";
+import { MdOutlineHealthAndSafety } from "react-icons/md";
 
 export default function Sidebar() {
   return (
@@ -61,18 +62,6 @@ export default function Sidebar() {
               <FaArrowTrendDown className="ml-2 w-5 h-5" />
               <span>Expenses</span>
             </Link>
-            {/* <Link
-              href="/budget"
-              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
-              <BiWallet className="ml-2 w-5 h-5" />
-              <span>Budget and Savings</span>
-            </Link> */}
-            <Link
-              href="/analytics"
-              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
-              <FiPieChart className="ml-2 w-5 h-5" />
-              <span>Analytics</span>
-            </Link>
             <Link
               href="/financial-goals"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
@@ -80,9 +69,21 @@ export default function Sidebar() {
               <span>Financial Goals</span>
             </Link>
             <Link
+              href="/financial-health"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <BiShieldPlus className="ml-1 w-6 h-6" />
+              <span>Financial Health</span>
+            </Link>
+            <Link
+              href="/analytics"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <FiPieChart className="ml-2 w-5 h-5" />
+              <span>Analytics</span>
+            </Link>
+            <Link
               href="/investment-hub"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
-              <AiOutlineDollar className="ml-2 w-6 h-6" />
+              <AiOutlineDollar className="ml-1 w-6 h-6" />
               <span>Investment Hub</span>
             </Link>
             <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
