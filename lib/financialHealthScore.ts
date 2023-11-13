@@ -53,6 +53,63 @@ const calculateDebtToIncomeRatio = ({
   return debtToIncomeRatio;
 };
 
+// Scoring logic for income stability
+const calculateIncomeStabilityScore = (averageIncome: number) => {
+  if (averageIncome >= 100000) {
+    return 10;
+  } else if (averageIncome >= 90000) {
+    return 9;
+  } else if (averageIncome >= 80000) {
+    return 8;
+  } else if (averageIncome >= 70000) {
+    return 7;
+  } else if (averageIncome >= 60000) {
+    return 6;
+  } else if (averageIncome >= 50000) {
+    return 5;
+  } else if (averageIncome >= 40000) {
+    return 4;
+  } else if (averageIncome >= 30000) {
+    return 3;
+  } else if (averageIncome >= 20000) {
+    return 2;
+  } else if (averageIncome < 20000) {
+    return 1;
+  } else {
+    return 1;
+  }
+};
+
+// Scoring logic for savings rate
+const calculateSavingsRateScore = (savingsRate: number) => {
+  if (savingsRate >= 20) {
+    return 10;
+  } else if (savingsRate >= 15) {
+    return 8;
+  } else if (savingsRate >= 10) {
+    return 6;
+  } else if (savingsRate >= 5) {
+    return 4;
+  } else {
+    return 2;
+  }
+};
+
+// Scoring logic for debt-to-income ratio
+const calculateDebtToIncomeRatioScore = (debtToIncomeRatio: number) => {
+  if (debtToIncomeRatio <= 10) {
+    return 10;
+  } else if (debtToIncomeRatio <= 20) {
+    return 8;
+  } else if (debtToIncomeRatio <= 20) {
+    return 6;
+  } else if (debtToIncomeRatio <= 25) {
+    return 4;
+  } else {
+    return 2;
+  }
+};
+
 // Calculate overall financial health score
 export const calculateFinancialHealthScore = ({
   incomes,
@@ -65,13 +122,17 @@ export const calculateFinancialHealthScore = ({
   const savingsRate = calculateSavingsRate({ incomes, expenses });
   const debtToIncomeRatio = calculateDebtToIncomeRatio({ incomes, expenses });
 
-  // You can define your own scoring logic based on these metrics
-  // const incomeStabilityScore = calculateIncomeStabilityScore(averageIncome);
-  // const savingsRateScore = calculateSavingsRateScore(savingsRate);
-  // const debtToIncomeRatioScore = calculateDebtToIncomeRatioScore(debtToIncomeRatio);
+  // Scoring logic based on these metrics
+  const incomeStabilityScore = calculateIncomeStabilityScore(averageIncome);
+  const savingsRateScore = calculateSavingsRateScore(savingsRate);
+  const debtToIncomeRatioScore =
+    calculateDebtToIncomeRatioScore(debtToIncomeRatio);
 
   // Calculate overall score based on weights
-  // const overallScore = (incomeStabilityScore * 0.4) + (savingsRateScore * 0.4) + (debtToIncomeRatioScore * 0.2);
+  const overallScore =
+    incomeStabilityScore * 0.4 +
+    savingsRateScore * 0.4 +
+    debtToIncomeRatioScore * 0.2;
 
-  // return overallScore;
+  return overallScore;
 };
