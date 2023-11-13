@@ -1,5 +1,5 @@
-import { ExpenseTypes } from "@/hooks/useGetExpenses";
 import { IncomeTypes } from "@/hooks/useGetIncomes";
+import { ExpenseTypes } from "@/hooks/useGetExpenses";
 
 // Calculate average income per month
 const calculateAverageIncome = (incomes: IncomeTypes[]) => {
@@ -7,8 +7,8 @@ const calculateAverageIncome = (incomes: IncomeTypes[]) => {
     (acc, income) => acc + parseFloat(income.amount),
     0
   );
-  const averageIncome = totalIncome / incomes.length;
-  return averageIncome;
+
+  return totalIncome;
 };
 
 // Calculate savings rate
@@ -54,7 +54,7 @@ const calculateDebtToIncomeRatio = ({
 };
 
 // Scoring logic for income stability
-const calculateIncomeStabilityScore = (averageIncome: number) => {
+export const calculateIncomeStabilityScore = (averageIncome: number) => {
   if (averageIncome >= 100000) {
     return 10;
   } else if (averageIncome >= 90000) {
@@ -81,12 +81,12 @@ const calculateIncomeStabilityScore = (averageIncome: number) => {
 };
 
 // Scoring logic for savings rate
-const calculateSavingsRateScore = (savingsRate: number) => {
-  if (savingsRate >= 20) {
+export const calculateSavingsRateScore = (savingsRate: number) => {
+  if (savingsRate >= 50) {
     return 10;
-  } else if (savingsRate >= 15) {
+  } else if (savingsRate >= 30) {
     return 8;
-  } else if (savingsRate >= 10) {
+  } else if (savingsRate >= 20) {
     return 6;
   } else if (savingsRate >= 5) {
     return 4;
@@ -96,17 +96,19 @@ const calculateSavingsRateScore = (savingsRate: number) => {
 };
 
 // Scoring logic for debt-to-income ratio
-const calculateDebtToIncomeRatioScore = (debtToIncomeRatio: number) => {
-  if (debtToIncomeRatio <= 10) {
+export const calculateDebtToIncomeRatioScore = (debtToIncomeRatio: number) => {
+  if (debtToIncomeRatio <= 20) {
     return 10;
-  } else if (debtToIncomeRatio <= 20) {
+  } else if (debtToIncomeRatio <= 40) {
     return 8;
-  } else if (debtToIncomeRatio <= 20) {
+  } else if (debtToIncomeRatio <= 60) {
     return 6;
-  } else if (debtToIncomeRatio <= 25) {
+  } else if (debtToIncomeRatio <= 80) {
     return 4;
-  } else {
+  } else if (debtToIncomeRatio <= 90) {
     return 2;
+  } else {
+    return 1;
   }
 };
 
@@ -134,5 +136,10 @@ export const calculateFinancialHealthScore = ({
     savingsRateScore * 0.4 +
     debtToIncomeRatioScore * 0.2;
 
-  return overallScore;
+  return {
+    overallScore: overallScore.toFixed(1),
+    incomeStabilityScore: incomeStabilityScore.toFixed(1),
+    savingsRateScore: savingsRateScore.toFixed(1),
+    debtToIncomeRatioScore: debtToIncomeRatioScore.toFixed(1),
+  };
 };
