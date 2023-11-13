@@ -98,9 +98,9 @@ export default function Sidebar() {
                 <LuUser2 className="w-5 h-5" />
               </AvatarFallback>
             </Avatar>
-            <div className="space-y-1">
-              <div>Malcom X</div>
-              <span className="text-muted-foreground text-sm">
+            <div className="py-2 space-y-1">
+              <div className="pt-1">Malcom X</div>
+              <span className="text-muted-foreground text-sm pb-1">
                 malcomx@gmail.com
               </span>
             </div>
