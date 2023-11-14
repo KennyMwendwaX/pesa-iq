@@ -32,7 +32,14 @@ type Props = {
 };
 
 export default function LatestTransactions({ incomes, expenses }: Props) {
-  const combinedData = [...incomes, ...expenses];
+  // Add a "type" property to each item in incomes and expenses arrays
+  const incomesWithType = incomes.map((item) => ({ ...item, type: "income" }));
+  const expensesWithType = expenses.map((item) => ({
+    ...item,
+    type: "expense",
+  }));
+
+  const combinedData = [...incomesWithType, ...expensesWithType];
 
   // Sort the combined array based on the date in descending order
   combinedData.sort(
@@ -52,7 +59,7 @@ export default function LatestTransactions({ incomes, expenses }: Props) {
     <>
       <Card>
         <div className="text-lg font-bold tracking-tight w-[450px] pt-2 pl-2">
-          Latest Transacations
+          Latest Transactions
         </div>
         <div className="relative overflow-x-auto pt-2 pb-1">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -79,7 +86,15 @@ export default function LatestTransactions({ incomes, expenses }: Props) {
                   </th>
                   <td className="px-6 py-4">{transaction.date}</td>
                   <td className="px-6 py-4">
-                    {formatKESCurrency(transaction.amount)}
+                    {transaction.type === "income" ? (
+                      <span className="text-green-600">
+                        +{formatKESCurrency(transaction.amount)}
+                      </span>
+                    ) : (
+                      <span className="text-red-600">
+                        -{formatKESCurrency(transaction.amount)}
+                      </span>
+                    )}
                   </td>
                 </tr>
               ))}
