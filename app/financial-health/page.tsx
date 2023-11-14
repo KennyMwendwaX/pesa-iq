@@ -6,13 +6,23 @@ import { calculateFinancialHealthScore } from "@/lib/financialHealthScore";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BsCheckLg } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
+import { formatAmount } from "@/lib/formatAmount";
 
 export default function FinancialHealth() {
   const { data: incomeData } = useGetIncomes();
   const { data: expenseData } = useGetExpenses();
 
-  const incomes = incomeData || [];
-  const expenses = expenseData || [];
+  const incomes =
+    incomeData?.map((income) => ({
+      ...income,
+      amount: formatAmount(parseFloat(income.amount), income.frequency),
+    })) || [];
+
+  const expenses =
+    expenseData?.map((expense) => ({
+      ...expense,
+      amount: formatAmount(parseFloat(expense.amount), expense.frequency),
+    })) || [];
 
   const scores = calculateFinancialHealthScore({
     incomes,

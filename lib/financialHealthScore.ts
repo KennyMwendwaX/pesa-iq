@@ -1,12 +1,28 @@
-import { IncomeTypes } from "@/hooks/useGetIncomes";
-import { ExpenseTypes } from "@/hooks/useGetExpenses";
+type IncomeTypes = {
+  id: string;
+  name: string;
+  amount: number;
+  date: Date;
+  category: string;
+  frequency: string;
+  transaction_type: string;
+  description: string;
+};
+
+type ExpenseTypes = {
+  id: string;
+  name: string;
+  amount: number;
+  date: number;
+  category: string;
+  frequency: string;
+  transaction_type: string;
+  description: string;
+};
 
 // Calculate average income per month
 const calculateAverageIncome = (incomes: IncomeTypes[]) => {
-  const totalIncome = incomes.reduce(
-    (acc, income) => acc + parseFloat(income.amount),
-    0
-  );
+  const totalIncome = incomes.reduce((acc, income) => acc + income.amount, 0);
 
   return totalIncome;
 };
@@ -19,12 +35,9 @@ const calculateSavingsRate = ({
   incomes: IncomeTypes[];
   expenses: ExpenseTypes[];
 }) => {
-  const totalIncome = incomes.reduce(
-    (acc, income) => acc + parseFloat(income.amount),
-    0
-  );
+  const totalIncome = incomes.reduce((acc, income) => acc + income.amount, 0);
   const totalExpenses = expenses.reduce(
-    (acc, expense) => acc + parseFloat(expense.amount),
+    (acc, expense) => acc + expense.amount,
     0
   );
 
@@ -40,12 +53,9 @@ const calculateExpenseToIncomeRatio = ({
   incomes: IncomeTypes[];
   expenses: ExpenseTypes[];
 }) => {
-  const totalIncome = incomes.reduce(
-    (acc, income) => acc + parseFloat(income.amount),
-    0
-  );
+  const totalIncome = incomes.reduce((acc, income) => acc + income.amount, 0);
   const totalExpense = expenses.reduce(
-    (acc, expense) => acc + parseFloat(expense.amount),
+    (acc, expense) => acc + expense.amount,
     0
   );
 

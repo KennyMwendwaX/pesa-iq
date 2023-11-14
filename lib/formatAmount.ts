@@ -1,5 +1,5 @@
 // Function to format amount based on frequency
-const formatAmount = (amount: number, frequency: string) => {
+export const formatAmount = (amount: number, frequency: string) => {
   switch (frequency) {
     case "one-time":
       return amount;

@@ -6,6 +6,7 @@ import { formatKESCurrency } from "@/lib/formatCurrency";
 import { useGetExpenses } from "@/hooks/useGetExpenses";
 import type { ExpenseTypes } from "@/hooks/useGetExpenses";
 import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
+import { formatAmount } from "@/lib/formatAmount";
 
 export default function Expense() {
   const { data } = useGetExpenses();
@@ -16,19 +17,18 @@ export default function Expense() {
         new Date(b.date).getTime() - new Date(a.date).getTime()
     ) || [];
 
-  const totalExpense = expenses.reduce((acc, expense) => {
-    // Use parseFloat to convert the amount from a string to a number
-    const expenseAmount = parseFloat(expense.amount);
+  const formattedExpenses = expenses.map((expense) => ({
+    ...expense,
+    amount: formatAmount(parseFloat(expense.amount), expense.frequency),
+  }));
 
+  const totalExpense = formattedExpenses.reduce((acc, expense) => {
     // Add the expense amount to the accumulator
-    return acc + expenseAmount;
+    return acc + expense.amount;
   }, 0);
 
-  const topExpenses = data
-    ?.sort(
-      (a: ExpenseTypes, b: ExpenseTypes) =>
-        parseInt(b.amount) - parseInt(a.amount)
-    )
+  const topExpenses = formattedExpenses
+    .sort((a, b) => b.amount - a.amount)
     .slice(0, 5);
 
   return (
@@ -38,12 +38,12 @@ export default function Expense() {
         <div className="flex justify-between pt-3">
           <div className="w-[800px]">
             <div className="pb-3">
-              <TotalExpenseCard />
+              <TotalExpenseCard totalExpense={totalExpense} />
             </div>
             <div className="w-full space-y-2">
               <AddExpenseModal />
-              {expenses && expenses.length > 0 ? (
-                expenses.map((expense) => (
+              {formattedExpenses && formattedExpenses.length > 0 ? (
+                formattedExpenses.map((expense) => (
                   <ExpenseCard key={expense.id} expense={expense} />
                 ))
               ) : (
@@ -58,9 +58,8 @@ export default function Expense() {
             <div className="px-3 pt-3 space-y-6">
               {topExpenses && topExpenses.length > 0 ? (
                 topExpenses.map((expense) => {
-                  const expenseAmount = parseInt(expense.amount);
                   const expensePercentage = totalExpense
-                    ? (expenseAmount / totalExpense) * 100
+                    ? (expense.amount / totalExpense) * 100
                     : 0;
                   return (
                     <div key={expense.id}>
@@ -69,7 +68,7 @@ export default function Expense() {
                           {expense.name}
                         </span>
                         <span className="text-sm font-medium text-red-700">
-                          {formatKESCurrency(expenseAmount)}
+                          {formatKESCurrency(expense.amount)}
                         </span>
                       </div>
                       <div className="w-full bg-red-100 rounded-full h-2.5">

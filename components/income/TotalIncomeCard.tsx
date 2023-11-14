@@ -2,26 +2,12 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FiArrowDownLeft } from "react-icons/fi";
-import { useGetIncomes } from "@/hooks/useGetIncomes";
-import type { IncomeTypes } from "@/hooks/useGetIncomes";
 
-export default function TotalIncomeCard() {
-  const { data: incomeData } = useGetIncomes();
-
-  const incomes = incomeData?.sort(
-    (a: IncomeTypes, b: IncomeTypes) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
-  const totalIncome = incomes
-    ? incomes.reduce((acc, income) => {
-        // Use parseFloat to convert the amount from a string to a number
-        const incomeAmount = parseFloat(income.amount);
-
-        // Add the income amount to the accumulator
-        return acc + incomeAmount;
-      }, 0)
-    : 0;
+export default function TotalIncomeCard({
+  totalIncome,
+}: {
+  totalIncome: number;
+}) {
   return (
     <>
       <Card className="w-full flex bg-green-100 border-none rounded-xl">

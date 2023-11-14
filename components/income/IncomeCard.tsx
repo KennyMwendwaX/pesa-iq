@@ -24,7 +24,7 @@ import { useRouter } from "next/navigation";
 type IncomeTypes = {
   id: string;
   name: string;
-  amount: string;
+  amount: number;
   date: Date;
   category: string;
   frequency: string;
@@ -43,7 +43,6 @@ export default function IncomeCard({ income }: Props) {
   const rawDate = income.date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
-  const amount = parseInt(income.amount);
 
   const expenseIncome = async (incomeId: string) => {
     deleteIncome(incomeId);
@@ -66,7 +65,7 @@ export default function IncomeCard({ income }: Props) {
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>{formatKESCurrency(amount)}</div>
+                <div>{formatKESCurrency(income.amount)}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <BsFillCalendarEventFill className="w-5 h-5" />

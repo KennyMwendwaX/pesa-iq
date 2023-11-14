@@ -3,46 +3,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BsCheckLg } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
-import { useGetIncomes } from "@/hooks/useGetIncomes";
-import type { IncomeTypes } from "@/hooks/useGetIncomes";
-import { useGetExpenses } from "@/hooks/useGetExpenses";
-import type { ExpenseTypes } from "@/hooks/useGetExpenses";
 
-export default function CurrentBalance() {
-  const { data: incomeData } = useGetIncomes();
-  const { data: expenseData } = useGetExpenses();
-
-  const incomes = incomeData?.sort(
-    (a: IncomeTypes, b: IncomeTypes) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
-  const totalIncome = incomes
-    ? incomes.reduce((acc, income) => {
-        // Use parseFloat to convert the amount from a string to a number
-        const incomeAmount = parseFloat(income.amount);
-
-        // Add the income amount to the accumulator
-        return acc + incomeAmount;
-      }, 0)
-    : 0;
-
-  const expenses = expenseData?.sort(
-    (a: ExpenseTypes, b: ExpenseTypes) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
-  const totalExpense = expenses
-    ? expenses.reduce((acc, expense) => {
-        // Use parseFloat to convert the amount from a string to a number
-        const expenseAmount = parseFloat(expense.amount);
-
-        // Add the expense amount to the accumulator
-        return acc + expenseAmount;
-      }, 0)
-    : 0;
-
-  const currentBalance = totalIncome - totalExpense;
+export default function CurrentBalance({
+  currentBalance,
+}: {
+  currentBalance: number;
+}) {
   return (
     <>
       <Card className="w-full flex bg-blue-100 border-none rounded-xl">

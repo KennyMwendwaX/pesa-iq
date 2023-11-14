@@ -6,14 +6,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { IoHomeOutline } from "react-icons/io5";
 import {
   BsCircleFill,
-  BsCurrencyDollar,
   BsFillCalendarEventFill,
   BsThreeDots,
 } from "react-icons/bs";
-import { BiDollarCircle, BiSolidComment } from "react-icons/bi";
+import { BiDollarCircle } from "react-icons/bi";
 import { LuTrash } from "react-icons/lu";
 import { FiArrowUpRight, FiEdit } from "react-icons/fi";
 import { FaCommentAlt } from "react-icons/fa";
@@ -26,7 +24,7 @@ import { useRouter } from "next/navigation";
 type ExpenseTypes = {
   id: string;
   name: string;
-  amount: string;
+  amount: number;
   date: number;
   category: string;
   frequency: string;
@@ -45,7 +43,6 @@ export default function ExpenseCard({ expense }: Props) {
   const rawDate = expense.date;
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
-  const amount = parseInt(expense.amount);
 
   const expenseDelete = async (expenseId: string) => {
     deleteExpense(expenseId);
@@ -69,7 +66,7 @@ export default function ExpenseCard({ expense }: Props) {
             <div className="items-center flex space-x-5">
               <div className="flex items-center space-x-1">
                 <BiDollarCircle className="w-5 h-5" />
-                <div>{formatKESCurrency(amount)}</div>
+                <div>{formatKESCurrency(expense.amount)}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <BsFillCalendarEventFill className="w-5 h-5" />

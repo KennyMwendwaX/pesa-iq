@@ -6,6 +6,7 @@ import { formatKESCurrency } from "@/lib/formatCurrency";
 import { useGetIncomes } from "@/hooks/useGetIncomes";
 import type { IncomeTypes } from "@/hooks/useGetIncomes";
 import TotalIncomeCard from "@/components/income/TotalIncomeCard";
+import { formatAmount } from "@/lib/formatAmount";
 
 export default function Income() {
   const { data } = useGetIncomes();
@@ -16,19 +17,18 @@ export default function Income() {
         new Date(b.date).getTime() - new Date(a.date).getTime()
     ) || [];
 
-  const totalIncome = incomes.reduce((acc, income) => {
-    // Use parseFloat to convert the amount from a string to a number
-    const incomeAmount = parseFloat(income.amount);
+  const formattedIncomes = incomes.map((income) => ({
+    ...income,
+    amount: formatAmount(parseFloat(income.amount), income.frequency),
+  }));
 
+  const totalIncome = formattedIncomes.reduce((acc, income) => {
     // Add the income amount to the accumulator
-    return acc + incomeAmount;
+    return acc + income.amount;
   }, 0);
 
-  const topIncomes = data
-    ?.sort(
-      (a: IncomeTypes, b: IncomeTypes) =>
-        parseInt(b.amount) - parseInt(a.amount)
-    )
+  const topIncomes = formattedIncomes
+    .sort((a, b) => b.amount - a.amount)
     .slice(0, 5);
 
   return (
@@ -39,12 +39,12 @@ export default function Income() {
         <div className="flex justify-between pt-3">
           <div className="w-[800px]">
             <div className="pb-3">
-              <TotalIncomeCard />
+              <TotalIncomeCard totalIncome={totalIncome} />
             </div>
             <div className="w-full space-y-2">
               <AddIncomeModal />
-              {incomes && incomes.length > 0 ? (
-                incomes.map((income) => (
+              {formattedIncomes && formattedIncomes.length > 0 ? (
+                formattedIncomes.map((income) => (
                   <IncomeCard key={income.id} income={income} />
                 ))
               ) : (
@@ -59,9 +59,8 @@ export default function Income() {
             <div className="px-3 pt-3 space-y-6">
               {topIncomes && topIncomes.length > 0 ? (
                 topIncomes.map((income) => {
-                  const incomeAmount = parseInt(income.amount);
                   const incomePercentage = totalIncome
-                    ? (incomeAmount / totalIncome) * 100
+                    ? (income.amount / totalIncome) * 100
                     : 0;
                   return (
                     <div key={income.id}>
@@ -70,7 +69,7 @@ export default function Income() {
                           {income.name}
                         </span>
                         <span className="text-sm font-medium text-green-700">
-                          {formatKESCurrency(incomeAmount)}
+                          {formatKESCurrency(income.amount)}
                         </span>
                       </div>
                       <div className="w-full bg-green-100 rounded-full h-2.5">
