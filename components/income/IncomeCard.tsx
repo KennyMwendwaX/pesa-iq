@@ -50,7 +50,7 @@ export default function IncomeCard({ income }: Props) {
   };
   return (
     <>
-      <div className="h-24 border border-gray-200 shadow-sm rounded-2xl flex">
+      <div className="bg-white h-24 border border-gray-200 shadow-sm rounded-2xl flex">
         <div className="flex items-center space-x-5">
           <div className="ml-5 rounded-full bg-green-100 w-12 h-12 flex justify-center items-center">
             <FiArrowDownLeft className="w-8 h-8 text-green-600" />

@@ -7,6 +7,7 @@ import { useGetIncomes } from "@/hooks/useGetIncomes";
 import type { IncomeTypes } from "@/hooks/useGetIncomes";
 import TotalIncomeCard from "@/components/income/TotalIncomeCard";
 import { formatAmount } from "@/lib/formatAmount";
+import { Card } from "@/components/ui/card";
 
 export default function Income() {
   const { data } = useGetIncomes();
@@ -52,7 +53,7 @@ export default function Income() {
               )}
             </div>
           </div>
-          <div className="border border-gray-400 rounded-xl h-[350px] w-[400px]">
+          <Card className="h-[350px] w-[400px] rounded-xl">
             <div className="text-xl font-bold tracking-tight pt-2 pl-2">
               Top Incomes
             </div>
@@ -84,7 +85,7 @@ export default function Income() {
                 <p>No data available.</p>
               )}
             </div>
-          </div>
+          </Card>
         </div>
       </div>
     </>

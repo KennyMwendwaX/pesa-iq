@@ -75,7 +75,7 @@ export default function TransactionChart({ incomes, expenses }: Props) {
 
   return (
     <>
-      <Card className="w-[800px] pt-6 px-2 pb-2">
+      <Card className="w-[800px] pt-2 px-2 pb-2">
         <div className="text-lg font-bold tracking-tight w-[450px] pt-2 pl-2">
           Transactions Chart
         </div>

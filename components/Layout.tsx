@@ -14,10 +14,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {excludedPaths ? (
         <>{children}</>
       ) : (
-        <>
+        <div className="bg-gray-50 min-h-screen">
           <Navbar />
           {children}
-        </>
+        </div>
       )}
     </>
   );

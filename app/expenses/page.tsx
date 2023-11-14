@@ -7,6 +7,7 @@ import { useGetExpenses } from "@/hooks/useGetExpenses";
 import type { ExpenseTypes } from "@/hooks/useGetExpenses";
 import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
 import { formatAmount } from "@/lib/formatAmount";
+import { Card } from "@/components/ui/card";
 
 export default function Expense() {
   const { data } = useGetExpenses();
@@ -51,7 +52,7 @@ export default function Expense() {
               )}
             </div>
           </div>
-          <div className="border border-gray-400 rounded-xl h-[350px] w-[400px]">
+          <Card className="h-[350px] w-[400px] rounded-xl">
             <div className="text-xl font-bold tracking-tight pt-2 pl-2">
               Top Expenses
             </div>
@@ -83,7 +84,7 @@ export default function Expense() {
                 <p>No data available.</p>
               )}
             </div>
-          </div>
+          </Card>
         </div>
       </div>
     </>
