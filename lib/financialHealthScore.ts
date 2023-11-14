@@ -32,8 +32,8 @@ const calculateSavingsRate = ({
   return savingsRate;
 };
 
-// Calculate debt-to-income ratio
-const calculateDebtToIncomeRatio = ({
+// Calculate expense-to-income ratio
+const calculateExpenseToIncomeRatio = ({
   incomes,
   expenses,
 }: {
@@ -44,13 +44,13 @@ const calculateDebtToIncomeRatio = ({
     (acc, income) => acc + parseFloat(income.amount),
     0
   );
-  const totalDebt = expenses.reduce(
+  const totalExpense = expenses.reduce(
     (acc, expense) => acc + parseFloat(expense.amount),
     0
   );
 
-  const debtToIncomeRatio = (totalDebt / totalIncome) * 100;
-  return debtToIncomeRatio;
+  const expenseToIncomeRatio = (totalExpense / totalIncome) * 100;
+  return expenseToIncomeRatio;
 };
 
 // Scoring logic for income stability
@@ -95,8 +95,10 @@ export const calculateSavingsRateScore = (savingsRate: number) => {
   }
 };
 
-// Scoring logic for debt-to-income ratio
-export const calculateDebtToIncomeRatioScore = (debtToIncomeRatio: number) => {
+// Scoring logic for expense-to-income ratio
+export const calculateExpenseToIncomeRatioScore = (
+  debtToIncomeRatio: number
+) => {
   if (debtToIncomeRatio <= 20) {
     return 10;
   } else if (debtToIncomeRatio <= 40) {
@@ -122,24 +124,27 @@ export const calculateFinancialHealthScore = ({
 }) => {
   const averageIncome = calculateAverageIncome(incomes);
   const savingsRate = calculateSavingsRate({ incomes, expenses });
-  const debtToIncomeRatio = calculateDebtToIncomeRatio({ incomes, expenses });
+  const debtToIncomeRatio = calculateExpenseToIncomeRatio({
+    incomes,
+    expenses,
+  });
 
   // Scoring logic based on these metrics
   const incomeStabilityScore = calculateIncomeStabilityScore(averageIncome);
   const savingsRateScore = calculateSavingsRateScore(savingsRate);
-  const debtToIncomeRatioScore =
-    calculateDebtToIncomeRatioScore(debtToIncomeRatio);
+  const expenseToIncomeRatioScore =
+    calculateExpenseToIncomeRatioScore(debtToIncomeRatio);
 
   // Calculate overall score based on weights
   const overallScore =
     incomeStabilityScore * 0.4 +
     savingsRateScore * 0.4 +
-    debtToIncomeRatioScore * 0.2;
+    expenseToIncomeRatioScore * 0.2;
 
   return {
     overallScore: overallScore.toFixed(1),
     incomeStabilityScore: incomeStabilityScore.toFixed(1),
     savingsRateScore: savingsRateScore.toFixed(1),
-    debtToIncomeRatioScore: debtToIncomeRatioScore.toFixed(1),
+    expenseToIncomeRatioScore: expenseToIncomeRatioScore.toFixed(1),
   };
 };

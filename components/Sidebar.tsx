@@ -69,16 +69,16 @@ export default function Sidebar() {
               <span>Financial Goals</span>
             </Link>
             <Link
-              href="/financial-health"
-              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
-              <BiShieldPlus className="ml-1 w-6 h-6" />
-              <span>Financial Health</span>
-            </Link>
-            <Link
               href="/analytics"
               className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <FiPieChart className="ml-2 w-5 h-5" />
               <span>Analytics</span>
+            </Link>
+            <Link
+              href="/financial-health"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+              <BiShieldPlus className="ml-1 w-6 h-6" />
+              <span>Financial Health</span>
             </Link>
             <Link
               href="/investment-hub"

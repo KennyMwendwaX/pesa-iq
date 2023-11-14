@@ -25,8 +25,8 @@ export default function FinancialHealth() {
   const savingsRateScorePercentage =
     (parseFloat(scores.savingsRateScore) / 10) * 100;
 
-  const debtToIncomeRatioScorePercentage =
-    (parseFloat(scores.debtToIncomeRatioScore) / 10) * 100;
+  const expenseToIncomeRatioScorePercentage =
+    (parseFloat(scores.expenseToIncomeRatioScore) / 10) * 100;
 
   return (
     <>
@@ -99,17 +99,17 @@ export default function FinancialHealth() {
             <div className="px-3 pt-3 space-y-2">
               <div className="flex justify-between">
                 <span className="text-base font-medium text-blue-700">
-                  Debt To Income Rate
+                  Expense To Income Rate
                 </span>
                 <span className="text-sm font-medium text-blue-700">
-                  {scores.debtToIncomeRatioScore}/10
+                  {scores.expenseToIncomeRatioScore}/10
                 </span>
               </div>
               <div className="w-full bg-blue-100 rounded-full h-3">
                 <div
                   className="bg-blue-600 h-3 rounded-full"
                   style={{
-                    width: `${debtToIncomeRatioScorePercentage}%`,
+                    width: `${expenseToIncomeRatioScorePercentage}%`,
                   }}></div>
               </div>
             </div>
