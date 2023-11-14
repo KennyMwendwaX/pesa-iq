@@ -37,9 +37,7 @@ export default function InProgressGoalCard({ goal }: Props) {
   const { fulfillGoal } = useFulfillGoal();
   const { deleteGoal } = useDeleteGoal();
 
-  const rawDate = goal.target_date;
-  const date = new Date(rawDate);
-  const formattedDate = format(date, "dd/MM/yyyy");
+  const formattedDate = format(new Date(goal.target_date), "dd/MM/yyyy");
   const amount = parseInt(goal.amount);
 
   const fulfill = async (goalId: string) => {
