@@ -3,11 +3,10 @@
 import { useGetExpenses } from "@/hooks/useGetExpenses";
 import { useGetIncomes } from "@/hooks/useGetIncomes";
 import { calculateFinancialHealthScore } from "@/lib/financialHealthScore";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BsCheckLg } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai";
+import { Card } from "@/components/ui/card";
 import { formatAmount } from "@/lib/formatAmount";
 import { formatKESCurrency } from "@/lib/formatCurrency";
+import FinancialScoreCard from "@/components/FinancialScoreCard";
 
 export default function FinancialHealth() {
   const { data: incomeData } = useGetIncomes();
@@ -54,31 +53,7 @@ export default function FinancialHealth() {
         </div>
         <div className="flex justify-between pt-3">
           <div className="w-[800px] space-y-5">
-            <Card className="w-full flex bg-blue-100 border-none rounded-xl">
-              <div>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-base text-blue-600 font-medium">
-                    Financial Health Score
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-4xl text-blue-600 font-bold">
-                    {scores.overallScore}/10
-                  </div>
-                </CardContent>
-              </div>
-              <div className="ml-auto p-3">
-                {parseFloat(scores.overallScore) > 5 ? (
-                  <div className="rounded-full bg-green-600 w-12 h-12 flex justify-center items-center">
-                    <BsCheckLg className="w-8 h-8 text-green-100" />
-                  </div>
-                ) : (
-                  <div className="rounded-full bg-red-600 w-12 h-12 flex justify-center items-center">
-                    <AiOutlineClose className="w-8 h-8 text-red-100" />
-                  </div>
-                )}
-              </div>
-            </Card>
+            <FinancialScoreCard overallScore={scores.overallScore} />
             <Card className="w-full border-none rounded-xl">
               <div className="text-xl font-bold tracking-tight pt-2 pl-2">
                 Rating Scores

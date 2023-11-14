@@ -42,7 +42,7 @@ export default function Dashboard() {
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div className="text-2xl font-bold tracking-tight">Dashboard</div>
         <div className="text-muted-foreground">Welcome back Kennedy!</div>
-        <div className="py-3">
+        <div className="flex py-3">
           <CurrentBalance currentBalance={currentBalance} />
         </div>
         <div className="flex items-start space-x-5">

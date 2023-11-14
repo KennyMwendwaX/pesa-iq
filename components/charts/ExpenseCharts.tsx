@@ -60,7 +60,7 @@ export default function ExpenseCharts() {
                 }}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis fontSize={11} dataKey="date" type="category" />
-                <YAxis fontSize={11} dataKey="Expense" type="number" />
+                <YAxis fontSize={12} dataKey="Expense" type="number" />
                 <Tooltip />
                 <Legend />
                 <Line

@@ -60,7 +60,7 @@ export default function IncomeCharts() {
                 }}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis fontSize={11} dataKey="date" type="category" />
-                <YAxis fontSize={11} dataKey="Income" type="number" />
+                <YAxis fontSize={12} dataKey="Income" type="number" />
                 <Tooltip />
                 <Legend />
                 <Line
