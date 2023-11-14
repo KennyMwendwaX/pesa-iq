@@ -47,7 +47,7 @@ export default function LatestTransactions({ incomes, expenses }: Props) {
   );
 
   // Select the most recent 5 transactions
-  const recentTransactions = combinedData.slice(0, 5);
+  const recentTransactions = combinedData.slice(0, 7);
 
   // Formatting dates
   const formattedRecentTransactions = recentTransactions.map((item) => ({
