@@ -28,6 +28,7 @@ export default function ExpenseCharts() {
   const lineChartData = formattedData.map((item) => ({
     ...item,
     date: format(new Date(item.date), "dd/MM/yyyy"),
+    Expense: item.amount, // Rename "amount" to "Expense"
   }));
 
   const explicitColors = [
@@ -46,7 +47,7 @@ export default function ExpenseCharts() {
   return (
     <>
       <div className="flex space-x-5 pt-2">
-        <Card className="w-[800px] pt-4 px-2">
+        <Card className="w-[800px] pt-6 px-2 pb-2">
           <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <LineChart
@@ -58,13 +59,13 @@ export default function ExpenseCharts() {
                   bottom: 5,
                 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" type="category" />
-                <YAxis dataKey="amount" type="number" />
+                <XAxis fontSize={11} dataKey="date" type="category" />
+                <YAxis fontSize={11} dataKey="Expense" type="number" />
                 <Tooltip />
                 <Legend />
                 <Line
                   type="monotone"
-                  dataKey="amount"
+                  dataKey="Expense"
                   stroke="#d62728"
                   activeDot={{ r: 8 }}
                 />
@@ -72,7 +73,7 @@ export default function ExpenseCharts() {
             </ResponsiveContainer>
           </div>
         </Card>
-        <Card className="w-[450px] pt-4 px-2">
+        <Card className="w-[450px] pt-6 px-2 pb-2">
           <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <PieChart>
