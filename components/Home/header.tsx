@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
@@ -36,20 +37,22 @@ export default function Header() {
             {/* Desktop navigation */}
             <nav className="hidden md:flex md:grow">
               {/* Desktop sign in links */}
-              <ul className="flex grow justify-end flex-wrap items-center">
+              <ul className="flex grow justify-end flex-wrap items-center space-x-2">
                 <li>
-                  <Link
-                    href="/signin"
-                    className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">
-                    Sign in
+                  <Link href="/signup">
+                    <Button
+                      variant="outline"
+                      className="flex items-center rounded-full">
+                      <span>Sign In</span>
+                    </Button>
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/signup"
-                    className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
-                    <span>Sign up</span>
-                    <IoIosArrowRoundForward />
+                  <Link href="/signup">
+                    <Button className="flex items-center rounded-full">
+                      <span>Sign up</span>
+                      <IoIosArrowRoundForward className="ml-1 w-5 h-5" />
+                    </Button>
                   </Link>
                 </li>
               </ul>
