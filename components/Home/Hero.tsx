@@ -33,7 +33,7 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10">
         {/* Hero content */}
-        <div className="pt-32 pb-12 md:pt-40 md:pb-28">
+        <div className="pt-32 pb-12 md:pt-40 md:pb-32">
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
             <h1

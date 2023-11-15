@@ -43,6 +43,7 @@ export default function Header() {
                 <li>
                   <Link href="/signup">
                     <Button
+                      size="lg"
                       variant="outline"
                       className="flex items-center rounded-full">
                       <span>Sign In</span>
@@ -51,7 +52,9 @@ export default function Header() {
                 </li>
                 <li>
                   <Link href="/signup">
-                    <Button className="flex items-center rounded-full">
+                    <Button
+                      size="lg"
+                      className="flex items-center rounded-full">
                       <span>Sign up</span>
                       <IoIosArrowRoundForward className="ml-1 w-5 h-5" />
                     </Button>
