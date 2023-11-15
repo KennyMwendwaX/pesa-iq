@@ -31,28 +31,8 @@ export default function Navbar() {
                 {/* <Image src={Logo} alt="Logo" /> */}
               </Link>
             </div>
-            {/* <div className="space-x-3">
-              <Link href="/" className="text-gray-200">
-                Home
-              </Link>
-              <Link href="/" className="text-gray-200">
-                Link
-              </Link>
-            </div> */}
           </div>
           <div className="flex md:order-2 items-center space-x-3">
-            <div className="relative hidden md:block">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                <MagnifyingGlassIcon className="text-gray-400 w-5 h-5" />
-                <span className="sr-only">Search icon</span>
-              </div>
-              <input
-                type="text"
-                id="search-navbar"
-                className="block w-full outline-none p-2 pl-8 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Search..."
-              />
-            </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -75,22 +55,6 @@ export default function Navbar() {
                     </p>
                   </div>
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    Profile
-                    <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    Billing
-                    <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    Settings
-                    <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>New Team</DropdownMenuItem>
-                </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   Log out

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -60,7 +61,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   className="rounded-full bg-gradient-to-r from-blue-500 to-teal-500">
-                  Get Started
+                  <Link href="/dashboard">Get Started</Link>
                 </Button>
               </div>
             </div>
