@@ -29,9 +29,11 @@ export default function Header() {
             {/* Site branding */}
             <div className="shrink-0 mr-4">
               {/* <Logo /> */}
-              <span className="self-center text-2xl font-semibold whitespace-nowrap text-slate-800">
+              <Link
+                href="/"
+                className="self-center text-3xl font-semibold whitespace-nowrap text-slate-800">
                 PesaIQ
-              </span>
+              </Link>
             </div>
 
             {/* Desktop navigation */}

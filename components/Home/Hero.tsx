@@ -8,8 +8,7 @@ export default function Hero() {
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-1"
         aria-hidden="true">
         <svg
-          className="-z-1"
-          width="1360"
+          width="1260"
           height="578"
           viewBox="0 0 1360 578"
           xmlns="http://www.w3.org/2000/svg">
@@ -32,11 +31,11 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10">
         {/* Hero content */}
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+        <div className="pt-32 pb-12 md:pt-40 md:pb-28">
           {/* Section header */}
-          <div className="text-center pb-12 md:pb-16 z-10">
+          <div className="text-center pb-12 md:pb-16">
             <h1
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out">
