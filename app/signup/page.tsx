@@ -7,7 +7,7 @@ import { useState } from "react";
 import { HiAtSymbol, HiFingerPrint, HiUser } from "react-icons/hi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signupFormSchema } from "@/utils/validate";
+import { signupFormSchema } from "@/lib/schema/SignupFormSchema";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
