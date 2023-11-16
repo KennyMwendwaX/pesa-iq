@@ -46,7 +46,7 @@ export default function Header() {
                       size="lg"
                       variant="outline"
                       className="flex items-center rounded-full">
-                      <span>Sign In</span>
+                      <span>Sign in</span>
                     </Button>
                   </Link>
                 </li>
