@@ -12,14 +12,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useState } from "react";
-import { HiAtSymbol, HiFingerPrint, HiUser } from "react-icons/hi";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { FaUser } from "react-icons/fa6";
+import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupFormSchema } from "@/lib/schema/SignupFormSchema";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
 type FormValues = {
   name: string;
@@ -126,7 +127,7 @@ export default function Signup() {
                     )}
                   />
                   <span className="absolute bottom-2 right-0 flex cursor-pointer items-center pr-3 text-gray-600">
-                    <HiUser size={20} />
+                    <FaUser size={18} />
                   </span>
                 </div>
                 <div className="relative">
