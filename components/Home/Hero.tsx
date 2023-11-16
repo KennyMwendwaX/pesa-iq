@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative">
       {/* Illustration behind hero content */}
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-1"
+        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-10"
         aria-hidden="true">
         <svg
           width="1260"
@@ -32,7 +32,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 z-20">
         {/* Hero content */}
         <div className="pt-32 pb-12 md:pt-40 md:pb-32">
           {/* Section header */}
