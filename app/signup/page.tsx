@@ -31,13 +31,13 @@ export default function Signup() {
     resolver: zodResolver(signupFormSchema),
   });
 
-  const { data: session } = useSession();
+  //   const { data: session } = useSession();
   const router = useRouter();
 
-  if (session) {
-    router.replace("/");
-    return null;
-  }
+  //   if (session) {
+  //     router.replace("/");
+  //     return null;
+  //   }
 
   async function onSubmit(values: FormValues) {
     const payload = {
@@ -52,10 +52,7 @@ export default function Signup() {
       body: JSON.stringify(payload),
     };
 
-    const register = await fetch(
-      "http://localhost:3000/api/auth/register",
-      options
-    );
+    const register = await fetch("/api/auth/register", options);
 
     if (register.status === 409) {
       setServerErrors("Email is already registered");
