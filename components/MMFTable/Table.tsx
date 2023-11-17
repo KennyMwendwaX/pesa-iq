@@ -69,7 +69,7 @@ export default function MMFTable<TData, TValue>({
         <div className="flex justify-between">
           <MMFTableToolbar table={table} />
         </div>
-        <div className="rounded-md border">
+        <div className="rounded-md border bg-white">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (

@@ -134,7 +134,7 @@ export default function InvestmentHub() {
                 <HiOutlineChevronRight />
               </Link>
             </div>
-            <div>
+            {/* <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                 <AiFillMoneyCollect className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
               </div>
@@ -148,7 +148,7 @@ export default function InvestmentHub() {
                 <span>Learn more</span>
                 <HiOutlineChevronRight />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

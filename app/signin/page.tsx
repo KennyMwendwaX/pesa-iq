@@ -38,7 +38,9 @@ export default function Signin() {
   //   resolver: zodResolver(signinFormSchema),
   // });
 
-  const form = useForm<FormValues>();
+  const form = useForm<FormValues>({
+    resolver: zodResolver(signinFormSchema),
+  });
 
   //   const { data: session } = useSession();
   const router = useRouter();
@@ -162,7 +164,7 @@ export default function Signin() {
                 </div>
 
                 <Button className="w-full" type="submit">
-                  Sign Up
+                  Sign In
                 </Button>
               </form>
             </Form>

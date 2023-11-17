@@ -34,15 +34,11 @@ export default function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [serverErrors, setServerErrors] = useState("");
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(signupFormSchema),
   });
 
-  const form = useForm<FormValues>();
+  const errors = form.formState.errors;
 
   //   const { data: session } = useSession();
   const router = useRouter();
@@ -116,19 +112,32 @@ export default function Signup() {
                           <Input
                             type="text"
                             id="name"
-                            className="focus:border-2 focus:border-blue-600"
+                            className={`${
+                              errors.name?.message
+                                ? `border-2 border-red-600 focus:border-red-600`
+                                : `focus:border-blue-600`
+                            } focus:border-2`}
                             placeholder="John Doe"
                             {...field}
                             required
                           />
                         </FormControl>
-                        <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <span className="absolute bottom-2 right-0 flex cursor-pointer items-center pr-3 text-gray-600">
+                  <span
+                    className={`${
+                      errors.name?.message
+                        ? `bottom-8 right-0`
+                        : `bottom-2 right-0`
+                    } absolute flex cursor-pointer items-center pr-3 text-gray-600`}>
                     <FaUser size={18} />
                   </span>
+                  {errors.name?.message && (
+                    <span className="text-xs text-red-600">
+                      {errors.name?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="relative">
                   <FormField
@@ -141,19 +150,32 @@ export default function Signup() {
                           <Input
                             type="email"
                             id="email"
-                            className="focus:border-2 focus:border-blue-600"
+                            className={`${
+                              errors.email?.message
+                                ? `border-2 border-red-600 focus:border-red-600`
+                                : `focus:border-blue-600`
+                            } focus:border-2`}
                             placeholder="johndoe@gmail.com"
                             {...field}
                             required
                           />
                         </FormControl>
-                        <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <span className="absolute bottom-2 right-0 flex cursor-pointer items-center pr-3 text-gray-600">
+                  <span
+                    className={`${
+                      errors.email?.message
+                        ? `bottom-8 right-0`
+                        : `bottom-2 right-0`
+                    } absolute flex cursor-pointer items-center pr-3 text-gray-600`}>
                     <HiAtSymbol size={20} />
                   </span>
+                  {errors.email?.message && (
+                    <span className="text-xs text-red-600">
+                      {errors.email?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="relative">
                   <FormField
@@ -164,25 +186,37 @@ export default function Signup() {
                         <FormLabel>Password</FormLabel>
                         <FormControl>
                           <Input
-                            type="password"
+                            type={!showPassword ? `password` : `text`}
                             id="password"
-                            className="focus:border-2 focus:border-blue-600"
+                            className={`${
+                              errors.password?.message
+                                ? `border-2 border-red-600 focus:border-red-600`
+                                : `focus:border-blue-600`
+                            } focus:border-2`}
                             placeholder="••••••••"
                             {...field}
                             required
                           />
                         </FormControl>
-                        <FormMessage />
                       </FormItem>
                     )}
                   />
                   <span
                     onClick={() => setShowPassword(!showPassword)}
                     className={`${
+                      errors.password?.message
+                        ? `bottom-8 right-0`
+                        : `bottom-2 right-0`
+                    } absolute flex cursor-pointer items-center pr-3 ${
                       !showPassword ? `text-gray-600` : `text-blue-600`
-                    } absolute bottom-2 right-0 flex cursor-pointer items-center pr-3`}>
+                    }`}>
                     <HiFingerPrint size={20} />
                   </span>
+                  {errors.password?.message && (
+                    <span className="text-xs text-red-600">
+                      {errors.password?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="relative">
                   <FormField
@@ -193,25 +227,37 @@ export default function Signup() {
                         <FormLabel>Confirm Password</FormLabel>
                         <FormControl>
                           <Input
-                            type="password"
+                            type={!showConfirmPassword ? `password` : `text`}
                             id="confirm_password"
-                            className="focus:border-2 focus:border-blue-600"
+                            className={`${
+                              errors.confirm_password?.message
+                                ? `border-2 border-red-600 focus:border-red-600`
+                                : `focus:border-blue-600`
+                            } focus:border-2`}
                             placeholder="••••••••"
                             {...field}
                             required
                           />
                         </FormControl>
-                        <FormMessage />
                       </FormItem>
                     )}
                   />
                   <span
-                    onClick={() => setShowPassword(!showPassword)}
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     className={`${
-                      !showPassword ? `text-gray-600` : `text-blue-600`
-                    } absolute bottom-2 right-0 flex cursor-pointer items-center pr-3`}>
+                      errors.confirm_password?.message
+                        ? `bottom-8 right-0`
+                        : `bottom-2 right-0`
+                    } absolute flex cursor-pointer items-center pr-3 ${
+                      !showConfirmPassword ? `text-gray-600` : `text-blue-600`
+                    }`}>
                     <HiFingerPrint size={20} />
                   </span>
+                  {errors.confirm_password?.message && (
+                    <span className="text-xs text-red-600">
+                      {errors.confirm_password?.message}
+                    </span>
+                  )}
                 </div>
                 <Button className="w-full" type="submit">
                   Sign Up
