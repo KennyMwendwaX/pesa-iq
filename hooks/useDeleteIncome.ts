@@ -7,7 +7,7 @@ export function useDeleteIncome() {
       const options = {
         method: "DELETE",
       };
-      const response = await fetch(`/api/income/${id}/delete`, options);
+      const response = await fetch(`/api/user/income/${id}/delete`, options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }

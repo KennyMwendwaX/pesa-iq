@@ -7,7 +7,7 @@ export function useDeleteExpense() {
       const options = {
         method: "DELETE",
       };
-      const response = await fetch(`/api/expense/${id}/delete`, options);
+      const response = await fetch(`/api/user/expense/${id}/delete`, options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }

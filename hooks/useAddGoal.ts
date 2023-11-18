@@ -9,7 +9,7 @@ export function useAddGoal() {
         method: "POST",
         body: JSON.stringify(values),
       };
-      const response = await fetch("/api/goals", options);
+      const response = await fetch("/api/user/goals", options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }

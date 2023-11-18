@@ -7,7 +7,7 @@ export function useFulfillGoal() {
       const options = {
         method: "PUT",
       };
-      const response = await fetch(`/api/goals/${id}/fulfill`, options);
+      const response = await fetch(`/api/user/goals/${id}/fulfill`, options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }

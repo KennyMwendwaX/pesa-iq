@@ -7,7 +7,7 @@ export function useDeleteGoal() {
       const options = {
         method: "DELETE",
       };
-      const response = await fetch(`/api/goals/${id}/delete`, options);
+      const response = await fetch(`/api/user/goals/${id}/delete`, options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
