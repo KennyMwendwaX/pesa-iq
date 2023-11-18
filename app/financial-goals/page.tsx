@@ -6,9 +6,16 @@ import FulfilledGoalCard from "@/components/goal/FulfilledGoalCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GoalsChart from "@/components/charts/GoalsChart";
 import { useGetGoals } from "@/hooks/useGetGoals";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function FinancialGoals() {
+  const { data: session, status } = useSession();
   const { data } = useGetGoals();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
 
   const inProgressGoals = data?.filter((goal) => goal.status === "in progress");
   const fulfilledGoals = data?.filter((goal) => goal.status === "fulfilled");

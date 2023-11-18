@@ -7,10 +7,17 @@ import { Card } from "@/components/ui/card";
 import { formatAmount } from "@/lib/formatAmount";
 import { formatKESCurrency } from "@/lib/formatCurrency";
 import FinancialScoreCard from "@/components/FinancialScoreCard";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function FinancialHealth() {
+  const { data: session, status } = useSession();
   const { data: incomeData } = useGetIncomes();
   const { data: expenseData } = useGetExpenses();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
 
   const incomes =
     incomeData?.map((income) => ({

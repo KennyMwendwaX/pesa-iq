@@ -5,8 +5,12 @@ import axios from "axios";
 import type { Stock } from "@/types/Stocks";
 import StocksTable from "@/components/StocksTable/Table";
 import { StocksTableColumns } from "@/components/StocksTable/TableColumns";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Stocks() {
+  const { data: session, status } = useSession();
+
   const { data } = useQuery({
     queryKey: ["stocks"],
     queryFn: async () => {
@@ -15,7 +19,9 @@ export default function Stocks() {
     },
   });
 
-  console.log(data);
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
 
   return (
     <>

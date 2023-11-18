@@ -5,8 +5,12 @@ import axios from "axios";
 import type { NSEStockData } from "@/types/NSEStockData";
 import NSEStockTable from "@/components/NSETable/Table";
 import { NSETableColumns } from "@/components/NSETable/TableColumns";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function NSE() {
+  const { data: session, status } = useSession();
+
   const { data } = useQuery({
     queryKey: ["nseStockData"],
     queryFn: async () => {
@@ -15,6 +19,9 @@ export default function NSE() {
     },
   });
 
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">

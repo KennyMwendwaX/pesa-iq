@@ -8,10 +8,17 @@ import ExpenseCharts from "@/components/charts/ExpenseCharts";
 import { useGetIncomes } from "@/hooks/useGetIncomes";
 import { useGetExpenses } from "@/hooks/useGetExpenses";
 import { formatAmount } from "@/lib/formatAmount";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Analytics() {
+  const { data: session, status } = useSession();
   const { data: incomeData } = useGetIncomes();
   const { data: expenseData } = useGetExpenses();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
 
   const incomes = incomeData?.map((income) => ({
     ...income,

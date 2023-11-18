@@ -3,8 +3,15 @@
 import SaccoTable from "@/components/SaccoTable/Table";
 import { SaccoTableColumns } from "@/components/SaccoTable/TableColumns";
 import { saccos } from "@/lib/saccos";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Saccos() {
+  const { data: session, status } = useSession();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">

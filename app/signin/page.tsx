@@ -17,7 +17,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signinFormSchema } from "@/lib/schema/SigninFormSchema";
 import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 
 type FormValues = {
   email: string;
@@ -28,27 +28,17 @@ export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
   const [serverErrors, setServerErrors] = useState("");
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm<FormValues>({
-  //   resolver: zodResolver(signinFormSchema),
-  // });
-
   const form = useForm<FormValues>({
     resolver: zodResolver(signinFormSchema),
   });
 
+  const { data: session, status } = useSession();
+
+  if (session && status === "authenticated") {
+    redirect("/");
+  }
+
   const errors = form.formState.errors;
-
-  //   const { data: session } = useSession();
-  const router = useRouter();
-
-  //   if (session) {
-  //     router.replace("/");
-  //     return null;
-  //   }
 
   async function onSubmit(values: FormValues) {
     try {
@@ -63,7 +53,7 @@ export default function Signin() {
         setServerErrors(result.error);
       } else {
         // If there was no error, redirect the user to the home page
-        router.push("/");
+        redirect("/");
       }
     } catch (error) {
       // If there was an unexpected error, display a generic error message to the user

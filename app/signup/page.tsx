@@ -17,7 +17,7 @@ import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupFormSchema } from "@/lib/schema/SignupFormSchema";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 type FormValues = {
@@ -31,20 +31,19 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [serverErrors, setServerErrors] = useState("");
+  const router = useRouter();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(signupFormSchema),
   });
 
+  const { data: session, status } = useSession();
+
+  if (session && status === "authenticated") {
+    redirect("/");
+  }
+
   const errors = form.formState.errors;
-
-  //   const { data: session } = useSession();
-  const router = useRouter();
-
-  //   if (session) {
-  //     router.replace("/");
-  //     return null;
-  //   }
 
   async function onSubmit(values: FormValues) {
     const payload = {

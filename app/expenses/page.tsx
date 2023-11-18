@@ -8,9 +8,16 @@ import type { ExpenseTypes } from "@/hooks/useGetExpenses";
 import TotalExpenseCard from "@/components/expense/TotalExpenseCard";
 import { formatAmount } from "@/lib/formatAmount";
 import { Card } from "@/components/ui/card";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Expense() {
+  const { data: session, status } = useSession();
   const { data } = useGetExpenses();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
 
   const expenses =
     data?.sort(

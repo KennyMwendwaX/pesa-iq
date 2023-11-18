@@ -6,8 +6,12 @@ import axios from "axios";
 import type { CoinData } from "@/types/Crypto";
 import CryptoTable from "@/components/CryptoTable/Table";
 import { CryptoTableColumns } from "@/components/CryptoTable/TableColumns";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Crypto() {
+  const { data: session, status } = useSession();
+
   const { data } = useQuery({
     queryKey: ["coins"],
     queryFn: async () => {
@@ -16,6 +20,9 @@ export default function Crypto() {
     },
   });
 
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
   const stats = data?.data.stats;
   const coinData = data?.data.coins;
 

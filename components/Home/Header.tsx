@@ -9,7 +9,7 @@ import { MdLogout } from "react-icons/md";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
-  const { status } = useSession();
+  const { data: session, status } = useSession();
 
   // detect whether user has scrolled the page down by 10px
   const scrollHandler = () => {
@@ -43,7 +43,7 @@ export default function Header() {
             <nav className="hidden md:flex md:grow">
               {/* Desktop sign in links */}
 
-              {status === "authenticated" ? (
+              {session && status === "authenticated" ? (
                 <ul className="flex grow justify-end flex-wrap items-center space-x-2">
                   <li>
                     <Link href="/dashboard">

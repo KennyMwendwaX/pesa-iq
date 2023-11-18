@@ -1,7 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import KenyaYieldCurve from "@/app/kenya-yield-curve-3-nov.svg";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Bonds() {
+  const { data: session, status } = useSession();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
   return (
     <>
       <div className="container mx-auto mt-4 px-32 pb-5 pt-12">

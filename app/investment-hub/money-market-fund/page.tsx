@@ -3,8 +3,15 @@
 import MMFTable from "@/components/MMFTable/Table";
 import { MMFTableColumns } from "@/components/MMFTable/TableColumns";
 import { moneyMarketFund } from "@/lib/MoneyMarketFund";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function MMF() {
+  const { data: session, status } = useSession();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">

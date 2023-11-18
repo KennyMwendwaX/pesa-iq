@@ -8,9 +8,16 @@ import type { IncomeTypes } from "@/hooks/useGetIncomes";
 import TotalIncomeCard from "@/components/income/TotalIncomeCard";
 import { formatAmount } from "@/lib/formatAmount";
 import { Card } from "@/components/ui/card";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Income() {
+  const { data: session, status } = useSession();
   const { data } = useGetIncomes();
+
+  if (!session && status === "unauthenticated") {
+    redirect("/signin");
+  }
 
   const incomes =
     data?.sort(
