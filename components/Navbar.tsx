@@ -4,19 +4,30 @@ import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { MagnifyingGlassIcon, PersonIcon } from "@radix-ui/react-icons";
+import { PersonIcon } from "@radix-ui/react-icons";
 import Sidebar from "./Sidebar";
+import { signOut, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { MdLogout } from "react-icons/md";
 
 export default function Navbar() {
+  const { data: session, status } = useSession();
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      const userImage = session?.user?.image as string;
+      setProfileImage(userImage);
+    }
+  }, [session, status]);
+
   return (
     <>
       <nav className="bg-slate-800 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
@@ -39,7 +50,7 @@ export default function Navbar() {
                   variant="ghost"
                   className="relative h-8 w-8 rounded-full">
                   <Avatar className="h-8 w-8">
-                    {/* <AvatarImage src="/avatars/01.png" alt="@shadcn" /> */}
+                    <AvatarImage src={profileImage || ""} alt="profile-image" />
                     <AvatarFallback>
                       <PersonIcon className="h-5 w-5" />
                     </AvatarFallback>
@@ -49,16 +60,22 @@ export default function Navbar() {
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">shadcn</p>
+                    <p className="text-sm font-medium leading-none">
+                      {session?.user?.name}
+                    </p>
                     <p className="text-xs leading-none text-muted-foreground">
-                      m@example.com
+                      {session?.user?.email}
                     </p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  Log out
-                  <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                  <button
+                    className="flex items-center"
+                    onClick={() => signOut()}>
+                    <MdLogout className="mr-1 w-4 h-4" />
+                    Log out
+                  </button>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

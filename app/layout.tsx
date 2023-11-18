@@ -16,16 +16,16 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const session = await getServerSession();
+  const session = await getServerSession();
 
   return (
     <html lang="en">
       <body className={GeistSans.className}>
-        <TanstackProvider>
-          <Layout>{children}</Layout>
-        </TanstackProvider>
-        {/* <SessionProvider session={session}>
-        </SessionProvider> */}
+        <SessionProvider session={session}>
+          <TanstackProvider>
+            <Layout>{children}</Layout>
+          </TanstackProvider>
+        </SessionProvider>
       </body>
     </html>
   );
