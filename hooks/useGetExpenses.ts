@@ -16,7 +16,7 @@ export function useGetExpenses() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["expenseList"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/expense");
+      const { data } = await axios.get("/api/user/expense");
       return data.expenseList as ExpenseTypes[];
     },
   });

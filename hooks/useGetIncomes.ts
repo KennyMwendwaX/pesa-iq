@@ -16,7 +16,7 @@ export function useGetIncomes() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["incomeList"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/income");
+      const { data } = await axios.get("/api/user/income");
       return data.incomeList as IncomeTypes[];
     },
   });

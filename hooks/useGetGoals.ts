@@ -16,7 +16,7 @@ export function useGetGoals() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["goalList"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/goals");
+      const { data } = await axios.get("/api/user/goals");
       return data.goalList as Goal[];
     },
   });
