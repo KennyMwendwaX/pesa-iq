@@ -1,7 +1,14 @@
+import { authOptions } from "@/lib/auth/authOptions";
 import prisma from "@/prisma/db";
+import { getServerSession } from "next-auth/next";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  const session = await getServerSession(authOptions);
+
+  if (!session)
+    return NextResponse.json({ message: "Not authorized" }, { status: 401 });
+
   try {
     const goalList = await prisma.goal.findMany();
     // Return success message
@@ -21,6 +28,20 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const session = await getServerSession(authOptions);
+
+  if (!session)
+    return NextResponse.json({ message: "Not authorized" }, { status: 401 });
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email: session.user?.email as string,
+    },
+  });
+
+  if (!user)
+    return NextResponse.json({ message: "User not found" }, { status: 404 });
+
   const req = await request.json();
   const { name, amount, target_date, type, description } = req;
 
@@ -33,6 +54,7 @@ export async function POST(request: Request) {
         target_date: target_date,
         type: type,
         description: description,
+        userId: user.id,
       },
     });
 
