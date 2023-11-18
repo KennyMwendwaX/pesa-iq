@@ -4,9 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Button } from "@/components/ui/button";
+import { signOut, useSession } from "next-auth/react";
+import { MdLogout } from "react-icons/md";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
+  const { status } = useSession();
 
   // detect whether user has scrolled the page down by 10px
   const scrollHandler = () => {
@@ -39,28 +42,53 @@ export default function Header() {
             {/* Desktop navigation */}
             <nav className="hidden md:flex md:grow">
               {/* Desktop sign in links */}
-              <ul className="flex grow justify-end flex-wrap items-center space-x-2">
-                <li>
-                  <Link href="/signin">
+
+              {status === "authenticated" ? (
+                <ul className="flex grow justify-end flex-wrap items-center space-x-2">
+                  <li>
+                    <Link href="/dashboard">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="flex items-center rounded-full">
+                        <span>Get Started</span>
+                      </Button>
+                    </Link>
+                  </li>
+                  <li>
                     <Button
-                      size="lg"
-                      variant="outline"
-                      className="flex items-center rounded-full">
-                      <span>Sign in</span>
-                    </Button>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup">
-                    <Button
+                      onClick={() => signOut()}
                       size="lg"
                       className="flex items-center rounded-full">
-                      <span>Sign up</span>
-                      <IoIosArrowRoundForward className="ml-1 w-5 h-5" />
+                      <MdLogout className="mr-1 w-5 h-5" />
+                      <span>Sign out</span>
                     </Button>
-                  </Link>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              ) : (
+                <ul className="flex grow justify-end flex-wrap items-center space-x-2">
+                  <li>
+                    <Link href="/signin">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="flex items-center rounded-full">
+                        <span>Sign in</span>
+                      </Button>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/signup">
+                      <Button
+                        size="lg"
+                        className="flex items-center rounded-full">
+                        <span>Sign up</span>
+                        <IoIosArrowRoundForward className="ml-1 w-5 h-5" />
+                      </Button>
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </nav>
 
             {/* <MobileMenu /> */}
