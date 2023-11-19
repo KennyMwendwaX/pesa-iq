@@ -13,12 +13,14 @@ import { redirect } from "next/navigation";
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
-  const { data: incomeData } = useGetIncomes();
-  const { data: expenseData } = useGetExpenses();
+  const { data: incomeData, isLoading: loadingIncomes } = useGetIncomes();
+  const { data: expenseData, isLoading: loadingExpenses } = useGetExpenses();
 
   if (!session && status === "unauthenticated") {
     redirect("/signin");
   }
+
+  const isLoading = loadingIncomes && loadingExpenses;
 
   const incomes =
     incomeData?.map((income) => ({
@@ -56,6 +58,7 @@ export default function Dashboard() {
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
         <div className="text-2xl font-bold tracking-tight">Dashboard</div>
+
         <div className="text-muted-foreground">
           Welcome back {session?.user?.name}!
         </div>
