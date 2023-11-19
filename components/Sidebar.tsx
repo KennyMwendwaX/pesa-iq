@@ -4,12 +4,9 @@ import Link from "next/link";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetFooter,
-  SheetClose,
 } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -17,14 +14,18 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { RxDashboard } from "react-icons/rx";
 import { LuUser2 } from "react-icons/lu";
 import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
-import { BiHealth, BiShieldPlus, BiWallet } from "react-icons/bi";
+import { BiShieldPlus } from "react-icons/bi";
 import { FiPieChart } from "react-icons/fi";
 import { BsTrophy } from "react-icons/bs";
 import { AiOutlineDollar } from "react-icons/ai";
 import { RiGraduationCapLine } from "react-icons/ri";
-import { MdOutlineHealthAndSafety } from "react-icons/md";
+import { Session } from "next-auth";
 
-export default function Sidebar() {
+type Props = {
+  session: Session | null;
+};
+
+export default function Sidebar({ session }: Props) {
   return (
     <>
       <Sheet>
@@ -91,17 +92,17 @@ export default function Sidebar() {
               <span>Finance Articles</span>
             </div>
           </div>
-          <div className="absolute bottom-0 p-2 flex items-center space-x-2">
+          <div className="absolute bottom-2 px-3 flex items-center space-x-2 bg-slate-200 rounded-xl">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src={session?.user?.image || ""} />
               <AvatarFallback>
                 <LuUser2 className="w-5 h-5" />
               </AvatarFallback>
             </Avatar>
             <div className="py-2 space-y-1">
-              <div className="pt-1">Malcom X</div>
+              <div className="pt-1">{session?.user?.name}</div>
               <span className="text-muted-foreground text-sm pb-1">
-                malcomx@gmail.com
+                {session?.user?.email}
               </span>
             </div>
           </div>

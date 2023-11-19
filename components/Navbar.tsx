@@ -14,19 +14,10 @@ import { Button } from "@/components/ui/button";
 import { PersonIcon } from "@radix-ui/react-icons";
 import Sidebar from "./Sidebar";
 import { signOut, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 import { MdLogout } from "react-icons/md";
 
 export default function Navbar() {
-  const { data: session, status } = useSession();
-  const [profileImage, setProfileImage] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      const userImage = session?.user?.image as string;
-      setProfileImage(userImage);
-    }
-  }, [session, status]);
+  const { data: session } = useSession();
 
   return (
     <>
@@ -34,7 +25,7 @@ export default function Navbar() {
         <div className="flex flex-wrap items-center justify-between mx-auto px-6 py-2">
           <div className="flex items-center space-x-8">
             <div className="space-x-3 items-center">
-              <Sidebar />
+              <Sidebar session={session} />
               <Link href="/">
                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-slate-200">
                   PesaIQ
@@ -50,7 +41,10 @@ export default function Navbar() {
                   variant="ghost"
                   className="relative h-8 w-8 rounded-full">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={profileImage || ""} alt="profile-image" />
+                    <AvatarImage
+                      src={session?.user?.image || ""}
+                      alt="profile-image"
+                    />
                     <AvatarFallback>
                       <PersonIcon className="h-5 w-5" />
                     </AvatarFallback>
