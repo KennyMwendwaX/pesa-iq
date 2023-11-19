@@ -9,7 +9,7 @@ export function useAddIncome() {
         method: "POST",
         body: JSON.stringify(values),
       };
-      const response = await fetch("/api/user/income", options);
+      const response = await fetch("/api/user/incomes", options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }

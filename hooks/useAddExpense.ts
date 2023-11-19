@@ -9,7 +9,7 @@ export function useAddExpense() {
         method: "POST",
         body: JSON.stringify(values),
       };
-      const response = await fetch("/api/user/expense", options);
+      const response = await fetch("/api/user/expenses", options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
