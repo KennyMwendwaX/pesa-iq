@@ -11,6 +11,7 @@ export async function DELETE(
 
   if (!session)
     return NextResponse.json({ message: "Not authorized" }, { status: 401 });
+
   const id = params.id;
   try {
     // Delete goal
