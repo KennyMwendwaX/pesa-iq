@@ -48,55 +48,63 @@ export default function ExpenseCharts() {
     <>
       <div className="flex space-x-5 pt-2">
         <Card className="w-[800px] pt-6 px-2 pb-2">
-          <div style={{ width: "100%", height: 300 }}>
-            <ResponsiveContainer>
-              <LineChart
-                data={lineChartData}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis fontSize={11} dataKey="date" type="category" />
-                <YAxis fontSize={12} dataKey="Expense" type="number" />
-                <Tooltip />
-                <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="Expense"
-                  stroke="#d62728"
-                  activeDot={{ r: 8 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+          {lineChartData.length > 0 ? (
+            <div style={{ width: "100%", height: 300 }}>
+              <ResponsiveContainer>
+                <LineChart
+                  data={lineChartData}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis fontSize={11} dataKey="date" type="category" />
+                  <YAxis fontSize={12} dataKey="Expense" type="number" />
+                  <Tooltip />
+                  <Legend />
+                  <Line
+                    type="monotone"
+                    dataKey="Expense"
+                    stroke="#d62728"
+                    activeDot={{ r: 8 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <div className="py-36 flex justify-center">No data available</div>
+          )}
         </Card>
         <Card className="w-[450px] pt-6 px-2 pb-2">
-          <div style={{ width: "100%", height: 300 }}>
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie
-                  dataKey="amount"
-                  data={formattedData}
-                  label
-                  cx="50%"
-                  cy="40%"
-                  innerRadius={70}
-                  outerRadius={100}>
-                  {formattedData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={explicitColors[index % explicitColors.length]}
-                    />
-                  ))}
-                </Pie>
-                <Tooltip />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
+          {formattedData.length > 0 ? (
+            <div style={{ width: "100%", height: 300 }}>
+              <ResponsiveContainer>
+                <PieChart>
+                  <Pie
+                    dataKey="amount"
+                    data={formattedData}
+                    label
+                    cx="50%"
+                    cy="40%"
+                    innerRadius={70}
+                    outerRadius={100}>
+                    {formattedData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={explicitColors[index % explicitColors.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <div className="py-36 flex justify-center">No data available</div>
+          )}
         </Card>
       </div>
     </>
