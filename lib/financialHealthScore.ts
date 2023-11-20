@@ -83,10 +83,10 @@ export const calculateIncomeStabilityScore = (averageIncome: number) => {
     return 3;
   } else if (averageIncome >= 20000) {
     return 2;
-  } else if (averageIncome < 20000) {
+  } else if (averageIncome > 1000 && averageIncome < 20000) {
     return 1;
   } else {
-    return 1;
+    return 0;
   }
 };
 
@@ -94,14 +94,16 @@ export const calculateIncomeStabilityScore = (averageIncome: number) => {
 export const calculateSavingsRateScore = (savingsRate: number) => {
   if (savingsRate >= 50) {
     return 10;
-  } else if (savingsRate >= 30) {
+  } else if (savingsRate >= 40) {
     return 8;
   } else if (savingsRate >= 20) {
     return 6;
-  } else if (savingsRate >= 5) {
+  } else if (savingsRate >= 10) {
     return 4;
-  } else {
+  } else if (savingsRate >= 5) {
     return 2;
+  } else {
+    return 0;
   }
 };
 
@@ -120,7 +122,7 @@ export const calculateExpenseToIncomeRatioScore = (
   } else if (debtToIncomeRatio <= 90) {
     return 2;
   } else {
-    return 1;
+    return 0;
   }
 };
 

@@ -61,46 +61,50 @@ export default function LatestTransactions({ incomes, expenses }: Props) {
         <div className="text-lg font-bold tracking-tight w-[450px] pt-2 pl-2">
           Latest Transactions
         </div>
-        <div className="relative overflow-x-auto pt-2 pb-1">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  Transaction
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Date
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Amount
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {formattedRecentTransactions.map((transaction) => (
-                <tr key={transaction.id} className="bg-white border-b">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    {transaction.name}
+        {formattedRecentTransactions.length > 0 ? (
+          <div className="relative overflow-x-auto pt-2 pb-1">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    Transaction
                   </th>
-                  <td className="px-6 py-4">{transaction.date}</td>
-                  <td className="px-6 py-4">
-                    {transaction.type === "income" ? (
-                      <span className="text-green-600">
-                        +{formatKESCurrency(transaction.amount)}
-                      </span>
-                    ) : (
-                      <span className="text-red-600">
-                        -{formatKESCurrency(transaction.amount)}
-                      </span>
-                    )}
-                  </td>
+                  <th scope="col" className="px-6 py-3">
+                    Date
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Amount
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {formattedRecentTransactions.map((transaction) => (
+                  <tr key={transaction.id} className="bg-white border-b">
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      {transaction.name}
+                    </th>
+                    <td className="px-6 py-4">{transaction.date}</td>
+                    <td className="px-6 py-4">
+                      {transaction.type === "income" ? (
+                        <span className="text-green-600">
+                          +{formatKESCurrency(transaction.amount)}
+                        </span>
+                      ) : (
+                        <span className="text-red-600">
+                          -{formatKESCurrency(transaction.amount)}
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="py-48 flex justify-center">No data available</div>
+        )}
       </Card>
     </>
   );

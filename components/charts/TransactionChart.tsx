@@ -79,36 +79,40 @@ export default function TransactionChart({ incomes, expenses }: Props) {
         <div className="text-lg font-bold tracking-tight w-[450px] pt-2 pl-2">
           Transactions Chart
         </div>
-        <div style={{ width: "100%", height: 400 }}>
-          <ResponsiveContainer>
-            <LineChart
-              data={lineChartData}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis fontSize={11} dataKey="date" type="category" />
-              <YAxis fontSize={12} type="number" />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="Income"
-                stroke="#2ca02c"
-                activeDot={{ r: 8 }}
-              />
-              <Line
-                type="monotone"
-                dataKey="Expense"
-                stroke="#d62728"
-                activeDot={{ r: 8 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+        {lineChartData.length > 0 ? (
+          <div style={{ width: "100%", height: 400 }}>
+            <ResponsiveContainer>
+              <LineChart
+                data={lineChartData}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis fontSize={11} dataKey="date" type="category" />
+                <YAxis fontSize={12} type="number" />
+                <Tooltip />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="Income"
+                  stroke="#2ca02c"
+                  activeDot={{ r: 8 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="Expense"
+                  stroke="#d62728"
+                  activeDot={{ r: 8 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        ) : (
+          <div className="py-48 flex justify-center">No data available</div>
+        )}
       </Card>
     </>
   );

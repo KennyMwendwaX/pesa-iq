@@ -80,7 +80,9 @@ export default function Expense() {
                       <ExpenseCard key={expense.id} expense={expense} />
                     ))
                   ) : (
-                    <p>No data available.</p>
+                    <div className="flex justify-center pt-20">
+                      No data available.
+                    </div>
                   )}
                 </>
               )}
@@ -140,7 +142,9 @@ export default function Expense() {
                       );
                     })
                   ) : (
-                    <p>No data available.</p>
+                    <div className="flex justify-center pt-20">
+                      No data available.
+                    </div>
                   )}
                 </>
               )}

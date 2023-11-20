@@ -81,7 +81,9 @@ export default function Income() {
                       <IncomeCard key={income.id} income={income} />
                     ))
                   ) : (
-                    <p>No data available.</p>
+                    <div className="flex justify-center pt-20">
+                      No data available.
+                    </div>
                   )}
                 </>
               )}
@@ -141,7 +143,9 @@ export default function Income() {
                       );
                     })
                   ) : (
-                    <p>No data available.</p>
+                    <div className="flex justify-center pt-20">
+                      No data available.
+                    </div>
                   )}
                 </>
               )}
