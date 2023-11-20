@@ -147,43 +147,43 @@ export default function FinancialHealth() {
                   </div>
                 </Card>
               </div>
-              <div className="w-[400px] space-y-4">
-                <div className="border border-gray-400 rounded-xl h-[350px] w-full">
-                  <div className="text-xl font-bold tracking-tight pt-2 pl-2">
-                    Top Expenses To Reduce
-                  </div>
-                  <div className="px-3 pt-3 space-y-6">
-                    {topExpenses && topExpenses.length > 0 ? (
-                      topExpenses.map((expense) => {
-                        const expensePercentage = totalExpense
-                          ? (expense.amount / totalExpense) * 100
-                          : 0;
-                        return (
-                          <div key={expense.id}>
-                            <div className="flex justify-between mb-1">
-                              <span className="text-base font-medium text-red-700">
-                                {expense.name}
-                              </span>
-                              <span className="text-sm font-medium text-red-700">
-                                {formatKESCurrency(expense.amount)}
-                              </span>
-                            </div>
-                            <div className="w-full bg-red-100 rounded-full h-2.5">
-                              <div
-                                className="bg-red-600 h-2.5 rounded-full"
-                                style={{
-                                  width: `${expensePercentage}%`,
-                                }}></div>
-                            </div>
-                          </div>
-                        );
-                      })
-                    ) : (
-                      <p>No data available.</p>
-                    )}
-                  </div>
+              <Card className="h-[350px] w-[400px] rounded-xl">
+                <div className="text-xl font-bold tracking-tight pt-2 pl-2">
+                  Top Expenses To Reduce
                 </div>
-              </div>
+                <div className="px-3 pt-3 space-y-6">
+                  {topExpenses && topExpenses.length > 0 ? (
+                    topExpenses.map((expense) => {
+                      const expensePercentage = totalExpense
+                        ? (expense.amount / totalExpense) * 100
+                        : 0;
+                      return (
+                        <div key={expense.id}>
+                          <div className="flex justify-between mb-1">
+                            <span className="text-base font-medium text-red-700">
+                              {expense.name}
+                            </span>
+                            <span className="text-sm font-medium text-red-700">
+                              {formatKESCurrency(expense.amount)}
+                            </span>
+                          </div>
+                          <div className="w-full bg-red-100 rounded-full h-2.5">
+                            <div
+                              className="bg-red-600 h-2.5 rounded-full"
+                              style={{
+                                width: `${expensePercentage}%`,
+                              }}></div>
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="flex justify-center pt-20">
+                      No data available.
+                    </div>
+                  )}
+                </div>
+              </Card>
             </div>
           </>
         )}
