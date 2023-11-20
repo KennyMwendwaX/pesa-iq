@@ -65,7 +65,9 @@ export default function FinancialGoals() {
                         <InProgressGoalCard key={goal.id} goal={goal} />
                       ))
                     ) : (
-                      <p>No data available</p>
+                      <div className="py-24 flex justify-center">
+                        No data available
+                      </div>
                     )}
                   </div>
                 </TabsContent>
@@ -76,7 +78,9 @@ export default function FinancialGoals() {
                         <FulfilledGoalCard key={goal.id} goal={goal} />
                       ))
                     ) : (
-                      <p>No data available</p>
+                      <div className="py-24 flex justify-center">
+                        No data available
+                      </div>
                     )}
                   </div>
                 </TabsContent>
