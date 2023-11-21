@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AiFillMoneyCollect } from "react-icons/ai";
 import { FaBitcoin } from "react-icons/fa6";
 import { HiCurrencyDollar } from "react-icons/hi";
@@ -6,9 +7,13 @@ export default function EducationHub() {
   return (
     <>
       <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="text-2xl font-bold tracking-tight">Education Hub</div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
           {/* Crypto Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/crypto"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <FaBitcoin size={32} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Crypto</h3>
@@ -17,7 +22,7 @@ export default function EducationHub() {
               Cover news related to cryptocurrencies like Bitcoin, Ethereum, and
               other altcoins.
             </p>
-          </div>
+          </Link>
 
           {/* Stocks Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">

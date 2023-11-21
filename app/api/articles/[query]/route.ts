@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
 
-export async function GET() {
+export async function GET(
+  request: Request,
+  { params }: { params: { query: string } }
+) {
+  const query = params.query;
+
   const options = {
     method: "GET",
     url: "https://news-api14.p.rapidapi.com/search",
     params: {
-      q: "money market fund in kenya",
+      q: query,
       language: "en",
-      pageSize: "20",
+      pageSize: "10",
     },
     headers: {
       "X-RapidAPI-Key": "7bfd5fe57bmsh7905ed23d600c05p12dc8ajsne2b2ea67ac13",
