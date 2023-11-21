@@ -38,8 +38,8 @@ export default function InvestmentHub() {
           </div>
           <div className="space-y-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
             <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <HiPresentationChartLine className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <HiPresentationChartLine className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">NSE</h3>
               <p className="text-gray-500 dark:text-gray-400">
@@ -55,8 +55,8 @@ export default function InvestmentHub() {
               </Link>
             </div>
             <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <FaBitcoin className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <FaBitcoin className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Crypto</h3>
               <p className="text-gray-500 dark:text-gray-400">
@@ -72,8 +72,8 @@ export default function InvestmentHub() {
               </Link>
             </div>
             <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <HiCurrencyDollar className="w-6 h-6 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <HiCurrencyDollar className="w-6 h-6 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">
                 Stock Market
@@ -91,8 +91,8 @@ export default function InvestmentHub() {
               </Link>
             </div>
             <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <FaHandshake className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <FaHandshake className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Saccos</h3>
               <p className="text-gray-500 dark:text-gray-400">
@@ -108,8 +108,8 @@ export default function InvestmentHub() {
               </Link>
             </div>
             <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <FaMoneyBillTrendUp className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <FaMoneyBillTrendUp className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">
                 Money Market Fund
@@ -127,8 +127,8 @@ export default function InvestmentHub() {
               </Link>
             </div>
             <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <FaMoneyCheckDollar className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <FaMoneyCheckDollar className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Bonds</h3>
               <p className="text-gray-500 dark:text-gray-400">
@@ -144,8 +144,8 @@ export default function InvestmentHub() {
               </Link>
             </div>
             {/* <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
-                <AiFillMoneyCollect className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" />
+              <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12">
+                <AiFillMoneyCollect className="w-5 h-5 text-blue-600 lg:w-6 lg:h-6" />
               </div>
               <h3 className="mb-2 text-xl font-bold dark:text-white">Forex</h3>
               <p className="text-gray-500 dark:text-gray-400">
