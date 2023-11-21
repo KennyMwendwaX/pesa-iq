@@ -87,10 +87,12 @@ export default function Sidebar({ session }: Props) {
               <AiOutlineDollar className="ml-1 w-6 h-6" />
               <span>Investment Hub</span>
             </Link>
-            <div className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
+            <Link
+              href="/education-hub"
+              className="flex items-center py-2 space-x-4 rounded-lg cursor-pointer hover:bg-slate-200">
               <RiGraduationCapLine className="ml-2 w-5 h-5" />
-              <span>Finance Articles</span>
-            </div>
+              <span>Education Hub</span>
+            </Link>
           </div>
           <div className="absolute bottom-2 px-3 flex items-center space-x-2 bg-slate-200 rounded-xl">
             <Avatar>
