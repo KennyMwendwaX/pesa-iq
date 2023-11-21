@@ -30,7 +30,6 @@ export default function Navbar() {
                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-slate-200">
                   PesaIQ
                 </span>
-                {/* <Image src={Logo} alt="Logo" /> */}
               </Link>
             </div>
           </div>

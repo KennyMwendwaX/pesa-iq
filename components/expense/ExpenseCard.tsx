@@ -91,15 +91,6 @@ export default function ExpenseCard({ expense }: Props) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
               <DropdownMenuItem className="cursor-pointer">
-                <FaArrowUpRightFromSquare className="mr-1 w-4 h-4" />
-                View
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <FiEdit className="mr-1 w-4 h-4" />
-                Edit
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer">
                 <button
                   onClick={() => expenseDelete(expense.id)}
                   className="flex items-center">

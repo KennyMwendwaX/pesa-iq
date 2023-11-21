@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { AiFillMoneyCollect } from "react-icons/ai";
-import { FaBitcoin } from "react-icons/fa6";
+import {
+  FaBitcoin,
+  FaCoins,
+  FaHandshakeSimple,
+  FaMoneyBillTrendUp,
+} from "react-icons/fa6";
+import { GoShieldCheck } from "react-icons/go";
 import { HiCurrencyDollar } from "react-icons/hi";
+import { TbHomeDollar, TbMoneybag } from "react-icons/tb";
 
 export default function EducationHub() {
   return (
@@ -45,6 +52,78 @@ export default function EducationHub() {
             <p className="text-sm">
               Provide updates on currency markets, exchange rates, and global
               economic trends.
+            </p>
+          </div>
+
+          {/* Savings Category Card */}
+          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+            <div className="flex items-center mb-4">
+              <TbMoneybag size={30} className="text-blue-600 mr-3" />
+              <h3 className="text-xl font-semibold">Savings</h3>
+            </div>
+            <p className="text-sm">
+              Articles about saving strategies, high-yield savings accounts, and
+              tips for building a savings plan.
+            </p>
+          </div>
+
+          {/* Loans Category Card */}
+          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+            <div className="flex items-center mb-4">
+              <FaCoins size={28} className="text-blue-600 mr-3" />
+              <h3 className="text-xl font-semibold">Loans</h3>
+            </div>
+            <p className="text-sm">
+              Articles about saving strategies, high-yield savings accounts, and
+              tips for building a savings plan.
+            </p>
+          </div>
+
+          {/* SACCOs Category Card */}
+          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+            <div className="flex items-center mb-4">
+              <FaHandshakeSimple size={30} className="text-blue-600 mr-3" />
+              <h3 className="text-xl font-semibold">SACCOs</h3>
+            </div>
+            <p className="text-sm">
+              News and articles related to cooperative financial institutions,
+              their services, and member benefits.
+            </p>
+          </div>
+
+          {/* Money Market Fund Category Card */}
+          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+            <div className="flex items-center mb-4">
+              <FaMoneyBillTrendUp size={28} className="text-blue-600 mr-3" />
+              <h3 className="text-xl font-semibold">Money Market Fund</h3>
+            </div>
+            <p className="text-sm">
+              News and articles about money market trends, mutual funds, and
+              investment opportunities.
+            </p>
+          </div>
+
+          {/* Insurance Category Card */}
+          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+            <div className="flex items-center mb-4">
+              <GoShieldCheck size={30} className="text-blue-600 mr-3" />
+              <h3 className="text-xl font-semibold">Insurance</h3>
+            </div>
+            <p className="text-sm">
+              Articles on insurance policies, industry trends, and tips for
+              choosing the right insurance coverage.
+            </p>
+          </div>
+
+          {/* Mortgages Category Card */}
+          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+            <div className="flex items-center mb-4">
+              <TbHomeDollar size={30} className="text-blue-600 mr-3" />
+              <h3 className="text-xl font-semibold">Mortgages</h3>
+            </div>
+            <p className="text-sm">
+              Articles on on mortgage rates, real estate market trends, and home
+              buying tips.
             </p>
           </div>
 
