@@ -22,15 +22,17 @@ export async function GET(
   };
 
   try {
-    const response = await axios.request(options);
-    if (!response)
+    const res = await axios.request(options);
+    if (!res)
       return NextResponse.json(
         { message: "Failed to fetch articles" },
         { status: 400 }
       );
-    const articles = response.data;
-    return NextResponse.json({ articles }, { status: 200 });
+    const response = res.data;
+    const articlesData = response.articles;
+    return NextResponse.json({ articlesData }, { status: 200 });
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Server error, try again later" },
       { status: 500 }
