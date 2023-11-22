@@ -35,7 +35,7 @@ export default function MoneyMarketFund() {
   return (
     <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
       <div className="text-2xl font-bold tracking-tight">
-        Kenya&apos;s Money Market Fund Top Articles
+        Kenya&apos;s Money Market Fund Articles
       </div>
       {isLoading ? (
         <>
