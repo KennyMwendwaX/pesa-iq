@@ -102,7 +102,9 @@ export default function EducationHub() {
           </Link>
 
           {/* Money Market Fund Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/money-market-fund"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <FaMoneyBillTrendUp size={28} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Money Market Fund</h3>
@@ -111,7 +113,7 @@ export default function EducationHub() {
               News and articles about money market trends, mutual funds, and
               investment opportunities.
             </p>
-          </div>
+          </Link>
 
           {/* Insurance Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
