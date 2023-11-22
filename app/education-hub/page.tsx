@@ -46,7 +46,9 @@ export default function EducationHub() {
           </Link>
 
           {/* Forex Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/forex"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <AiFillMoneyCollect size={32} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Forex</h3>
@@ -55,10 +57,12 @@ export default function EducationHub() {
               Provide updates on currency markets, exchange rates, and global
               economic trends.
             </p>
-          </div>
+          </Link>
 
           {/* Savings Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/savings"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <TbMoneybag size={30} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Savings</h3>
@@ -67,7 +71,7 @@ export default function EducationHub() {
               Articles about saving strategies, high-yield savings accounts, and
               tips for building a savings plan.
             </p>
-          </div>
+          </Link>
 
           {/* Loans Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
