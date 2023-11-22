@@ -15,10 +15,10 @@ type ArticleData = {
   };
 };
 
-export default function NSE() {
-  const searchQuery = "nairobi stock exchange stocks";
+export default function Forex() {
+  const searchQuery = "Profitability of forex trading";
   const { data, isLoading, error } = useQuery({
-    queryKey: ["nsearticles"],
+    queryKey: ["forexarticles"],
     queryFn: async () => {
       const { data } = await axios.get(`/api/articles/${searchQuery}`);
       return data.articlesData as ArticleData[];
@@ -35,7 +35,7 @@ export default function NSE() {
   return (
     <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
       <div className="text-2xl font-bold tracking-tight">
-        Nairobi Stock Exchange (NSE) Top Articles
+        Forex (Foreign Exchange) Top Articles
       </div>
       {isLoading ? (
         <>
