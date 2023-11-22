@@ -116,7 +116,9 @@ export default function EducationHub() {
           </Link>
 
           {/* Insurance Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/insurance"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <GoShieldCheck size={30} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Insurance</h3>
@@ -125,7 +127,7 @@ export default function EducationHub() {
               Articles on insurance policies, industry trends, and tips for
               choosing the right insurance coverage.
             </p>
-          </div>
+          </Link>
 
           {/* Mortgages Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
