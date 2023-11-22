@@ -16,7 +16,7 @@ type ArticleData = {
 };
 
 export default function Forex() {
-  const searchQuery = "Profitability of forex trading";
+  const searchQuery = "forex trading";
   const { data, isLoading, error } = useQuery({
     queryKey: ["forexarticles"],
     queryFn: async () => {
