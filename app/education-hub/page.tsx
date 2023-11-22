@@ -32,7 +32,9 @@ export default function EducationHub() {
           </Link>
 
           {/* Stocks Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/nse"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <HiCurrencyDollar size={32} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">NSE Stocks</h3>
@@ -41,7 +43,7 @@ export default function EducationHub() {
               Focus on news about individual stocks, stock markets, and
               financial indices.
             </p>
-          </div>
+          </Link>
 
           {/* Forex Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
