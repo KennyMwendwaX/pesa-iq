@@ -130,7 +130,9 @@ export default function EducationHub() {
           </Link>
 
           {/* Mortgages Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/mortgages"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <TbHomeDollar size={30} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Mortgages</h3>
@@ -139,7 +141,7 @@ export default function EducationHub() {
               Articles on on mortgage rates, real estate market trends, and home
               buying tips.
             </p>
-          </div>
+          </Link>
 
           {/* Add more category cards as needed */}
         </div>

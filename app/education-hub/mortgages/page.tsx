@@ -16,7 +16,7 @@ type ArticleData = {
 };
 
 export default function Mortgage() {
-  const searchQuery = "financial tips on mortgages and housing in kenya";
+  const searchQuery = "kenyan mortgages and housing";
   const { data, isLoading, error } = useQuery({
     queryKey: ["mortgagesarticles"],
     queryFn: async () => {
