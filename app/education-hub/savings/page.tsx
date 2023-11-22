@@ -16,7 +16,7 @@ type ArticleData = {
 };
 
 export default function Savings() {
-  const searchQuery = "saving financial tips";
+  const searchQuery = "financial tips on savings in kenya";
   const { data, isLoading, error } = useQuery({
     queryKey: ["savingsarticles"],
     queryFn: async () => {

@@ -88,7 +88,9 @@ export default function EducationHub() {
           </Link>
 
           {/* SACCOs Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/saccos"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <FaHandshakeSimple size={30} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">SACCOs</h3>
@@ -97,7 +99,7 @@ export default function EducationHub() {
               News and articles related to cooperative financial institutions,
               their services, and member benefits.
             </p>
-          </div>
+          </Link>
 
           {/* Money Market Fund Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">

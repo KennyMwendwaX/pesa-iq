@@ -16,9 +16,9 @@ type ArticleData = {
 };
 
 export default function Loans() {
-  const searchQuery = "financial tips on loans in kenya";
+  const searchQuery = "saccos in kenya";
   const { data, isLoading, error } = useQuery({
-    queryKey: ["loanarticles"],
+    queryKey: ["saccoarticles"],
     queryFn: async () => {
       const { data } = await axios.get(`/api/articles/${searchQuery}`);
       return data.articlesData as ArticleData[];
@@ -35,7 +35,7 @@ export default function Loans() {
   return (
     <div className="container mx-auto mt-4 px-12 pb-5 pt-12">
       <div className="text-2xl font-bold tracking-tight">
-        Financial Loan Tips Top Articles
+        Saving and Credit Cooperative Organisations Top Articles
       </div>
       {isLoading ? (
         <>
