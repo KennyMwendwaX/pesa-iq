@@ -74,7 +74,9 @@ export default function EducationHub() {
           </Link>
 
           {/* Loans Category Card */}
-          <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
+          <Link
+            href="/education-hub/loans"
+            className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <FaCoins size={28} className="text-blue-600 mr-3" />
               <h3 className="text-xl font-semibold">Loans</h3>
@@ -83,7 +85,7 @@ export default function EducationHub() {
               Articles about saving strategies, high-yield savings accounts, and
               tips for building a savings plan.
             </p>
-          </div>
+          </Link>
 
           {/* SACCOs Category Card */}
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
