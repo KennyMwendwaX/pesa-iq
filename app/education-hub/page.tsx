@@ -35,7 +35,7 @@ export default function EducationHub() {
           <div className="bg-blue-200 text-blue-700 p-6 rounded-lg shadow-sm transition duration-300 transform hover:scale-105">
             <div className="flex items-center mb-4">
               <HiCurrencyDollar size={32} className="text-blue-600 mr-3" />
-              <h3 className="text-xl font-semibold">Stocks</h3>
+              <h3 className="text-xl font-semibold">NSE Stocks</h3>
             </div>
             <p className="text-sm">
               Focus on news about individual stocks, stock markets, and
