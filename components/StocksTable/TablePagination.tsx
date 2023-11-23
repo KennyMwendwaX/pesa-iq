@@ -43,7 +43,10 @@ export default function StocksTablePagination<TData>({
                 />
               </SelectTrigger>
               <SelectContent side="top">
-                {[10, 20, 30, 40, 50].map((pageSize) => (
+                {[
+                  10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200, 250, 300,
+                  350, 400, 450, 500,
+                ].map((pageSize) => (
                   <SelectItem key={pageSize} value={`${pageSize}`}>
                     {pageSize}
                   </SelectItem>
