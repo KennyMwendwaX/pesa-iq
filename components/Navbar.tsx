@@ -53,7 +53,7 @@ export default function Navbar() {
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">
+                    <p className="text-base font-medium leading-none">
                       {session?.user?.name}
                     </p>
                     <p className="text-xs leading-none text-muted-foreground">
