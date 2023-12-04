@@ -32,7 +32,6 @@ export async function GET(
     const articlesData = response.articles;
     return NextResponse.json({ articlesData }, { status: 200 });
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
       { message: "Server error, try again later" },
       { status: 500 }
