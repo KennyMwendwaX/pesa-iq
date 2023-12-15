@@ -78,8 +78,14 @@ export default function LatestTransactions({ incomes, expenses }: Props) {
                 </tr>
               </thead>
               <tbody>
-                {formattedRecentTransactions.map((transaction) => (
-                  <tr key={transaction.id} className="bg-white border-b">
+                {formattedRecentTransactions.map((transaction, index) => (
+                  <tr
+                    key={transaction.id}
+                    className={`bg-white ${
+                      index === formattedRecentTransactions.length - 1
+                        ? ""
+                        : "border-b"
+                    }`}>
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
