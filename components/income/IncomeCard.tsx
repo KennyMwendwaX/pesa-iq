@@ -44,7 +44,7 @@ export default function IncomeCard({ income }: Props) {
   const date = new Date(rawDate);
   const formattedDate = format(date, "dd/MM/yyyy");
 
-  const expenseIncome = async (incomeId: string) => {
+  const incomeDelete = async (incomeId: string) => {
     deleteIncome(incomeId);
     router.refresh();
   };
@@ -91,7 +91,7 @@ export default function IncomeCard({ income }: Props) {
             <DropdownMenuContent align="end" className="w-[160px]">
               <DropdownMenuItem className="cursor-pointer">
                 <button
-                  onClick={() => expenseIncome(income.id)}
+                  onClick={() => incomeDelete(income.id)}
                   className="flex items-center">
                   <LuTrash className="text-red-500 mr-1 w-5 h-5" />
                   Delete
